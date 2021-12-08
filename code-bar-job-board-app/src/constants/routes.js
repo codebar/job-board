@@ -1,5 +1,5 @@
 export const LANDING = '/';
-export const JOB = '/job'
+export const JOB = '/jobs/:job_id'
 
 
 export const SIGN_UP = '/signup';
