@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import NavigationBar from "../Navigation";
 import LandingPage from '../Landing';
+import Header from '../Header';
+import Footer from '../Footer';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -9,7 +10,7 @@ const App = () => {
     return (
         
             <Router>
-                <NavigationBar/>
+                <Header/>
             
             <hr />
             <Routes>
@@ -21,6 +22,8 @@ const App = () => {
                   <Route path={ROUTES.ACCOUNT} element={ <AccountPage/> } />
                   <Route path={ROUTES.ADMIN} element={ <AdminPage/> } /> */}
               </Routes>
+              <hr />     
+                  <Footer/>
             
               </Router>
         
