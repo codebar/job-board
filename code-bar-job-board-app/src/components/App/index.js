@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import { db, auth } from '../Firebase/firebase-config.js'
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 
 import LandingPage from '../Landing';
@@ -49,11 +49,16 @@ const App = () => {
         };
       };
 
+      const logOut = async () => {
+        await signOut(auth);
+      };
+
 
     return (
         
             <Router>
-                <Header/>
+                <Header currentUser={currentUser} logOut={logOut}/>
+                
             
             <hr />
             <Routes>
