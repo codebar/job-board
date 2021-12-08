@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+
 import LandingPage from '../Landing';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -7,6 +8,24 @@ import Footer from '../Footer';
 import * as ROUTES from '../../constants/routes';
 
 const App = () => {
+
+    const [jobs, setJobs] = useState([]);
+
+    const jobsCollectionRef = collection(db, "jobs");
+
+    useEffect (() => {
+
+        const getJobs = async () => {
+          const jobsData = await getDocs(jobsCollectionRef);
+          setJobs(jobsData.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    
+        };
+    
+        getJobs();
+    
+      }, []);
+
+
     return (
         
             <Router>
@@ -14,7 +33,7 @@ const App = () => {
             
             <hr />
             <Routes>
-                  <Route exact path={ROUTES.LANDING} element={ <LandingPage/> } />
+                  <Route exact path={ROUTES.LANDING} element={ <LandingPage jobs={jobs}/> } />
                   {/* <Route path={ROUTES.SIGN_UP} element={ <SignUpPage register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignInPage sendLink={sendLink}/> } />
                   <Route path={ROUTES.PASSWORD_FORGET} element={ <PasswordForgetPage/> } />

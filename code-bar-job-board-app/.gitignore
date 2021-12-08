@@ -11,6 +11,9 @@
 # production
 /build
 
+# firebase creds
+/src/components/Firebase/firebase-creds.js
+
 # misc
 .DS_Store
 .env.local
