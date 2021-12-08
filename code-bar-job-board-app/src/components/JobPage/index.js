@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
 
 
 const JobPage = () => {
 
-    const job = useLocation();
-    console.log(job);
+    const data = useLocation();
+    const job = data.state.job;
+    console.log(job)
 
     return (
         <div>
