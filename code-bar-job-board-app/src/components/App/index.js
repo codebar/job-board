@@ -25,6 +25,7 @@ const App = () => {
       url: 'http://localhost:3000/',
       handleCodeInApp: true,
     };
+    
 
     useEffect (() => {
 
@@ -54,10 +55,7 @@ const App = () => {
         };
       };
 
-      const logOut = async () => {
-        console.log('log out');
-        await signOut(auth);
-      };
+     
 
       const sendLink = async (signInEmail) => {
         await sendSignInLinkToEmail(auth, signInEmail, actionCodeSettings);
@@ -68,7 +66,8 @@ const App = () => {
     return (
         
             <Router>
-                <Header currentUser={currentUser} logOut={logOut}/>
+                <Header/>
+                <p>You are signed in as {currentUser.email}</p>
                 
             
             <hr />
