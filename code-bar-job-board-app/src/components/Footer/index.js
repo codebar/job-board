@@ -8,7 +8,7 @@ const Footer = () => {
         <footer style={{backgroundColor: '#206CC2'}}>
             <div>
                 <div className='footer-info'>
-                    <p>&#169; 2021 codebar</p>
+                    <p>&#169; {new Date().getFullYear()} codebar</p>
                     <p>Send us an email at hello@codebar.io</p>
                 </div>
                 <div className='footer-links-lists'>
