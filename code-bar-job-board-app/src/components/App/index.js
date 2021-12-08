@@ -67,7 +67,9 @@ const App = () => {
         
             <Router>
                 <Header/>
+                {currentUser?
                 <p>You are signed in as {currentUser.email}</p>
+                : null }
                 
             
             <hr />
