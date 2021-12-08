@@ -6,7 +6,7 @@ const Footer = () => {
 
     return (
         <footer style={{backgroundColor: '#206CC2'}}>
-            <div>
+            <div className='footer-top-line'>
                 <div className='footer-info'>
                     <p>&#169; {new Date().getFullYear()} codebar</p>
                     <p>Send us an email at hello@codebar.io</p>
@@ -48,11 +48,11 @@ const Footer = () => {
                             </a></li>
                     </ul>
                 </div>
-                <div className="footer-bottom-line">
+            </div>
+            <div className="footer-bottom-line">
                    <p>Registered UK and Wales charity no. 1187776</p>
                    <p><a href="https://codebar.io/cookie-policy" >Cookie Policy</a></p> 
                    <p><a href="https://codebar.io/privacy-policy" >Privacy Policy</a></p> 
-                </div>
             </div>
         </footer>
     );
