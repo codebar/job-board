@@ -16,6 +16,7 @@ const NavigationBar = () => {
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/donations/new">Donate</a></li>
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/auth/github">Sign in</a></li>
             </ul>
+            <hr />
             <ul>
                 <li className='job-specific-nav-bar-list-item'>
                     <Link to={ROUTES.SIGN_UP}>Sign up to Jobs Board</Link>
