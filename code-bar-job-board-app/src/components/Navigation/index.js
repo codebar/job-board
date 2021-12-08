@@ -12,7 +12,7 @@ const NavigationBar = () => {
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/sponsors">Sponsors</a></li>
                 <li className='codebar-nav-bar-list-item'><a href="http://tutorials.codebar.io/">Tutorials</a></li>
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/coaches">Coaches</a></li>
-                <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/jobs">Jobs</a></li>
+                <li className='codebar-nav-bar-list-item'><a href="/">Jobs</a></li>
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/donations/new">Donate</a></li>
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/auth/github">Sign in</a></li>
             </ul>
