@@ -7,6 +7,7 @@ import { db } from '../Firebase/firebase-config.js'
 import LandingPage from '../Landing';
 import Header from '../Header';
 import Footer from '../Footer';
+import JobPage from '../JobPage/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -37,6 +38,7 @@ const App = () => {
             <hr />
             <Routes>
                   <Route exact path={ROUTES.LANDING} element={ <LandingPage jobs={jobs}/> } />
+                  <Route exact path={ROUTES.JOB} element={ <JobPage></JobPage>}></Route>
                   {/* <Route path={ROUTES.SIGN_UP} element={ <SignUpPage register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignInPage sendLink={sendLink}/> } />
                   <Route path={ROUTES.PASSWORD_FORGET} element={ <PasswordForgetPage/> } />
