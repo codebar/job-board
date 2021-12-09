@@ -44,37 +44,37 @@ const SumbitJobPage = ({createJobPost}) => {
                 <section className='job-details-section'>
                     <h3>Job post details</h3>
                     <div className='job-details-input'>
-                        <label for='job_title'>Title</label>
+                        <label htmlFor='job_title'>Title</label>
                         <input id='job_title' placeholder='e.g. Internship' onChange={(evt) => {setFormJobTitle(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
-                        <label for='job_description'>Description</label>
+                        <label htmlFor='job_description'>Description</label>
                         <textarea rows='10' id='job_description' placeholder='Use text or markdown for the job description' onChange={(evt) => {setFormJobDescription(evt.target.value)}}></textarea>
                     </div>
                     <div className='job-details-input'>
-                        <label for='job_salary'>Salary</label>
+                        <label htmlFor='job_salary'>Salary</label>
                         <p>Annual pay before tax, with no commas or decimal points</p>
                         <input id='job_slary' onChange={(evt) => {setFormJobSalary(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
                         <input type='checkbox' id='job-remote' onChange={(evt) => {setFormJobRemote(evt.target.value)}}></input>
-                        <label for='job-remote'>Remote</label>
+                        <label htmlFor='job-remote'>Remote</label>
                         <p>Only check if the role is fully remote only</p>
                     </div>
                     <div className='job-details-input'>
-                        <label for='job_contact-name'>Contact name</label>
+                        <label htmlFor='job_contact-name'>Contact name</label>
                         <input id='job_contact-name' onChange={(evt) => {setFormJobContactName(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
-                        <label for='job_contact-email'>Contact email</label>
+                        <label htmlFor='job_contact-email'>Contact email</label>
                         <input id='job_contact-email' onChange={(evt) => {setFormJobContactEmail(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
-                        <label for='job_post-link'>Link to job post</label>
+                        <label htmlFor='job_post-link'>Link to job post</label>
                         <input id='job_post-link' onChange={(evt) => {setFormJobPostLink(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
-                        <label for='job_closing-date'>Closing date</label>
+                        <label htmlFor='job_closing-date'>Closing date</label>
                         <p>In the format dd/mm/yyy</p>
                         <input id='job_closing-date' onChange={(evt) => {setFormJobClosingDate(evt.target.value)}}></input>
                     </div>
@@ -83,29 +83,29 @@ const SumbitJobPage = ({createJobPost}) => {
                 <section className='company-details-section'>
                     <h3>Company details</h3>
                     <div className='job-details-input'>
-                        <label for='company-name'>Name</label>
+                        <label htmlFor='company-name'>Name</label>
                         <input placeholder='e.g. codebar' id='company-name' onChange={(evt) => {setFormJobCompanyName(evt.target.value)}}></input>
                     </div>
 
                     <div className='job-details-input'>
-                        <label for='company-website'>Website</label>
+                        <label htmlFor='company-website'>Website</label>
                         <input placeholder='e.g. https://codebar.io' id='company-website' onChange={(evt) => {setFormJobCompanyWebsite(evt.target.value)}}></input>
                     </div>
 
                     <div className='job-details-input'>
-                        <label for='company-location'>Location</label>
+                        <label htmlFor='company-location'>Location</label>
                         <input placeholder='e.g. London or Berlin' id='company-location' onChange={(evt) => {setFormJobCompanyLocation(evt.target.value)}}></input>
                     </div>
                 </section>
 
                 <section>
                     <div className='job-details-input'>
-                        <label for='company-address'>Address</label>
+                        <label htmlFor='company-address'>Address</label>
                         <input id='company-address' onChange={(evt) => {setFormJobCompanyAddress(evt.target.value)}}></input>
                     </div>
 
                     <div className='job-details-input'>
-                        <label for='company-postcode'>Postcode</label>
+                        <label htmlFor='company-postcode'>Postcode</label>
                         <input id='company-postcode' onChange={(evt) => {setFormJobCompanyPostcode(evt.target.value)}}></input>
                     </div>
                 </section>
