@@ -1,23 +1,30 @@
 import { useState, useEffect } from 'react';
 import * as ROUTES from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
+import SignIn from '../SignIn';
 
 const MyJobsPage = ({currentUser, jobs}) => {
 
     const [currentUserJobs, setCurrentUserJobs] = useState([]);
 
     useEffect(() => {
-        
-        const currentUserJobs = jobs.filter(job => job.creator_id == currentUser.uid);
-        setCurrentUserJobs(currentUserJobs)
+        if (currentUser) {
+            const currentUserJobs = jobs.filter(job => job.creator_id == currentUser.uid);
+            setCurrentUserJobs(currentUserJobs)
+        }
     }, [currentUser, jobs]);
 
     return (
+        
         <div>
-            {currentUserJobs.length > 0?
-                <UserJobsPage></UserJobsPage>    
-        :
-                <NoJobsPage></NoJobsPage> }
+            {currentUser?
+            <div>
+                {currentUserJobs.length > 0?
+                    <UserJobsPage></UserJobsPage>
+            :
+                    <NoJobsPage></NoJobsPage> }
+            </div> :
+            <NotSignedInJobsPage></NotSignedInJobsPage> }
         </div>
     );
 };
@@ -57,6 +64,15 @@ const NoJobsPage = () => {
                 <p>Bruno Girin, CTO, Imby</p>
             </section>
         </main>
+    );
+};
+
+const NotSignedInJobsPage = () => {
+    return (
+        <div>
+            You need to sign in to see your jobs
+            <SignIn></SignIn>
+        </div>
     );
 };
 
