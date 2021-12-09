@@ -5,7 +5,7 @@ import { db } from '../Firebase/firebase-config.js'
 
 
 import LandingPage from '../Landing';
-import Header from '../Header';
+
 import Footer from '../Footer';
 import JobPage from '../JobPage/index.js';
 
