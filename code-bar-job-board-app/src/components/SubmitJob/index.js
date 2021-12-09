@@ -1,21 +1,40 @@
 import { useState } from "react";
 
-const SumbitJobPage = ({currentUser}) => {
+const SumbitJobPage = ({createJobPost}) => {
 
     const [formJobTitle, setFormJobTitle] = useState("");
     const [formJobDescription, setFormJobDescription] = useState("");
     const [formJobSalary, setFormJobSalary] = useState("");
     const [formJobRemote, setFormJobRemote] = useState(false);
+    const [formJobContactName, setFormJobContactName] = useState("");
     const [formJobContactEmail, setFormJobContactEmail] = useState("");
     const [formJobPostLink, setFormJobPostLink] = useState("");
     const [formJobClosingDate, setFormJobClosingDate] = useState("");
     const [formJobCompanyName, setFormJobCompanyName] = useState("");
     const [formJobCompanyLocation, setFormJobCompanyLocation] = useState("");
     const [formJobCompanyWebsite, setFormJobCompanyWebsite] = useState("");
+    const [formJobCompanyAddress, setFormJobCompanyAddress] = useState("");
+    const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
 
     const handleFormSubmitButton = () => {
-
+        console.log('submit');
+        createJobPost(
+            
+            formJobTitle,
+            formJobDescription,
+            formJobSalary,
+            formJobRemote,
+            formJobContactName,
+            formJobContactEmail,
+            formJobPostLink,
+            formJobClosingDate,
+            formJobCompanyName,
+            formJobCompanyLocation,
+            formJobCompanyWebsite,
+            formJobCompanyAddress,
+            formJobCompanyPostcode
+            );
     };
 
     return (
@@ -41,6 +60,10 @@ const SumbitJobPage = ({currentUser}) => {
                         <input type='checkbox' id='job-remote' onChange={(evt) => {setFormJobRemote(evt.target.value)}}></input>
                         <label for='job-remote'>Remote</label>
                         <p>Only check if the role is fully remote only</p>
+                    </div>
+                    <div className='job-details-input'>
+                        <label for='job_contact-name'>Contact name</label>
+                        <input id='job_contact-name' onChange={(evt) => {setFormJobContactName(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
                         <label for='job_contact-email'>Contact email</label>
@@ -72,6 +95,18 @@ const SumbitJobPage = ({currentUser}) => {
                     <div className='job-details-input'>
                         <label for='company-location'>Location</label>
                         <input placeholder='e.g. London or Berlin' id='company-location' onChange={(evt) => {setFormJobCompanyLocation(evt.target.value)}}></input>
+                    </div>
+                </section>
+
+                <section>
+                    <div className='job-details-input'>
+                        <label for='company-address'>Address</label>
+                        <input id='company-address' onChange={(evt) => {setFormJobCompanyAddress(evt.target.value)}}></input>
+                    </div>
+
+                    <div className='job-details-input'>
+                        <label for='company-postcode'>Postcode</label>
+                        <input id='company-postcode' onChange={(evt) => {setFormJobCompanyPostcode(evt.target.value)}}></input>
                     </div>
                 </section>
 

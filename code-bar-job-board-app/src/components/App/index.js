@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, addDoc } from 'firebase/firestore'
 import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 
@@ -82,6 +82,46 @@ const App = () => {
         await signOut(auth);
       };
 
+      const createJobPost = async (
+        formJobTitle,
+        formJobDescription,
+        formJobSalary,
+        formJobRemote,
+        formJobContactName,
+        formJobContactEmail,
+        formJobPostLink,
+        formJobClosingDate,
+        formJobCompanyName,
+        formJobCompanyLocation,
+        formJobCompanyWebsite,
+        formJobCompanyAddress,
+        formJobCompanyPostcode
+        ) => {
+          try {
+            const job = await addDoc(jobsCollectionRef, {
+              closing_date: formJobClosingDate,
+              company_address: formJobCompanyAddress,
+              company_location: formJobCompanyLocation,
+              company_name: formJobCompanyName,
+              company_postcode: formJobCompanyPostcode,
+              company_url: formJobCompanyWebsite,
+              contact_email: formJobContactEmail,
+              contact_name: formJobContactName,
+              creator_id: currentUser.uid,
+              job_description: formJobDescription,
+              job_post_link: formJobPostLink,
+              job_title: formJobTitle,
+              marketing_opt_in: false,
+              published_date: "",
+              remote: formJobRemote,
+              salary: formJobSalary
+            });
+            console.log(job);
+          } catch (error) {
+            console.log(error);
+          };
+      };
+
 
     return (
         
@@ -109,7 +149,7 @@ const App = () => {
                   <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>
-                  <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage currentUser={currentUser}/>}></Route>
+                  <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage createJobPost={createJobPost}/>}></Route>
                   {/* <Route path={ROUTES.PASSWORD_FORGET} element={ <PasswordForgetPage/> } />
                   <Route path={ROUTES.HOME} element={<HomePage/>} />
                   <Route path={ROUTES.ACCOUNT} element={ <AccountPage/> } />
