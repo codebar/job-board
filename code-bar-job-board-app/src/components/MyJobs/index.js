@@ -20,7 +20,7 @@ const MyJobsPage = ({currentUser, jobs}) => {
             {currentUser?
             <div>
                 {currentUserJobs.length > 0?
-                    <UserJobsPage></UserJobsPage>
+                    <UserJobsPage currentUserJobs={currentUserJobs}></UserJobsPage>
             :
                     <NoJobsPage></NoJobsPage> }
             </div> :
@@ -31,10 +31,22 @@ const MyJobsPage = ({currentUser, jobs}) => {
 
 
 
-const UserJobsPage = () => {
+const UserJobsPage = ({currentUserJobs}) => {
+
+    const listOfUserJobs = currentUserJobs.map((job) => {
+        return  <li className='my-jobs-list-item' key={job.id}>
+                    <p>{job.job_title}</p>
+                    <p>{job.company_name}</p>
+                    {job.remote? <p>Remote</p> : <p>{job.company_location}</p>}
+                    <p>{job.published_date}</p>
+                    <p>{job.expire_date}</p>
+                    <p>Status?</p>
+                </li>
+    });
+
     return (
         <div>
-            Your jobs
+            {listOfUserJobs}
         </div>
     );
 };
