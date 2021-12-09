@@ -12,7 +12,10 @@ const MyJobsPage = ({currentUser, jobs}) => {
 
     return (
         <div>
-            <NoJobsPage></NoJobsPage>
+            {currentUserJobs.length > 0?
+                <UserJobsPage></UserJobsPage>    
+        :
+            <NoJobsPage></NoJobsPage> }
         </div>
     );
 };
@@ -20,6 +23,14 @@ const MyJobsPage = ({currentUser, jobs}) => {
 const NoJobsPage = () => {
     return (
         <div>No Jobs</div>
+    );
+};
+
+const UserJobsPage = () => {
+    return (
+        <div>
+            Your jobs
+        </div>
     );
 };
 
