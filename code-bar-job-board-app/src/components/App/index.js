@@ -107,7 +107,7 @@ const App = () => {
                   <Route exact path={ROUTES.JOB} element={ <JobPage></JobPage>}></Route>
                   <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
-                  <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage />}></Route>
+                  <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>
                   {/* <Route path={ROUTES.PASSWORD_FORGET} element={ <PasswordForgetPage/> } />
                   <Route path={ROUTES.HOME} element={<HomePage/>} />
                   <Route path={ROUTES.ACCOUNT} element={ <AccountPage/> } />
