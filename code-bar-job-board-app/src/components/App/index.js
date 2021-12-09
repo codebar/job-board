@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 
 
 import LandingPage from '../Landing';
-import Header from '../Header';
+
 import Footer from '../Footer';
 import JobPage from '../JobPage/index.js';
 import SignIn from '../SignIn/index.js';
