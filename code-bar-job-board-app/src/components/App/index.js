@@ -12,6 +12,7 @@ import JobPage from '../JobPage/index.js';
 import SignIn from '../SignIn/index.js';
 import SignUp from '../SignUp/index.js';
 import SignOutButton from '../SignOut/index.js';
+import { NavigationBarMain, NavigationBarJobBoadNotLoggedIn, NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
 
 import * as ROUTES from '../../constants/routes';
 
@@ -84,13 +85,19 @@ const App = () => {
     return (
         
             <Router>
-                <Header/>
+              <header>
+                <a href="https://slack.codebar.io/"><img alt='codebar logo' src="https://codebar.io/assets/logo-7345316d16a39b0a5cda277d2cf4cbf3aed1031b9288c0696b8273771ee1fb20.png"></img></a>
+                <NavigationBarMain />
+              
                 {currentUser?
                   <div>
+                    <NavigationBarJobBoardLoggedIn />
                     <p>You are signed in as {currentUser.email}</p>
                     <SignOutButton logOut={logOut} />
                   </div>
-                : null }
+                : <NavigationBarJobBoardNonLoggedIn /> }
+
+              </header>
                 
                 
             

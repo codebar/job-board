@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import * as ROUTES from '../../constants/routes'
 
-const NavigationBar = () => {
+const NavigationBarMain = () => {
     return (
         <div>
             <ul className='codebar-nav-bar'>
@@ -17,16 +17,30 @@ const NavigationBar = () => {
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/auth/github">Sign in</a></li>
             </ul>
             <hr />
-            <ul>
-                <li className='job-specific-nav-bar-list-item'>
-                    <Link to={ROUTES.SIGN_UP}>Sign up to Jobs Board</Link>
-                </li>
-                <li className='job-specific-nav-bar-list-item'>
-                    <Link to={ROUTES.SIGN_IN}>Sign into Jobs Board</Link>
-                </li>
-            </ul>
+            
         </div>
     );
 };
 
-export default NavigationBar;
+const NavigationBarJobBoardNonLoggedIn = () => {
+    return (
+        <ul>
+            <li className='job-specific-nav-bar-list-item'>
+                <Link to={ROUTES.SIGN_UP}>Sign up to Jobs Board</Link>
+            </li>
+            <li className='job-specific-nav-bar-list-item'>
+                <Link to={ROUTES.SIGN_IN}>Sign into Jobs Board</Link>
+            </li>
+        </ul>
+    );
+};
+
+const NavigationBarJobBoardLoggedIn = () => {
+    return (
+        <ul>
+            My Jobs
+        </ul>
+    );
+};
+
+export {NavigationBarMain, NavigationBarJobBoardNonLoggedIn, NavigationBarJobBoardLoggedIn};
