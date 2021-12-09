@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import * as ROUTES from '../../constants/routes.js'
+import { Link } from 'react-router-dom';
 
 const MyJobsPage = ({currentUser, jobs}) => {
 
@@ -45,7 +47,10 @@ const NoJobsPage = () => {
                         <li>promoted to our 8600 Twitter followers</li>
                     </ul>
                 </div>
-                <button>Post a job</button>
+                <Link to={{
+                    pathname: ROUTES.SUBMIT_JOB
+                }}
+                ><button>Post a job</button></Link>
             </section>
             <section className="quote-section">
                 <p>Within 2 days of posting an ad on the codebar job board, we had dozens of high quality applications and we made an offer to a candidate within 2 weeks. There are a lot of talented interns and junior developers; posting on the codebar job board is a great way to reach them.</p>
