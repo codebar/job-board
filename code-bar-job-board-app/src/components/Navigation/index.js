@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import * as ROUTES from '../../constants/routes'
 
-const NavigationBar = () => {
+const NavigationBarMain = () => {
     return (
         <div>
             <ul className='codebar-nav-bar'>
@@ -16,26 +16,31 @@ const NavigationBar = () => {
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/donations/new">Donate</a></li>
                 <li className='codebar-nav-bar-list-item'><a href="https://codebar.io/auth/github">Sign in</a></li>
             </ul>
-            {/* nav for the jobs site only */}
-            {/* <ul className='job-specific-nav-bar'>
-                <li>
-                    <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-                </li>
-                <li>
-                    <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-                </li>
-                <li>
-                    <Link to={ROUTES.LANDING}>Landing</Link>
-                </li>
-                <li>
-                    <Link to={ROUTES.ACCOUNT}>Account</Link>
-                </li>
-                <li>
-                    <Link to={ROUTES.ADMIN}>Admin</Link>
-                </li>
-            </ul> */}
+            <hr />
+            
         </div>
     );
 };
 
-export default NavigationBar;
+const NavigationBarJobBoardNonLoggedIn = () => {
+    return (
+        <ul>
+            <li className='job-specific-nav-bar-list-item'>
+                <Link to={ROUTES.SIGN_UP}>Sign up to Jobs Board</Link>
+            </li>
+            <li className='job-specific-nav-bar-list-item'>
+                <Link to={ROUTES.SIGN_IN}>Sign into Jobs Board</Link>
+            </li>
+        </ul>
+    );
+};
+
+const NavigationBarJobBoardLoggedIn = () => {
+    return (
+        <ul>
+            My Jobs
+        </ul>
+    );
+};
+
+export {NavigationBarMain, NavigationBarJobBoardNonLoggedIn, NavigationBarJobBoardLoggedIn};
