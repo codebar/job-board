@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import * as ROUTES from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import SignIn from '../SignIn';
+import JobPage from '../JobPage/index.js';
 
 const MyJobsPage = ({currentUser, jobs}) => {
 
@@ -31,11 +32,18 @@ const MyJobsPage = ({currentUser, jobs}) => {
 
 
 
-const UserJobsPage = ({currentUserJobs, currentUser}) => {
+const UserJobsPage = ({currentUserJobs}) => {
 
     const listOfUserJobs = currentUserJobs.map((job) => {
         return  <li className='my-jobs-list-item' key={job.id}>
-                    <p>{job.job_title}</p>
+                    <Link
+                        to={{
+                        pathname: `/jobs/${job.id}`
+                        }}
+                        state={{ job }}
+                >
+                        <p>{job.job_title}</p>
+                    </Link>
                     <p>{job.company_name}</p>
                     {job.remote? <p>Remote</p> : <p>{job.company_location}</p>}
                     <p>{job.published_date}</p>
