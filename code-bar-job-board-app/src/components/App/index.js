@@ -11,6 +11,7 @@ import Footer from '../Footer';
 import JobPage from '../JobPage/index.js';
 import SignIn from '../SignIn/index.js';
 import SignUp from '../SignUp/index.js';
+import SignOutButton from '../SignOut/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -75,14 +76,22 @@ const App = () => {
         window.localStorage.setItem('emailForSignIn', signInEmail);
       };
 
+      const logOut = async () => {
+        await signOut(auth);
+      };
+
 
     return (
         
             <Router>
                 <Header/>
                 {currentUser?
-                <p>You are signed in as {currentUser.email}</p>
+                  <div>
+                    <p>You are signed in as {currentUser.email}</p>
+                    <SignOutButton logOut={logOut} />
+                  </div>
                 : null }
+                
                 
             
             <hr />
