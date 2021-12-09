@@ -38,7 +38,9 @@ const NavigationBarJobBoardNonLoggedIn = () => {
 const NavigationBarJobBoardLoggedIn = () => {
     return (
         <ul>
-            My Jobs
+            <li>
+                <Link to={ROUTES.MY_JOBS}>My Jobs</Link>
+            </li>
         </ul>
     );
 };
