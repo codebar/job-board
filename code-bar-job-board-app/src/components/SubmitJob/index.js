@@ -1,6 +1,6 @@
 
 
-const SumbitJobPage = () => {
+const SumbitJobPage = ({currentUser}) => {
     return (
         <div>
             Sumbit job page

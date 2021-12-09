@@ -31,7 +31,7 @@ const MyJobsPage = ({currentUser, jobs}) => {
 
 
 
-const UserJobsPage = ({currentUserJobs}) => {
+const UserJobsPage = ({currentUserJobs, currentUser}) => {
 
     const listOfUserJobs = currentUserJobs.map((job) => {
         return  <li className='my-jobs-list-item' key={job.id}>
@@ -39,7 +39,7 @@ const UserJobsPage = ({currentUserJobs}) => {
                     <p>{job.company_name}</p>
                     {job.remote? <p>Remote</p> : <p>{job.company_location}</p>}
                     <p>{job.published_date}</p>
-                    <p>{job.expire_date}</p>
+                    <p>{job.closing_date}</p>
                     <p>Status?</p>
                 </li>
     });
@@ -47,6 +47,10 @@ const UserJobsPage = ({currentUserJobs}) => {
     return (
         <div>
             {listOfUserJobs}
+            <Link to={{
+                pathname: ROUTES.SUBMIT_JOB
+            }}
+            ><button>Post a job</button></Link>
         </div>
     );
 };
