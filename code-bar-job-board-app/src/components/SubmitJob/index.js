@@ -17,8 +17,9 @@ const SumbitJobPage = ({createJobPost}) => {
     const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
 
-    const handleFormSubmitButton = () => {
-        console.log('submit');
+    const handleJobPostSubmitForm = (evt) => {
+        evt.preventDefault();
+        console.log('job', 'submit page');
         createJobPost(
             
             formJobTitle,
@@ -40,7 +41,7 @@ const SumbitJobPage = ({createJobPost}) => {
     return (
         <section className='job-post-details-section'>
             
-            <form className='job-post-form'>
+            <form className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
                 <section className='job-details-section'>
                     <h3>Job post details</h3>
                     <div className='job-details-input'>
@@ -110,7 +111,7 @@ const SumbitJobPage = ({createJobPost}) => {
                     </div>
                 </section>
 
-                <button onClick={handleFormSubmitButton}>Submit job for approval</button>
+                <button type='submit'>Submit job for approval</button>
             </form>
         </section>
     );

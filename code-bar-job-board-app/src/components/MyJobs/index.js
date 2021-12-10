@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as ROUTES from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import SignIn from '../SignIn';
-import JobPage from '../JobPage/index.js';
+
 
 const MyJobsPage = ({currentUser, jobs}) => {
 
@@ -10,7 +10,7 @@ const MyJobsPage = ({currentUser, jobs}) => {
 
     useEffect(() => {
         if (currentUser) {
-            const currentUserJobs = jobs.filter(job => job.creator_id == currentUser.uid);
+            const currentUserJobs = jobs.filter(job => job.creator_id === currentUser.uid);
             setCurrentUserJobs(currentUserJobs)
         }
     }, [currentUser, jobs]);

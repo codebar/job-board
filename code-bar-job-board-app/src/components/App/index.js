@@ -11,7 +11,7 @@ import JobPage from '../JobPage/index.js';
 import SignIn from '../SignIn/index.js';
 import SignUp from '../SignUp/index.js';
 import SignOutButton from '../SignOut/index.js';
-import { NavigationBarMain, NavigationBarJobBoadNotLoggedIn, NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
+import { NavigationBarMain, NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
 import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
 
@@ -40,7 +40,7 @@ const App = () => {
     
         getJobs();
     
-      }, []);
+      }, [jobsCollectionRef]);
 
       onAuthStateChanged(auth, (currentUser) => {
         setCurrentUser(currentUser);
@@ -97,7 +97,9 @@ const App = () => {
         formJobCompanyAddress,
         formJobCompanyPostcode
         ) => {
-          try {
+          console.log("submit job app");
+          
+          try {  
             const job = await addDoc(jobsCollectionRef, {
               closing_date: formJobClosingDate,
               company_address: formJobCompanyAddress,
@@ -115,11 +117,15 @@ const App = () => {
               published_date: "",
               remote: formJobRemote,
               salary: formJobSalary
+
+              
             });
             console.log(job);
+            
           } catch (error) {
             console.log(error);
           };
+          
       };
 
 
