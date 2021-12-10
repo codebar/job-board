@@ -97,7 +97,6 @@ const App = () => {
         formJobCompanyAddress,
         formJobCompanyPostcode
         ) => {
-          console.log("submit job app");
           
           try {  
             const job = await addDoc(jobsCollectionRef, {

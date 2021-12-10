@@ -19,7 +19,6 @@ const SumbitJobPage = ({createJobPost}) => {
 
     const handleJobPostSubmitForm = (evt) => {
         evt.preventDefault();
-        console.log('job', 'submit page');
         createJobPost(
             
             formJobTitle,
