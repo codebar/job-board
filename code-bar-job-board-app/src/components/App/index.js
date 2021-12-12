@@ -155,10 +155,7 @@ const App = () => {
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage createJobPost={createJobPost}/>}></Route>
-                  {/* <Route path={ROUTES.PASSWORD_FORGET} element={ <PasswordForgetPage/> } />
-                  <Route path={ROUTES.HOME} element={<HomePage/>} />
-                  <Route path={ROUTES.ACCOUNT} element={ <AccountPage/> } />
-                  <Route path={ROUTES.ADMIN} element={ <AdminPage/> } /> */}
+                  
               </Routes>
               <hr />     
                   <Footer/>

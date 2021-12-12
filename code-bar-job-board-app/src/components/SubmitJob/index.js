@@ -57,7 +57,7 @@ const SumbitJobPage = ({createJobPost}) => {
                         <input id='job_slary' onChange={(evt) => {setFormJobSalary(evt.target.value)}}></input>
                     </div>
                     <div className='job-details-input'>
-                        <input type='checkbox' id='job-remote' onChange={(evt) => {setFormJobRemote(evt.target.value)}}></input>
+                        <input type='checkbox' id='job-remote' defaultChecked = {formJobRemote} onChange={() => {setFormJobRemote(!formJobRemote)}}></input>
                         <label htmlFor='job-remote'>Remote</label>
                         <p>Only check if the role is fully remote only</p>
                     </div>
