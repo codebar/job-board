@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+import * as ROUTES from '../../constants/routes.js'
 
 const SumbitJobPage = ({createJobPost}) => {
 
@@ -35,6 +38,25 @@ const SumbitJobPage = ({createJobPost}) => {
             formJobCompanyAddress,
             formJobCompanyPostcode
             );
+    };
+
+    const previewJob = {
+        closing_date: formJobClosingDate,
+        company_address: formJobCompanyAddress,
+        company_location: formJobCompanyLocation,
+        company_name: formJobCompanyName,
+        company_postcode: formJobCompanyPostcode,
+        company_url: formJobCompanyWebsite,
+        contact_email: formJobContactEmail,
+        contact_name: formJobContactName,
+        creator_id: "",
+        job_description: formJobDescription,
+        job_post_link: formJobPostLink,
+        job_title: formJobTitle,
+        marketing_opt_in: false,
+        published_date: "",
+        remote: formJobRemote,
+        salary: formJobSalary
     };
 
     return (
@@ -111,6 +133,15 @@ const SumbitJobPage = ({createJobPost}) => {
                 </section>
 
                 <button type='submit'>Submit job for approval</button>
+                <Link
+                    to={{
+                        pathname: '/my/jobs/new/preview'
+                        }}
+                        state={{ previewJob }}
+                >
+                            <button>Preview this job</button>
+                </Link>
+                
             </form>
         </section>
     );

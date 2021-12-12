@@ -5,6 +5,7 @@ import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 
 
+
 import LandingPage from '../Landing';
 import Footer from '../Footer';
 import JobPage from '../JobPage/index.js';
@@ -14,6 +15,7 @@ import SignOutButton from '../SignOut/index.js';
 import { NavigationBarMain, NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
 import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
+import JobPreview from '../JobPreview/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -155,6 +157,7 @@ const App = () => {
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage createJobPost={createJobPost}/>}></Route>
+                  <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   
               </Routes>
               <hr />     
