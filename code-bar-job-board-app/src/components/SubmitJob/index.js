@@ -120,7 +120,8 @@ const SumbitJobPage = ({createJobPost}) => {
                     </div>
                 </section>
 
-                <section>
+                <section className="google-search-section">
+                    <p>The information below is only required if you want this job post to be shared with Google Search UK</p>
                     <div className='job-details-input'>
                         <label htmlFor='company-address'>Address</label>
                         <input id='company-address' onChange={(evt) => {setFormJobCompanyAddress(evt.target.value)}}></input>
