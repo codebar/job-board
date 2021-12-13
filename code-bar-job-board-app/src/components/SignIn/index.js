@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 
@@ -26,7 +27,10 @@ const SignIn = ({sendLink, logIn}) => {
         <h3>Sign in with password</h3>
         <input placeholder='password...'  onChange = {(event) => {setSignInPassword(event.target.value)}}></input>
 
-        <button onClick = {handleLogInButtonClick}> Log in </button>  
+        <Link to={{
+          pathname: '/'
+        }}
+          ><button onClick = {handleLogInButtonClick}> Log in </button>  </Link>
       </div>
     </div>
     
