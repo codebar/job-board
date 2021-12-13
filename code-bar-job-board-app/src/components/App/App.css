@@ -33,5 +33,26 @@ header {
     margin: 15px
 }
 
+/* Footer */
+ footer {
+    background-color: #206CC2;
+    color: white;
+ }
+
+ .footer-link {
+     color: white;
+     text-decoration: none;
+ }
+
+ .social-svg {
+     max-height: 50px;
+ }
+
+ .social-media {
+     padding-right: 40px;
+     list-style-type: none;
+ }
+
+
 
 

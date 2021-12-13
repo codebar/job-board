@@ -165,7 +165,7 @@ const App = () => {
               </Routes>
             </main>
             
-              <hr />     
+                  
                   <Footer/>
             
               </Router>
