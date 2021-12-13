@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const JobSummary = ({job}) => {
     return (
-        <div className='job-summary'>
+        <div className='job-summary-box col-md-5 col-sm-8 shadow-sm p-3 mb-5 bg-white rounded border'>
             <Link
                 to={{
                     pathname: `/jobs/${job.id}`
@@ -14,10 +14,24 @@ const JobSummary = ({job}) => {
                 <h3>{job.job_title}</h3>
             </Link>
             <h4>{job.company_name}, {job.company_location}</h4>
-            <p>Salary: {job.salary}</p>
-            <p>Published on: {job.published_date}</p>
-            <p>Closing date: {job.closing_date}</p>
-            <p>Location: {job.company_location}</p>
+            <div className='container'>
+                <div className='row'>
+                    <p className='col-6'>Salary:</p>
+                    <p className='col-6 bold'>{job.salary}</p>
+                </div>
+                <div className='row'>
+                    <p className='col-6'>Published on:</p>
+                    <p className='col-6 bold'>{job.published_date}</p>
+                </div>
+                <div className='row'>
+                    <p className='col-6'>Closing date:</p>
+                    <p className='col-6 bold'>{job.closing_date}</p>
+                </div>
+                <div className='row'>
+                    <p className='col-6'>Location:</p>
+                    <p className='col-6 bold'>{job.company_location}</p>
+                </div>
+            </div>
         </div>
     );
 };

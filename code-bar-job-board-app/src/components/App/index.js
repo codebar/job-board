@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc } from 'firebase/firestore'
 import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
+import '../App/App.css';
 
 
 
@@ -134,8 +135,12 @@ const App = () => {
         
             <Router>
               <header>
-                <a href="https://slack.codebar.io/"><img alt='codebar logo' src="https://codebar.io/assets/logo-7345316d16a39b0a5cda277d2cf4cbf3aed1031b9288c0696b8273771ee1fb20.png"></img></a>
-                <NavigationBarMain />
+                <div>
+                  <a href="https://slack.codebar.io/"><img alt='codebar logo' src="https://codebar.io/assets/logo-7345316d16a39b0a5cda277d2cf4cbf3aed1031b9288c0696b8273771ee1fb20.png"></img></a>
+                  <div>
+                    <NavigationBarMain />
+                  </div>
+                </div>
               
                 {currentUser?
                   <div>
@@ -143,13 +148,15 @@ const App = () => {
                     <p>You are signed in as {currentUser.email}</p>
                     <SignOutButton logOut={logOut} />
                   </div>
-                : <NavigationBarJobBoardNonLoggedIn /> }
+                : <div>
+                  <NavigationBarJobBoardNonLoggedIn />
+                </div> }
 
               </header>
                 
                 
             
-            <hr />
+            <main className='container'>
             <Routes>
                   <Route exact path={ROUTES.LANDING} element={ <LandingPage jobs={jobs}/> } />
                   <Route exact path={ROUTES.JOB} element={ <JobPage></JobPage>}></Route>
@@ -160,6 +167,8 @@ const App = () => {
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   
               </Routes>
+            </main>
+            
               <hr />     
                   <Footer/>
             
