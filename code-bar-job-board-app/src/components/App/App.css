@@ -1,0 +1,18 @@
+/* All */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* Job summary page */
+
+.job-summary-box {
+    margin: 15px
+}
+
+
+

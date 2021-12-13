@@ -1,4 +1,8 @@
+
 import JobSummary from "../JobSummary";
+import { Link } from "react-router-dom";
+
+import * as ROUTES from '../../constants/routes.js'
 
 const LandingPage = ({jobs}) => {
 
@@ -9,9 +13,10 @@ const LandingPage = ({jobs}) => {
 
     return (
         <div>
-            <h2>Jobs</h2>
+            <h2 className="bold">Jobs</h2>
             <p>There are {jobs.length} jobs posted</p>
-            {getJobSummaries}
+            <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
+            <div className="row">{getJobSummaries}</div>
         </div>
     );
 };
