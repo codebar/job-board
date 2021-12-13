@@ -30,8 +30,15 @@ header {
 /* Job summary page */
 
 .job-summary-box {
-    margin: 15px
+    margin: 15px;
+    
 }
+
+.job-summaries {
+    max-width: 100%;
+}
+
+
 
 /* Footer */
  footer {

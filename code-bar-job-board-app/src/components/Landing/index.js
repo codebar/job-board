@@ -12,11 +12,11 @@ const LandingPage = ({jobs}) => {
 
 
     return (
-        <div>
+        <div className="container">
             <h2 className="bold">Jobs</h2>
             <p>There are {jobs.length} jobs posted</p>
             <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
-            <div className="row">{getJobSummaries}</div>
+            <div className="row job-summaries">{getJobSummaries}</div>
         </div>
     );
 };

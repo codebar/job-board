@@ -152,7 +152,7 @@ const App = () => {
                 
                 
             
-            <main className='container'>
+            <div>
             <Routes>
                   <Route exact path={ROUTES.LANDING} element={ <LandingPage jobs={jobs}/> } />
                   <Route exact path={ROUTES.JOB} element={ <JobPage></JobPage>}></Route>
@@ -163,7 +163,7 @@ const App = () => {
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   
               </Routes>
-            </main>
+            </div>
             
                   
                   <Footer/>
