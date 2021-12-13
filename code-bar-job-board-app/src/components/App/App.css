@@ -2,11 +2,30 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    padding-top: 100px
 }
 
 .bold {
     font-weight: bold;
 }
+
+/* Header */
+
+header {
+    margin:15px;
+}
+
+#header-logo {
+    width: 148px;
+    height: 40px;
+}
+
+.nav-link {
+    color: grey;
+    font-weight: bold;
+}
+
+
 
 /* Job summary page */
 
