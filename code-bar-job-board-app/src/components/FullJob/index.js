@@ -32,7 +32,7 @@ const FullJob = ({job}) => {
                     </li>
                     <li className='job-page-sidebar-item'>
                         <h4>Posted by</h4>
-                        <p>Hold until user integrated</p>
+                        <p>{job.creator_id}</p>
                     </li>
                     <li className='job-page-sidebar-item'>
                         <h4>Published on</h4>
