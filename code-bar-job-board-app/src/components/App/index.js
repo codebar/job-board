@@ -12,8 +12,7 @@ import Footer from '../Footer';
 import JobPage from '../JobPage/index.js';
 import SignIn from '../SignIn/index.js';
 import SignUp from '../SignUp/index.js';
-import SignOutButton from '../SignOut/index.js';
-import { NavigationBarMain, NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
+import { NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
 import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
 import JobPreview from '../JobPreview/index.js';
@@ -135,14 +134,10 @@ const App = () => {
         
             <Router>
               <header id='top'>
-                <NavigationBarMain />
-              
+                
                 {currentUser?
                   <div>
-                    
-                    <p>You are signed in as {currentUser.email}</p>
-                    <NavigationBarJobBoardLoggedIn />
-                    <SignOutButton logOut={logOut} />
+                    <NavigationBarJobBoardLoggedIn currentUser={currentUser} logOut={logOut} />
                   </div>
                 : <div>
                   <NavigationBarJobBoardNonLoggedIn />
