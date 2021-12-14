@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import BeforePostCheckList from "../BeforePostChecklist/index.js";
 import SignIn from "../SignIn/index.js";
+import { Form } from 'react-bootstrap';
 
 
 const SumbitJobPage = ({createJobPost, currentUser}) => {
@@ -65,25 +66,30 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
     return (
         <div>
             {currentUser?
-                <div>
+                <div className="container">
                     <section className='job-post-details-section'>
                     
-                        <form className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
+                        <Form className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
                             <section className='job-details-section'>
                                 <h3>Job post details</h3>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_title'>Title</label>
-                                    <input id='job_title' placeholder='e.g. Internship' onChange={(evt) => {setFormJobTitle(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_description'>Description</label>
-                                    <textarea rows='10' id='job_description' placeholder='Use text or markdown for the job description' onChange={(evt) => {setFormJobDescription(evt.target.value)}}></textarea>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_salary'>Salary</label>
-                                    <p>Annual pay before tax, with no commas or decimal points</p>
-                                    <input id='job_slary' onChange={(evt) => {setFormJobSalary(evt.target.value)}}></input>
-                                </div>
+                                <Form.Group className="mb-3" controlId="job-title">
+                                    <Form.Label>Title</Form.Label>
+                                    <Form.Control type="text" placeholder="e.g. Internship" onChange={(evt) => {setFormJobTitle(evt.target.value)}}></Form.Control>
+                                </Form.Group>
+                                
+                                <Form.Group className="mb-3" controlId="job-description">
+                                    <Form.Label>Description</Form.Label>
+                                    <Form.Control as='textarea' rows={10} onChange={(evt) => {setFormJobDescription(evt.target.value)}}></Form.Control>
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="job-salary">
+                                    <Form.Label>Salary</Form.Label>
+                                    <Form.Control type='text' onChange={(evt) => {setFormJobSalary(evt.target.value)}}></Form.Control>
+                                    <Form.Text>
+                                        Annual pay before tax, with no commas or decimal points
+                                    </Form.Text>
+                                </Form.Group>
+                                
                                 <div className='job-details-input'>
                                     <input type='checkbox' id='job-remote' defaultChecked = {formJobRemote} onChange={() => {setFormJobRemote(!formJobRemote)}}></input>
                                     <label htmlFor='job-remote'>Remote</label>
@@ -143,7 +149,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                                         <button>Preview this job</button>
                             </Link>
                     
-                        </form>
+                        </Form>
                     </section>
                     <BeforePostCheckList></BeforePostCheckList>
                 </div>
