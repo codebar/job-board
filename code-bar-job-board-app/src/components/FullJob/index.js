@@ -1,47 +1,52 @@
-
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 const FullJob = ({job}) => {
     return (
-        <div>
+        <div className="container">
             
-            <section className='main-job-details-section'>
-                <h2>{job.job_title}</h2>
-                <p>{job.job_description}</p>
-                <h3>Company</h3>
-                <p>{job.company_name}</p>
-                <p><a href={job.job_post_link}>{job.job_post_link}</a></p>
-            </section>
-            <section className='job-page-sidebar'>
-                <ul>
-                    <li className='job-page-sidebar-item'>
-                        <h4>Salary</h4>
-                        <p>{job.salary}</p>
-                    </li>
-                    <li className='job-page-sidebar-item'>
-                        <h4>Location</h4>
-                        <p>{job.company_location}</p>
-                    </li>
-                    <li className='job-page-sidebar-item'>
-                        <h4>Closing date</h4>
-                        <p>{job.closing_date}</p>
-                    </li>
-                    <li className='job-page-sidebar-item'>
-                        <h4>Contact email</h4>
-                        <p>{job.contact_email}</p>
-                    </li>
-                    <li className='job-page-sidebar-item'>
-                        <h4>Posted by</h4>
-                        <p>{job.creator_id}</p>
-                    </li>
-                    <li className='job-page-sidebar-item'>
-                        <h4>Published on</h4>
-                        <p>{job.published_date}</p>
-                    </li>
-                </ul>
+            <div className="row">
+                <section className='col-8 job-page-main'>
+                    <h2>{job.job_title}</h2>
+                    <p>{job.job_description}</p>
+                    <h3>Company</h3>
+                    <p>{job.company_name}</p>
+                    <p><a href={job.company_url}>{job.company_url}</a></p>
+                </section>
+                <section className='col-4 job-page-side-bar'>
+                    
+                        <div className="job-page-side-bar-item">
+                            <p className="bold" >Salary</p>
+                            <p>{job.salary}</p>
+                        </div>
+                        <div className="job-page-side-bar-item">
+                            <p className="bold" >Location</p>
+                            <p>{job.company_location}</p>
+                        </div>
+                        <div className="job-page-side-bar-item">
+                            <p className="bold" >Closing date</p>
+                            <p>{job.closing_date}</p>
+                        </div>
+                        <div className="job-page-side-bar-item">
+                            <p className="bold" >Contact email</p>
+                            <p>{job.contact_email}</p>
+                        </div>
+                        <div className="job-page-side-bar-item">
+                            <p className="bold" >Posted by</p>
+                            <p>{job.contact_name}</p>
+                        </div>
+                        <div className="job-page-side-bar-item">
+                            <p className="bold" >Published on</p>
+                            <p>{job.published_date}</p>
+                        </div>
+                        <hr />
+
+                        <Link to=''><Button className='button'>Apply for this job</Button></Link>
                 
                 
-            </section>
+                </section>
+            </div>
             
         </div>
     );
