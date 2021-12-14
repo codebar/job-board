@@ -12,8 +12,7 @@ const SignIn = ({logIn}) => {
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
-  const handleLogInSubmit = (evt) => {
-    evt.preventDefault();
+  const handleLogInButtonClick = () => {
     logIn(signInEmail, signInPassword);
   };
 
@@ -25,7 +24,7 @@ const SignIn = ({logIn}) => {
   return (
     <div className="login container">
       <p>Log in to view your jobs, or post a new job</p>
-      <Form onSubmit={(evt) => {handleLogInSubmit()}} className='col-lg-4 col-md-6'>
+      <Form className='col-lg-4 col-md-6'>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -44,7 +43,7 @@ const SignIn = ({logIn}) => {
           />
         </Form.Group>
         <Link to={{pathname: ROUTES.LANDING}}>
-          <Button className='button' type="submit" disabled={!validateForm()}>
+          <Button onClick={handleLogInButtonClick} className='button' type="submit" disabled={!validateForm()}>
             Login
           </Button>
         </Link>
