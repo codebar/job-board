@@ -120,8 +120,8 @@ const App = () => {
               marketing_opt_in: false,
               published_date: "",
               remote: formJobRemote,
-              salary: formJobSalary
-
+              salary: formJobSalary,
+              approved_status: false
               
             });
             console.log(job);
