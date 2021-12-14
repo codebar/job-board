@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import * as ROUTES from '../../constants/routes.js'
 
-const LandingPage = ({jobs, currentUser}) => {
+const LandingPage = ({jobs}) => {
 
     const getJobSummaries = jobs.map((job) => {
             return <JobSummary job={job} key={job.id}></JobSummary>
@@ -15,12 +15,7 @@ const LandingPage = ({jobs, currentUser}) => {
         <div className="container">
             <h2 className="bold">Jobs</h2>
             <p>There are {jobs.length} jobs posted</p>
-            { currentUser?
-                <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
-                :
-                <p><Link to={{pathname: ROUTES.SIGN_IN}}>Click here</Link> if you would like to post a new job</p>
-            }
-            
+            <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
             <div className="row job-summaries">{getJobSummaries}</div>
         </div>
     );
