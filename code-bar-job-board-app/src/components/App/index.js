@@ -157,7 +157,7 @@ const App = () => {
                   <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>
-                  <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage createJobPost={createJobPost}/>}></Route>
+                  <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   
               </Routes>
