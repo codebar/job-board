@@ -17,6 +17,7 @@ const NavigationBarJobBoardNonLoggedIn = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+                <Nav.Link href={ROUTES.LANDING}>Job Board</Nav.Link>
                 <Nav.Link href={ROUTES.SIGN_UP}>Sign up</Nav.Link>
                 <Nav.Link href={ROUTES.SIGN_IN}>Sign in</Nav.Link>
             </Nav>
