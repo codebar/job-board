@@ -22,7 +22,7 @@ const BeforePostCheckList = () => {
                 </li>
                 <li>
                     <input type='checkbox'></input>
-                    <p>The ob description is short and to the point</p>
+                    <p>The job description is short and to the point</p>
                 </li>
                 <li>
                     <input type='checkbox'></input>
