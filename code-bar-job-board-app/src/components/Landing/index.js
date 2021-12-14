@@ -7,7 +7,7 @@ import * as ROUTES from '../../constants/routes.js'
 const LandingPage = ({jobs}) => {
 
     const getApprovedJobs = jobs.filter((job) => {
-        return job.approved_status == true;
+        return job.approved_status === true;
     });
 
     const getJobSummaries = getApprovedJobs.map((job) => {

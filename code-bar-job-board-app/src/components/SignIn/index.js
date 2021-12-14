@@ -3,14 +3,17 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
+import * as ROUTES from '../../constants/routes.js'
 
 
-const SignIn = ({sendLink, logIn}) => {
+
+const SignIn = ({logIn}) => {
 
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
-  const handleLogInSubmit = () => {
+  const handleLogInSubmit = (evt) => {
+    evt.preventDefault();
     logIn(signInEmail, signInPassword);
   };
 
@@ -22,14 +25,14 @@ const SignIn = ({sendLink, logIn}) => {
   return (
     <div className="login container">
       <p>Log in to view your jobs, or post a new job</p>
-      <Form onSubmit={handleLogInSubmit} className='col-lg-4 col-md-6'>
+      <Form onSubmit={(evt) => {handleLogInSubmit()}} className='col-lg-4 col-md-6'>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
             type="email"
             value={signInEmail}
-            onChange={(e) => setSignInEmail(e.target.value)}
+            onChange={(evt) => setSignInEmail(evt.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -37,12 +40,14 @@ const SignIn = ({sendLink, logIn}) => {
           <Form.Control
             type="password"
             value={signInPassword}
-            onChange={(e) => setSignInPassword(e.target.value)}
+            onChange={(evt) => setSignInPassword(evt.target.value)}
           />
         </Form.Group>
-        <Button className='button' type="submit" disabled={!validateForm()}>
-          Login
-        </Button>
+        <Link to={{pathname: ROUTES.LANDING}}>
+          <Button className='button' type="submit" disabled={!validateForm()}>
+            Login
+          </Button>
+        </Link>
       </Form>
     </div>
   );
