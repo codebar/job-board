@@ -1,39 +1,61 @@
+import { Form, Button } from 'react-bootstrap';
+import { useState } from 'react';
 
 const BeforePostCheckList = () => {
+
+    const [checkOne, setCheckOne] = useState(false);
+    const [checkTwo, setCheckTwo] = useState(false);
+    const [checkThree, setCheckThree] = useState(false);
+    const [checkFour, setCheckFour] = useState(false);
+    const [checkFive, setCheckFive] = useState(false);
+    const [checkSix, setCheckSix] = useState(false);
+    const [checkSeven, setCheckSeven] = useState(false);
+
+
+
     return (
         <div className="before-post-checklist-box">
-            <p>Before posting make sure that:</p>
-            <ul>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>The position is suitable for people looking for internships, apprenticeships or junior roles that will enable them to build yp their career</p>
-                </li>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>There is no degree requirement</p>
-                </li>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>There is no previous expereince requirement</p>
-                </li>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>The job description details the work that will have to be undertaken</p>
-                </li>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>The ob description is short and to the point</p>
-                </li>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>The job pays an appropriate salary</p>
-                </li>
-                <li>
-                    <input type='checkbox'></input>
-                    <p>You have made the <a href='/'>required payment of £50</a></p>
-                </li>
-                <p>For an additional £200 you can have your job listing featured in our newsletter and made available to an audience of over 10000 students and coaches. To find out more details and when our next newsletter is due send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
-            </ul>
+            <p className='bold'>Before posting make sure that:</p>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="The position is suitable for people looking for internships, apprenticeships or junior roles that will enable them to build up their career" 
+                defaultChecked = {checkOne} onChange={() => {setCheckOne(!checkOne)}}></Form.Check>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="There is no degree requirement" 
+                defaultChecked = {checkTwo} onChange={() => {setCheckTwo(!checkTwo)}}></Form.Check>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="There is no previous experience requirement"
+                defaultChecked = {checkThree} onChange={() => {setCheckThree(!checkThree)}}></Form.Check>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="The job description details the work that will have to be undertaken"
+                defaultChecked = {checkFour} onChange={() => {setCheckFour(!checkFour)}}></Form.Check>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="The job description is short and to the point"
+                defaultChecked = {checkFive} onChange={() => {setCheckFive(!checkFive)}}></Form.Check>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="The job pays an appropriate salary"
+                defaultChecked = {checkSix} onChange={() => {setCheckSix(!checkSix)}}></Form.Check>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Check type='checkbox' label="You have made the required payment of £50"
+                defaultChecked = {checkSeven} onChange={() => {setCheckSeven(!checkSeven)}}></Form.Check>
+            </Form.Group>
+
+            <Button variant='info' className='button'>Pay here</Button>
+            <p>For an additional £200 you can have your job listing featured in our newsletter and made available to an audience of over 10000 students and coaches. To find out more details and when our next newsletter is due send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
+            
+            
         </div>
     );
 };

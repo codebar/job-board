@@ -9,6 +9,11 @@ body {
     font-weight: bold;
 }
 
+.button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 /* Header */
 
 header {

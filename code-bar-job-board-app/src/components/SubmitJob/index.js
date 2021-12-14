@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import BeforePostCheckList from "../BeforePostChecklist/index.js";
 import SignIn from "../SignIn/index.js";
+import { Form, Button } from 'react-bootstrap';
 
 
 const SumbitJobPage = ({createJobPost, currentUser}) => {
@@ -63,89 +64,110 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
     
 
     return (
-        <div>
+        <div className="container">
             {currentUser?
                 <div>
-                    <section className='job-post-details-section'>
-                    
-                        <form className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
-                            <section className='job-details-section'>
-                                <h3>Job post details</h3>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_title'>Title</label>
-                                    <input id='job_title' placeholder='e.g. Internship' onChange={(evt) => {setFormJobTitle(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_description'>Description</label>
-                                    <textarea rows='10' id='job_description' placeholder='Use text or markdown for the job description' onChange={(evt) => {setFormJobDescription(evt.target.value)}}></textarea>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_salary'>Salary</label>
-                                    <p>Annual pay before tax, with no commas or decimal points</p>
-                                    <input id='job_slary' onChange={(evt) => {setFormJobSalary(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <input type='checkbox' id='job-remote' defaultChecked = {formJobRemote} onChange={() => {setFormJobRemote(!formJobRemote)}}></input>
-                                    <label htmlFor='job-remote'>Remote</label>
-                                    <p>Only check if the role is fully remote only</p>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_contact-name'>Contact name</label>
-                                    <input id='job_contact-name' onChange={(evt) => {setFormJobContactName(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_contact-email'>Contact email</label>
-                                    <input id='job_contact-email' onChange={(evt) => {setFormJobContactEmail(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_post-link'>Link to job post</label>
-                                    <input id='job_post-link' onChange={(evt) => {setFormJobPostLink(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='job_closing-date'>Closing date</label>
-                                    <p>In the format dd/mm/yyy</p>
-                                    <input id='job_closing-date' onChange={(evt) => {setFormJobClosingDate(evt.target.value)}}></input>
-                                </div>
+                    <h2>List a new job</h2>
+                    <p>You will need to make a payment of £50 before the job can be approved</p>
+                    <hr />
+                    <div className="row">
+                        <div className="container col-6">
+                            <section className='job-post-details-section'>
+                        
+                                <Form className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
+                                    <section className='job-details-section'>
+                                        <h3>Job post details</h3>
+                                        <Form.Group className="mb-3" controlId="job-title">
+                                            <Form.Label>Title</Form.Label>
+                                            <Form.Control type="text" placeholder="e.g. Internship" onChange={(evt) => {setFormJobTitle(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                        
+                                        <Form.Group className="mb-3" controlId="job-description">
+                                            <Form.Label>Description</Form.Label>
+                                            <Form.Control as='textarea' rows={10} placeholder='Use text or markdown for the job description' onChange={(evt) => {setFormJobDescription(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="job-salary">
+                                            <Form.Label>Salary</Form.Label>
+                                            <Form.Control type='text' onChange={(evt) => {setFormJobSalary(evt.target.value)}}></Form.Control>
+                                            <Form.Text>
+                                                Annual pay before tax, with no commas or decimal points
+                                            </Form.Text>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="job-remote">
+                                            <Form.Check type='checkbox' label="Remote" defaultChecked = {formJobRemote} onChange={() => {setFormJobRemote(!formJobRemote)}}></Form.Check>
+                                            <Form.Text>
+                                                Only check if the role is fully remote only
+                                            </Form.Text>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="job-contact-name">
+                                            <Form.Label>Contact name</Form.Label>
+                                            <Form.Control type='text' onChange={(evt) => {setFormJobContactName(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="job-contact-email">
+                                            <Form.Label>Contact email</Form.Label>
+                                            <Form.Control type='text' onChange={(evt) => {setFormJobContactEmail(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                        
+                        
+                                        <Form.Group className="mb-3" controlId="job-post-link">
+                                            <Form.Label>Link to job post</Form.Label>
+                                            <Form.Control type='text' onChange={(evt) => {setFormJobPostLink(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="job-closing-date">
+                                            <Form.Label>Closing date</Form.Label>
+                                            <Form.Control type='text' onChange={(evt) => {setFormJobClosingDate(evt.target.value)}}></Form.Control>
+                                            <Form.Text>
+                                                In the format dd/mm/yyy
+                                            </Form.Text>
+                                        </Form.Group>
+                        
+                                    </section>
+                                    <section className='company-details-section'>
+                                        <h3>Company details</h3>
+                                        <Form.Group className="mb-3" controlId="company-name">
+                                            <Form.Label>Name</Form.Label>
+                                            <Form.Control type="text" placeholder="e.g. codebar" onChange={(evt) => {setFormJobCompanyName(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="company-website">
+                                            <Form.Label>Website</Form.Label>
+                                            <Form.Control type="text" placeholder="e.g. https://www.codebar.io" onChange={(evt) => {setFormJobCompanyWebsite(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="company-location">
+                                            <Form.Label>Location</Form.Label>
+                                            <Form.Control type="text" placeholder="e.g. London or Berlin" onChange={(evt) => {setFormJobCompanyLocation(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                    </section>
+                                    <section className="google-search-section">
+                                        <p>The information below is only required if you want this job post to be shared with Google Search UK</p>
+                                        <Form.Group className="mb-3" controlId="company-address">
+                                            <Form.Label>Address</Form.Label>
+                                            <Form.Control type="text" onChange={(evt) => {setFormJobCompanyAddress(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="company-postcode">
+                                            <Form.Label>Postcode</Form.Label>
+                                            <Form.Control type="text" onChange={(evt) => {setFormJobCompanyPostcode(evt.target.value)}}></Form.Control>
+                                        </Form.Group>
+                        
+                        
+                                    </section>
+                        
+                                    <Link
+                                        to={{
+                                            pathname: '/my/jobs/new/preview'
+                                            }}
+                                            state={{ previewJob }}
+                                    >
+                                                <Button className='button' variant="secondary">Preview this job post</Button>
+                                    </Link>
+                                    <Button className='button' variant="primary" type="submit">Submit job for approval</Button>
+                        
+                                </Form>
                             </section>
-                            <section className='company-details-section'>
-                                <h3>Company details</h3>
-                                <div className='job-details-input'>
-                                    <label htmlFor='company-name'>Name</label>
-                                    <input placeholder='e.g. codebar' id='company-name' onChange={(evt) => {setFormJobCompanyName(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='company-website'>Website</label>
-                                    <input placeholder='e.g. https://codebar.io' id='company-website' onChange={(evt) => {setFormJobCompanyWebsite(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='company-location'>Location</label>
-                                    <input placeholder='e.g. London or Berlin' id='company-location' onChange={(evt) => {setFormJobCompanyLocation(evt.target.value)}}></input>
-                                </div>
-                            </section>
-                            <section className="google-search-section">
-                                <p>The information below is only required if you want this job post to be shared with Google Search UK</p>
-                                <div className='job-details-input'>
-                                    <label htmlFor='company-address'>Address</label>
-                                    <input id='company-address' onChange={(evt) => {setFormJobCompanyAddress(evt.target.value)}}></input>
-                                </div>
-                                <div className='job-details-input'>
-                                    <label htmlFor='company-postcode'>Postcode</label>
-                                    <input id='company-postcode' onChange={(evt) => {setFormJobCompanyPostcode(evt.target.value)}}></input>
-                                </div>
-                            </section>
-                            <button type='submit'>Submit job for approval</button>
-                            <Link
-                                to={{
-                                    pathname: '/my/jobs/new/preview'
-                                    }}
-                                    state={{ previewJob }}
-                            >
-                                        <button>Preview this job</button>
-                            </Link>
-                    
-                        </form>
-                    </section>
-                    <BeforePostCheckList></BeforePostCheckList>
+                        </div>
+                        <div className="col-6">
+                            <BeforePostCheckList></BeforePostCheckList>
+                        </div>
+                    </div>
                 </div>
                 :
                 <div>
