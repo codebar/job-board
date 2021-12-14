@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc } from 'firebase/firestore'
 import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 import '../App/App.css';
+
 
 
 
@@ -30,6 +31,8 @@ const App = () => {
       url: 'http://localhost:3000/',
       handleCodeInApp: true,
     };
+
+   
     
 
     useEffect (() => {

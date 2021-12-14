@@ -2,6 +2,8 @@
 
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 
 import * as ROUTES from '../../constants/routes'
 
@@ -40,7 +42,7 @@ const NavigationBarJobBoardLoggedIn = ({currentUser, logOut}) => {
                         <Nav.Link href={ROUTES.SUBMIT_JOB}>Post a Job</Nav.Link>
                         <NavDropdown title="My Account" id="basic-nav-dropdown">
                             <NavDropdown.ItemText><p>Logged in as {currentUser.email}</p></NavDropdown.ItemText>
-                            <NavDropdown.Item onClick={logOut}>Sign Out</NavDropdown.Item>
+                            <NavDropdown.Item onClick={logOut}><Link to={{pathname: ROUTES.LANDING}}>Sign Out</Link></NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     </Navbar.Collapse>
