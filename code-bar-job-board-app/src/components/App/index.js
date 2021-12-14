@@ -64,6 +64,7 @@ const App = () => {
       };
 
       const logIn = async (signInEmail, signInPassword) => {
+        console.log('login');
         try {
           const user = await signInWithEmailAndPassword(
             auth, 

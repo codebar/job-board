@@ -12,6 +12,8 @@ body {
 .button {
     margin-right: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
+    
 }
 
 /* Header */
@@ -31,7 +33,10 @@ header {
 }
 
 
-
+/* Log in */
+.login {
+    margin-bottom: 20px;
+}
 
 
 /* Job summary page */
