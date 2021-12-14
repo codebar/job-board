@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import * as ROUTES from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import SignIn from '../SignIn';
+import { Button } from 'react-bootstrap';
 
 
 const MyJobsPage = ({currentUser, jobs}) => {
@@ -16,12 +17,22 @@ const MyJobsPage = ({currentUser, jobs}) => {
     }, [currentUser, jobs]);
 
     return (
-        
-        <div>
+
+        <div className="container">
             {currentUser?
-            <div>
+            <div className="row justify-content-center">
                 {currentUserJobs.length > 0?
-                    <UserJobsPage currentUserJobs={currentUserJobs}></UserJobsPage>
+                    <div className="col-10">
+                        <div className="row border-bottom border-dark">
+                            <div className="col-2"><p className="fs-5 bold mb-2">Job title</p></div>
+                            <div className="col-2"><p className="fs-5 bold mb-2">Company</p></div>
+                            <div className="col-2"><p className="fs-5 bold mb-2">Location</p></div>
+                            <div className="col-2"><p className="fs-5 bold mb-2">Published on</p></div>
+                            <div className="col-2"><p className="fs-5 bold mb-2">Expires on</p></div>
+                            <div className="col-2"><p className="fs-5 bold mb-2">Status</p></div>
+                        </div>
+                        <UserJobsPage currentUserJobs={currentUserJobs}></UserJobsPage>
+                    </div>
             :
                     <NoJobsPage></NoJobsPage> }
             </div> :
@@ -35,30 +46,34 @@ const MyJobsPage = ({currentUser, jobs}) => {
 const UserJobsPage = ({currentUserJobs}) => {
 
     const listOfUserJobs = currentUserJobs.map((job) => {
-        return  <li className='my-jobs-list-item' key={job.id}>
-                    <Link
-                        to={{
-                        pathname: `/jobs/${job.id}`
-                        }}
-                        state={{ job }}
-                >
-                        <p>{job.job_title}</p>
-                    </Link>
-                    <p>{job.company_name}</p>
-                    {job.remote? <p>Remote</p> : <p>{job.company_location}</p>}
-                    <p>{job.published_date}</p>
-                    <p>{job.closing_date}</p>
-                    <p>Status?</p>
-                </li>
+        return  <div className='row flex mt-3 border-bottom border-dark' key={job.id}>
+                    <div className="col-2">
+                        <Link
+                            to={{
+                            pathname: `/jobs/${job.id}`
+                            }}
+                            state={{ job }} >
+                            <p>{job.job_title}</p>
+                        </Link>
+                    </div>
+                    <div className="col-2"><p>{job.company_name}</p></div>
+                    <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.company_location}</p>}</div>
+                    <div className="col-2"><p>{job.published_date}</p></div>
+                    <div className="col-2"><p>{job.closing_date}</p></div>
+                    <div className="col-2"><p>Status?</p></div>
+                </div>
     });
 
     return (
-        <div>
+        <div className="col">
             {listOfUserJobs}
-            <Link to={{
-                pathname: ROUTES.SUBMIT_JOB
-            }}
-            ><button>Post a job</button></Link>
+            <div className="row my-4">
+                <div className="col">
+                    <Link to={{pathname: ROUTES.SUBMIT_JOB}}>
+                        <Button className='button' variant="primary">Post a new job</Button>
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 };
