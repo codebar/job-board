@@ -70,7 +70,7 @@ const UserJobsPage = ({currentUserJobs}) => {
             <div className="row my-4">
                 <div className="col">
                     <Link to={{pathname: ROUTES.SUBMIT_JOB}}>
-                        <Button className='button' variant="primary">Post a new job</Button>
+                        <Button className='button bold' variant="primary">Post a new job</Button>
                     </Link>
                 </div>
             </div>
