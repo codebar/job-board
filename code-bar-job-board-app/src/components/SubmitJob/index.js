@@ -28,6 +28,8 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
         if (form.checkValidity() === false) {
             evt.preventDefault();
             evt.stopPropagation();
+            setValidated(true);
+            return;
         }
 
         setValidated(true);
