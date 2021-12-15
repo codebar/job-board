@@ -80,7 +80,10 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                     <p class="alert alert-primary">You will need to make a payment of £50 before the job can be approved</p>
                     <hr />
                     <div className="row">
-                        <div className="container col-6">
+                        <div className="col-md-6 col-sm-12 order-md-last">
+                            <BeforePostCheckList></BeforePostCheckList>
+                        </div>
+                        <div className="container col-md-6 col-sm-12">
                             <section className='job-post-details-section'>
 
                                 <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
@@ -200,9 +203,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                                 </Form>
                             </section>
                         </div>
-                        <div className="col-6">
-                            <BeforePostCheckList></BeforePostCheckList>
-                        </div>
+                        
                     </div>
                 </div>
                 :
