@@ -28,7 +28,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
     
 
     const getJobDataFromPreview = () => {
-        if (data.state.previewJob) {
+        if (data.state) {
             const jobTitle = document.getElementById('job-title');
             jobTitle.value = data.state.previewJob.job_title;
             setFormJobTitle(data.state.previewJob.job_title);
