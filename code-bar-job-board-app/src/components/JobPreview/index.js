@@ -12,8 +12,9 @@ const JobPreview = () => {
     const previewJob = data.state.previewJob;
 
     return (
-       <div>
-           <h2>Preview of Job</h2>
+       <div className="container">
+           <h2>Preview of Job Post</h2>
+          
            <Link
                 to={{
                     pathname: ROUTES.SUBMIT_JOB
@@ -21,6 +22,7 @@ const JobPreview = () => {
                     state={{ previewJob }}
             >
             <Button>Back to job form</Button></Link>
+            <hr />
            <FullJob job={previewJob}></FullJob>
        </div>
     );
