@@ -6,7 +6,11 @@ import * as ROUTES from '../../constants/routes.js'
 
 const LandingPage = ({jobs}) => {
 
-    const getJobSummaries = jobs.map((job) => {
+    const getApprovedJobs = jobs.filter((job) => {
+        return job.approved_status === true;
+    });
+
+    const getJobSummaries = getApprovedJobs.map((job) => {
             return <JobSummary job={job} key={job.id}></JobSummary>
         });
 
@@ -14,7 +18,7 @@ const LandingPage = ({jobs}) => {
     return (
         <div className="container">
             <h2 className="bold">Jobs</h2>
-            <p>There are {jobs.length} jobs posted</p>
+            <p>There are {getApprovedJobs.length} jobs posted</p>
             <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
             <div className="row job-summaries">{getJobSummaries}</div>
         </div>

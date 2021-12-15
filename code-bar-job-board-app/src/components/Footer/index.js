@@ -35,10 +35,10 @@ const Footer = () => {
                         <li><a className='footer-link' href="https://codebar.io/sponsors" >Sponsors</a></li>
                         <li><a className='footer-link' href="https://codebar.io/events" >Events</a></li>
                         <li><a className='footer-link' href="/" >Jobs</a></li>
-                        <li><a className='footer-link' href="https://codebar.io/donations/new" >Donate</a></li>
+                        <li><a className='footer-link' href="https://codebar.enthuse.com/donate/#!/" >Donate</a></li>
                     </ul>
                 </div>
-                
+
                 <div className="col-sm-12 col-md-6 col-lg-3">
                     <ul className = 'row ml-0 social-media'>
                         <li className="col-3"><a href="https://slack.codebar.io/">

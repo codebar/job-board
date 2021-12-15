@@ -64,6 +64,7 @@ const App = () => {
       };
 
       const logIn = async (signInEmail, signInPassword) => {
+        console.log('login');
         try {
           const user = await signInWithEmailAndPassword(
             auth, 
@@ -120,8 +121,8 @@ const App = () => {
               marketing_opt_in: false,
               published_date: "",
               remote: formJobRemote,
-              salary: formJobSalary
-
+              salary: formJobSalary,
+              approved_status: false
               
             });
             console.log(job);
