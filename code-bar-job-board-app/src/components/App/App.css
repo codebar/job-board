@@ -50,11 +50,15 @@ header {
     max-width: 100%;
 }
 
+/* Job post page */
+
+.job-post-details-section {
+    padding-top: 20px;
+}
+
 /* Job Main Page */
 
-.job-page-main {
-    padding-right: 100px;
-}
+
 
 .job-page-side-bar {
     border-color: grey;
@@ -65,7 +69,6 @@ header {
     flex-direction: column;
     padding:20px;
     margin-bottom: 10px;
-    max-width: 30%;
     height: 100%;
 }
 

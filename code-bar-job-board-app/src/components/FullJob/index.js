@@ -7,14 +7,14 @@ const FullJob = ({job}) => {
         <div className="container">
             
             <div className="row">
-                <section className='col-8 job-page-main'>
+                <section className='col-lg-8 col-sm-12 job-page-main'>
                     <h2>{job.job_title}</h2>
                     <p>{job.job_description}</p>
                     <h3>Company</h3>
                     <p>{job.company_name}</p>
                     <p><a href={job.company_url}>{job.company_url}</a></p>
                 </section>
-                <section className='col-4 job-page-side-bar'>
+                <section className='col-lg-3 col-sm-6 job-page-side-bar'>
                     
                         <div className="job-page-side-bar-item">
                             <p className="bold" >Salary</p>
