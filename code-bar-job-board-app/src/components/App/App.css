@@ -95,6 +95,11 @@ header {
  .footer-link {
      color: white;
      text-decoration: none;
+     font-weight: bold;
+ }
+
+ .footer-link:hover {
+     color: #4ac0d2;
  }
 
  .social-svg {
