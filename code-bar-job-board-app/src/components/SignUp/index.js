@@ -58,6 +58,11 @@ const SignUp = ({register}) => {
             </Button>
           
         </Form>
+        <hr/>
+        <div>
+          <p>Already have an account?</p>
+          <Link to={{pathname: ROUTES.SIGN_IN}}><Button className='button' variant="info">Sign in</Button></Link>
+        </div>
 
         
       </div>

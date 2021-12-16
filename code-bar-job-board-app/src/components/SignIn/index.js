@@ -48,6 +48,11 @@ const SignIn = ({logIn}) => {
           </Button>
         </Link>
       </Form>
+      <hr />
+      <div>
+        <p>Don't have an account?</p>
+        <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button' variant="info">Sign up</Button></Link>
+      </div>
     </div>
   );
   
