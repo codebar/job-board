@@ -25,7 +25,7 @@ const SignIn = ({logIn}) => {
     <div className="login container">
       <p>Log in to view your jobs, or post a new job</p>
       <Form className='col-lg-4 col-md-6'>
-        <Form.Group size="lg" controlId="email">
+        <Form.Group size="lg" controlId="email" className="sign-in-up-input">
           <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
@@ -34,7 +34,7 @@ const SignIn = ({logIn}) => {
             onChange={(evt) => setSignInEmail(evt.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password">
+        <Form.Group size="lg" controlId="password" className="sign-in-up-input">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
