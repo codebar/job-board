@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as ROUTES from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import SignIn from '../SignIn';
-import { Button, Toast } from 'react-bootstrap';
+import { Button, Toast, Badge } from 'react-bootstrap';
 
 
 const MyJobsPage = ({currentUser, jobs}) => {
@@ -60,7 +60,9 @@ const UserJobsPage = ({currentUserJobs}) => {
                     <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.company_location}</p>}</div>
                     <div className="col-2"><p>{job.published_date}</p></div>
                     <div className="col-2"><p>{job.closing_date}</p></div>
-                    <div className="col-2"><p>Status?</p></div>
+                    <div className="col-2">
+                        {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">In Draft</Badge>}
+                    </div>
                 </div>
     });
 
