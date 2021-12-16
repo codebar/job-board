@@ -43,7 +43,7 @@ const SignIn = ({logIn}) => {
           />
         </Form.Group>
         <Link to={{pathname: ROUTES.LANDING}}>
-          <Button onClick={handleLogInButtonClick} className='button' type="submit" disabled={!validateForm()}>
+          <Button onClick={handleLogInButtonClick} className='button bold' type="submit" disabled={!validateForm()}>
             Login
           </Button>
         </Link>
@@ -51,11 +51,11 @@ const SignIn = ({logIn}) => {
       <hr />
       <div>
         <p>Don't have an account?</p>
-        <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button' variant="info">Sign up</Button></Link>
+        <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button bold' variant="info">Sign up</Button></Link>
       </div>
     </div>
   );
-  
+
   };
 
 export default SignIn;

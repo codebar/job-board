@@ -55,7 +55,7 @@ const BeforePostCheckList = () => {
                 </Form.Group>
 
                 <Button variant='info' className='button'>Pay here</Button>
-                <p>For an additional £200 you can have your job listing featured in our newsletter and made available to an audience of over 10000 students and coaches. To find out more details and when our next newsletter is due send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
+                <p>For an additional <b>£200</b> you can have your job listing featured in our newsletter and made available to an audience of over 10000 students and coaches. To find out more and when our next newsletter is being sent, send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
             </div>
 
         </div>

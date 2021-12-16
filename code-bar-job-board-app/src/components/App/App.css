@@ -13,7 +13,7 @@ body {
     margin-right: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
-    
+
 }
 
 /* Header */
@@ -47,21 +47,14 @@ header {
 
 .job-summary-box {
     margin: 15px;
-    
+
 }
 
 .job-summaries {
     max-width: 100%;
 }
 
-/* Job post page */
-
-.job-post-details-section {
-    padding-top: 20px;
-}
-
 /* Job Main Page */
-
 
 
 .job-page-side-bar {
@@ -87,7 +80,7 @@ header {
 .apply-link {
     color: white;
     text-decoration: none;
-    
+
 }
 
 /* Footer */
