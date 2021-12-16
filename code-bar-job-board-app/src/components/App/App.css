@@ -13,7 +13,6 @@ body {
     margin-right: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
-
 }
 
 /* Header */
@@ -47,40 +46,10 @@ header {
 
 .job-summary-box {
     margin: 15px;
-
 }
 
 .job-summaries {
     max-width: 100%;
-}
-
-/* Job Main Page */
-
-
-.job-page-side-bar {
-    border-color: grey;
-    border-width: 1px;
-    border-radius: 1%;
-    border-style: solid;
-    display: flex;
-    flex-direction: column;
-    padding:20px;
-    margin-bottom: 10px;
-    height: 100%;
-}
-
-.job-page-side-bar-item {
-    padding: 10px;
-}
-
-.job-page-side-bar-item p {
-    margin: 0px;
-}
-
-.apply-link {
-    color: white;
-    text-decoration: none;
-
 }
 
 /* Footer */
@@ -88,8 +57,6 @@ header {
     background-color: #206CC2;
     color: white;
  }
-
- 
 
  .footer-link:hover {
      color: #4ac0d2;
@@ -103,7 +70,3 @@ header {
      padding-right: 40px;
      list-style-type: none;
  }
-
-
-
-
