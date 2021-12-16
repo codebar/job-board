@@ -139,23 +139,22 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
         salary: formJobSalary
     };
 
-    
+
 
     return (
         <div className="container">
             {currentUser?
                 <div>
                     <h2>List a new job</h2>
-                    <p class="alert alert-primary">You will need to make a payment of £50 before the job can be approved</p>
+                    <p class="alert alert-primary">You will need to make the payment of £50 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
                     <hr />
-                    <div className="row">
+                    <div className="row mt-4">
                         <div className="col-md-6 col-sm-12 order-md-last">
                             <BeforePostCheckList></BeforePostCheckList>
                         </div>
                         <div className="container col-md-6 col-sm-12">
-                            <section className='job-post-details-section'>
-
-                                <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
+                            <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
+                                <div className="border rounded p-4">
                                     <section className='job-details-section'>
                                         <h3>Job post details</h3>
                                         <Form.Group className="mb-3" controlId="job-title">
@@ -259,20 +258,22 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                                             <Form.Control type="text" onChange={(evt) => {setFormJobCompanyPostcode(evt.target.value)}}></Form.Control>
                                         </Form.Group>
                                     </section>
+                                </div>
 
+                                <div className="my-4">
                                     <Link
                                         to={{
                                             pathname: '/my/jobs/new/preview'
                                             }}
                                             state={{ previewJob }}
                                     >
-                                                <Button className='button' variant="secondary">Preview this job post</Button>
+                                                <Button className='button bold' variant="secondary">Preview this job post</Button>
                                     </Link>
-                                    <Button className='button' variant="primary" type="submit">Submit job for approval</Button>
-                                </Form>
-                            </section>
+                                    <Button className='button bold' variant="primary" type="submit">Submit job for approval</Button>
+                                </div>
+                            </Form>
                         </div>
-                        
+
                     </div>
                 </div>
                 :
