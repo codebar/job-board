@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
+import { getFunctions, httpsCallable } from 'firebase/functions';
 import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 import '../App/App.css';
@@ -52,6 +53,21 @@ const App = () => {
       onAuthStateChanged(auth, (currentUser) => {
         setCurrentUser(currentUser);
       });
+
+      const functions = getFunctions();
+
+      const makeNewAdmin = async (adminEmail) => {
+        try {
+          const addAdminRole = httpsCallable(functions, 'addAdminRole');
+          const newAdmin = await addAdminRole( {email: adminEmail} );
+          console.log(newAdmin);
+        } catch (error) {
+          console.log(error);
+        };
+      };
+
+      
+
 
       const register = async (registerEmail, registerPassword) => {
         try {
@@ -208,7 +224,7 @@ const App = () => {
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
-                  <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin></MakeAdmin> }></Route>
+                  <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   
               </Routes>
             </div>
