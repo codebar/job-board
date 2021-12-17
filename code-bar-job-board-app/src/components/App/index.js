@@ -22,12 +22,13 @@ import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
 
 import * as ROUTES from '../../constants/routes';
+import { isAdmin } from '@firebase/util';
 
 const App = () => {
 
     const [jobs, setJobs] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [sAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
 
@@ -36,15 +37,6 @@ const App = () => {
       handleCodeInApp: true,
     };
 
-   
-    const getIsAdmin = async () => {
-      if (currentUser) {
-        const idTokenResult = await currentUser.getIdTokenResult();
-        if (idTokenResult.claims?.admin) {
-          setIsAdmin(idTokenResult.claims.admin);
-        };
-      };
-    };
     
 
     useEffect (() => {
@@ -57,12 +49,22 @@ const App = () => {
         };
     
         getJobs();
-        getIsAdmin();
+        
     
       }, [jobsCollectionRef]);
 
       onAuthStateChanged(auth, (currentUser) => {
         setCurrentUser(currentUser);
+        if (currentUser) {
+          currentUser.getIdTokenResult().then(idTokenResult => {
+            if (idTokenResult.claims?.admin) {
+              setIsAdmin(idTokenResult.claims.admin);
+            } else {
+              setIsAdmin(false);
+            };
+          });
+        };
+        
         
       });
 
@@ -223,6 +225,7 @@ const App = () => {
                 </div> }
 
               </header>
+              
                 
                 
             
