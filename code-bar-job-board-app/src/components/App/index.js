@@ -27,6 +27,7 @@ const App = () => {
 
     const [jobs, setJobs] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
 
@@ -36,6 +37,14 @@ const App = () => {
     };
 
    
+    const getIsAdmin = async () => {
+      if (currentUser) {
+        const idTokenResult = await currentUser.getIdTokenResult();
+        if (idTokenResult.claims?.admin) {
+          setIsAdmin(idTokenResult.claims.admin);
+        };
+      };
+    };
     
 
     useEffect (() => {
@@ -43,15 +52,18 @@ const App = () => {
         const getJobs = async () => {
           const jobsData = await getDocs(jobsCollectionRef);
           setJobs(jobsData.docs.map((doc) => ({...doc.data(), id: doc.id})));
-    
+        
+        
         };
     
         getJobs();
+        getIsAdmin();
     
       }, [jobsCollectionRef]);
 
       onAuthStateChanged(auth, (currentUser) => {
         setCurrentUser(currentUser);
+        
       });
 
       const functions = getFunctions();
