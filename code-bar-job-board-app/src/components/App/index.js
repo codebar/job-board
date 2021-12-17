@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
+import { getFunctions, httpsCallable } from 'firebase/functions';
 import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 import '../App/App.css';
@@ -18,13 +19,16 @@ import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
 import JobPreview from '../JobPreview/index.js';
 import EditJob from '../EditJob/index.js';
+import MakeAdmin from '../MakeAdmin/index.js';
 
 import * as ROUTES from '../../constants/routes';
+import { isAdmin } from '@firebase/util';
 
 const App = () => {
 
     const [jobs, setJobs] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
 
@@ -33,7 +37,6 @@ const App = () => {
       handleCodeInApp: true,
     };
 
-   
     
 
     useEffect (() => {
@@ -41,16 +44,44 @@ const App = () => {
         const getJobs = async () => {
           const jobsData = await getDocs(jobsCollectionRef);
           setJobs(jobsData.docs.map((doc) => ({...doc.data(), id: doc.id})));
-    
+        
+        
         };
     
         getJobs();
+        
     
       }, [jobsCollectionRef]);
 
       onAuthStateChanged(auth, (currentUser) => {
         setCurrentUser(currentUser);
+        if (currentUser) {
+          currentUser.getIdTokenResult().then(idTokenResult => {
+            if (idTokenResult.claims?.admin) {
+              setIsAdmin(idTokenResult.claims.admin);
+            } else {
+              setIsAdmin(false);
+            };
+          });
+        };
+        
+        
       });
+
+      const functions = getFunctions();
+
+      const makeNewAdmin = async (adminEmail) => {
+        try {
+          const addAdminRole = httpsCallable(functions, 'addAdminRole');
+          const newAdmin = await addAdminRole( {email: adminEmail} );
+          console.log(newAdmin);
+        } catch (error) {
+          console.log(error);
+        };
+      };
+
+      
+
 
       const register = async (registerEmail, registerPassword) => {
         try {
@@ -187,13 +218,14 @@ const App = () => {
                 
                 {currentUser?
                   <div>
-                    <NavigationBarJobBoardLoggedIn currentUser={currentUser} logOut={logOut} />
+                    <NavigationBarJobBoardLoggedIn currentUser={currentUser} isAdmin={isAdmin} logOut={logOut} />
                   </div>
                 : <div>
                   <NavigationBarJobBoardNonLoggedIn />
                 </div> }
 
               </header>
+              
                 
                 
             
@@ -207,6 +239,7 @@ const App = () => {
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
+                  <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   
               </Routes>
             </div>
