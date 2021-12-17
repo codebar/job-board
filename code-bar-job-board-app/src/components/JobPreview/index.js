@@ -10,6 +10,7 @@ const JobPreview = () => {
 
     const data = useLocation();
     const previewJob = data.state.previewJob;
+    
 
     return (
        <div className="container">

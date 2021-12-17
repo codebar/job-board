@@ -3,6 +3,7 @@ export const JOB = '/jobs/:job_id';
 export const MY_JOBS = '/my/jobs';
 export const SUBMIT_JOB = '/my/jobs/new'
 export const PREVIEW_JOB = '/my/jobs/new/preview'
+export const EDIT_JOB = '/my/jobs/job_id/edit'
 
 
 export const SIGN_UP = '/signup';

@@ -2,15 +2,15 @@
 
 const Footer = () => {
 
-    
+
 
     return (
         <footer className="main-footer container-fluid">
-            <div className='row pt-5'>
+            <div className='row py-5'>
                 <div className='col-sm-12 col-md-6 col-lg-3'>
                     <p>&#169; {new Date().getFullYear()} codebar</p>
                     <p className="contact">
-                        Send us an email at... 
+                        Send us an email at...
                         <a className='text-white font-weight-bold text-decoration-none footer-link ' href='mailto:hello@codebar.io?Subject=Hello codebar'>hello@codebar.io</a>
                     </p>
                 </div>
@@ -56,10 +56,10 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="row pb-4">
+            <div className="row pb-2">
                    <div className="col">
-                       <ul className="list-inline registration m-0 p-0">
-                           <li className="list-inline-item">Registered UK and Wales charity no. 1187776</li>
+                       <ul className="list-inline m-0 p-0">
+                           <li className="fs-6 list-inline-item">Registered UK and Wales charity no. 1187776</li>
                            <li className="list-inline-item"><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/cookie-policy" >Cookie Policy</a></li>
                            <li className="list-inline-item"><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/privacy-policy" >Privacy Policy</a></li>
                        </ul>

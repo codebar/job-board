@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import BeforePostCheckList from "../BeforePostChecklist/index.js";
-import SignIn from "../SignIn/index.js";
-import { Form, Button } from 'react-bootstrap';
 import { useLocation } from "react-router";
+import { Form, Button } from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import SignIn from "../SignIn";
+import BeforePostCheckList from "../BeforePostChecklist";
 
+const EditJob = ({updateJobPost, currentUser}) => {
 
-const SumbitJobPage = ({createJobPost, currentUser}) => {
+    const data = useLocation();
+    const job = data.state.job;
+    
+
     const [validated, setValidated] = useState(false);
 
     const [formJobTitle, setFormJobTitle] = useState("");
@@ -23,12 +27,12 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
     const [formJobCompanyAddress, setFormJobCompanyAddress] = useState("");
     const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
-    const data = useLocation();
+    
 
     
 
     const getJobDataFromPreview = () => {
-        if (data.state) {
+        if (data.state?.previewJob) {
             const jobTitle = document.getElementById('job-title');
             jobTitle.value = data.state.previewJob.job_title;
             setFormJobTitle(data.state.previewJob.job_title);
@@ -86,8 +90,67 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
         };
     };
 
+    const getJobDataToEdit = () => {
+        if (data.state?.job) {
+            const jobTitle = document.getElementById('job-title');
+            jobTitle.value = job.job_title;
+            setFormJobTitle(job.job_title);
+
+            const jobDescription = document.getElementById('job-description');
+            jobDescription.value = job.job_description;
+            setFormJobDescription(job.job_description);
+
+            const jobSalary = document.getElementById('job-salary');
+            jobSalary.value = job.salary;
+            setFormJobSalary(job.salary);
+
+            const jobRemoteCheck = document.getElementById('job-remote');
+            if (job.remote == true) {
+                setFormJobRemote(true);
+                jobRemoteCheck.checked = 'true'};
+            
+            const jobContactName = document.getElementById('job-contact-name');
+            jobContactName.value = job.contact_name;
+            setFormJobContactName(job.contact_name);
+
+            const jobContactEmail = document.getElementById('job-contact-email');
+            jobContactEmail.value = job.contact_email;
+            setFormJobContactEmail(job.contact_email);
+
+            const jobPostLink = document.getElementById('job-post-link');
+            jobPostLink.value = job.job_post_link;
+            setFormJobPostLink(job.job_post_link);
+            
+            const jobClosingDate = document.getElementById('job-closing-date');
+            jobClosingDate.value = job.closing_date;
+            setFormJobClosingDate(job.closing_date);
+
+            const jobCompanyName = document.getElementById('company-name');
+            jobCompanyName.value = job.company_name;
+            setFormJobCompanyName(job.company_name);
+
+            const jobCompanyWebsite = document.getElementById('company-website');
+            jobCompanyWebsite.value = job.company_url;
+            setFormJobCompanyWebsite(job.company_url);
+
+            const jobCompanyLocation = document.getElementById('company-location');
+            jobCompanyLocation.value = job.company_location;
+            setFormJobCompanyLocation(job.company_location);
+
+            const jobCompanyAddress = document.getElementById('company-address');
+            jobCompanyAddress.value = job.company_address;
+            setFormJobCompanyAddress(job.company_address);
+
+            const jobCompanyPostcode = document.getElementById('company-postcode');
+            jobCompanyPostcode.value = job.company_postcode;
+            setFormJobCompanyPostcode(job.company_postcode);
+
+        };
+    };
+
     useEffect(() => {
         getJobDataFromPreview();
+        getJobDataToEdit();
     }, []);
 
     const handleJobPostSubmitForm = (evt) => {
@@ -102,8 +165,8 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
         setValidated(true);
 
         evt.preventDefault();
-        createJobPost(
-
+        updateJobPost(
+            job.id,
             formJobTitle,
             formJobDescription,
             formJobSalary,
@@ -145,7 +208,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
         <div className="container">
             {currentUser?
                 <div>
-                    <h2>List a new job</h2>
+                    <h2>Edit your job</h2>
                     <p class="alert alert-primary">You will need to make the payment of £50 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
                     <hr />
                     <div className="row mt-4">
@@ -261,15 +324,8 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                                 </div>
 
                                 <div className="my-4">
-                                    <Link
-                                        to={{
-                                            pathname: '/my/jobs/new/preview'
-                                            }}
-                                            state={{ previewJob }}
-                                    >
-                                                <Button className='button bold' variant="secondary">Preview this job post</Button>
-                                    </Link>
-                                    <Button className='button bold' variant="primary" type="submit">Submit job for approval</Button>
+                                    
+                                    <Button className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
                                 </div>
                             </Form>
                         </div>
@@ -278,7 +334,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                 </div>
                 :
                 <div>
-                    <h3>You need to log in to post a job</h3>
+                    <h3>You need to log in to edit a job</h3>
                     <SignIn></SignIn>
                 </div>
             }
@@ -286,4 +342,4 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
     );
 };
 
-export default SumbitJobPage;
+export default EditJob;
