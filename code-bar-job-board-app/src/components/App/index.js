@@ -20,6 +20,7 @@ import SumbitJobPage from '../SubmitJob/index.js';
 import JobPreview from '../JobPreview/index.js';
 import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
+import AdminOnlyDraftJobs from '../AdminOnly/index.js';
 
 import * as ROUTES from '../../constants/routes';
 import { isAdmin } from '@firebase/util';
@@ -240,6 +241,7 @@ const App = () => {
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
+                  <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs jobs={jobs}></AdminOnlyDraftJobs> }></Route>
                   
               </Routes>
             </div>
