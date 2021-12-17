@@ -1,10 +1,13 @@
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
+import { useLocation } from 'react-router';
 
 
 const FullJob = ({job}) => {
 
+    const data = useLocation();
+    
     
     return (
         <div className="container">

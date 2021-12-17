@@ -9,6 +9,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
 
     const data = useLocation();
     const job = data.state.job;
+    
 
     const [validated, setValidated] = useState(false);
 
@@ -165,7 +166,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
 
         evt.preventDefault();
         updateJobPost(
-
+            job.id,
             formJobTitle,
             formJobDescription,
             formJobSalary,
@@ -323,15 +324,8 @@ const EditJob = ({updateJobPost, currentUser}) => {
                                 </div>
 
                                 <div className="my-4">
-                                    <Link
-                                        to={{
-                                            pathname: '/my/jobs/new/preview'
-                                            }}
-                                            state={{ previewJob }}
-                                    >
-                                                <Button className='button bold' variant="secondary">Preview this job post</Button>
-                                    </Link>
-                                    <Button className='button bold' variant="primary" type="submit">Submit job for approval</Button>
+                                    
+                                    <Button className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
                                 </div>
                             </Form>
                         </div>
