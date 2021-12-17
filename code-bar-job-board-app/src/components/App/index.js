@@ -28,7 +28,7 @@ const App = () => {
 
     const [jobs, setJobs] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
-    const [sAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
 
@@ -218,7 +218,7 @@ const App = () => {
                 
                 {currentUser?
                   <div>
-                    <NavigationBarJobBoardLoggedIn currentUser={currentUser} logOut={logOut} />
+                    <NavigationBarJobBoardLoggedIn currentUser={currentUser} isAdmin={isAdmin} logOut={logOut} />
                   </div>
                 : <div>
                   <NavigationBarJobBoardNonLoggedIn />

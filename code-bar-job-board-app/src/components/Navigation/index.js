@@ -3,6 +3,7 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 import * as ROUTES from '../../constants/routes'
@@ -10,6 +11,9 @@ import * as ROUTES from '../../constants/routes'
 
 
 const NavigationBarJobBoardNonLoggedIn = () => {
+
+    
+
     return (
         <Navbar bg="white" expand="lg" fixed="top">
         <Container>
@@ -27,7 +31,8 @@ const NavigationBarJobBoardNonLoggedIn = () => {
     );
 };
 
-const NavigationBarJobBoardLoggedIn = ({currentUser, logOut}) => {
+const NavigationBarJobBoardLoggedIn = ({currentUser, logOut, isAdmin}) => {
+
 
     return (
 
@@ -45,6 +50,7 @@ const NavigationBarJobBoardLoggedIn = ({currentUser, logOut}) => {
                             <NavDropdown.ItemText><p>Logged in as {currentUser.email}</p></NavDropdown.ItemText>
                             <NavDropdown.Item onClick={logOut}><Link to={{pathname: ROUTES.LANDING}}>Sign Out</Link></NavDropdown.Item>
                         </NavDropdown>
+                        { isAdmin===true? <Nav.Link href='/'>Jobs to approve</Nav.Link> : null}
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
