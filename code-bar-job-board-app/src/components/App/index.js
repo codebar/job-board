@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { collection, getDocs, addDoc } from 'firebase/firestore'
+import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
 import { db, auth } from '../Firebase/firebase-config.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 import '../App/App.css';
@@ -17,6 +17,7 @@ import { NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from 
 import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
 import JobPreview from '../JobPreview/index.js';
+import EditJob from '../EditJob/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -132,6 +133,52 @@ const App = () => {
           
       };
 
+      const updateJobPost = async (
+        id,
+        formJobTitle,
+        formJobDescription,
+        formJobSalary,
+        formJobRemote,
+        formJobContactName,
+        formJobContactEmail,
+        formJobPostLink,
+        formJobClosingDate,
+        formJobCompanyName,
+        formJobCompanyLocation,
+        formJobCompanyWebsite,
+        formJobCompanyAddress,
+        formJobCompanyPostcode
+      ) => {
+
+        try {
+          const jobToUpdate = doc(db, "jobs", id);
+          const newFields = {
+            closing_date: formJobClosingDate,
+            company_address: formJobCompanyAddress,
+            company_location: formJobCompanyLocation,
+            company_name: formJobCompanyName,
+            company_postcode: formJobCompanyPostcode,
+            company_url: formJobCompanyWebsite,
+            contact_email: formJobContactEmail,
+            contact_name: formJobContactName,
+            
+            job_description: formJobDescription,
+            job_post_link: formJobPostLink,
+            job_title: formJobTitle,
+            marketing_opt_in: false,
+            published_date: "",
+            remote: formJobRemote,
+            salary: formJobSalary,
+            approved_status: false
+          };
+          await updateDoc(jobToUpdate, newFields);
+          console.log(jobToUpdate);
+        } catch (error) {
+          console.log(error.message);
+        };
+
+      };
+
 
     return (
         
@@ -153,12 +200,13 @@ const App = () => {
             <div>
             <Routes>
                   <Route exact path={ROUTES.LANDING} element={ <LandingPage currentUser={currentUser} jobs={jobs}/> } />
-                  <Route exact path={ROUTES.JOB} element={ <JobPage></JobPage>}></Route>
+                  <Route exact path={ROUTES.JOB} element={ <JobPage currentUser={currentUser}></JobPage>}></Route>
                   <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
+                  <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
                   
               </Routes>
             </div>

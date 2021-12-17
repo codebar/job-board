@@ -31,7 +31,7 @@ const MyJobsPage = ({currentUser, jobs}) => {
                             <div className="col-2"><p className="fs-5 bold mb-2">Expires on</p></div>
                             <div className="col-2"><p className="fs-5 bold mb-2">Status</p></div>
                         </div>
-                        <UserJobsPage currentUserJobs={currentUserJobs}></UserJobsPage>
+                        <UserJobsPage currentUser={currentUser} currentUserJobs={currentUserJobs}></UserJobsPage>
                     </div>
             :
                     <NoJobsPage></NoJobsPage> }
