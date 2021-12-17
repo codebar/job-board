@@ -1,14 +1,27 @@
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes.js';
 
 
 const FullJob = ({job}) => {
+
+    
     return (
         <div className="container">
 
             <div className="row mb-5">
                 <section className='col-lg-8 col-sm-12'>
                     <h2 className="mb-4">{job.job_title}</h2>
+                    {job.approved_status == false?
+                        <Link
+                        to={{
+                            pathname: ROUTES.EDIT_JOB
+                            }}
+                        state={{job}}
+                            
+                    >
+                    <Button>Edit this job</Button></Link> : null
+                    }
                     <p>{job.job_description}</p>
                     <h3 className="mt-4">Company</h3>
                     <p className="mb-0">{job.company_name}</p>
