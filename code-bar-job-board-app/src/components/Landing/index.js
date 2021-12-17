@@ -14,6 +14,8 @@ const LandingPage = ({jobs}) => {
             return <JobSummary job={job} key={job.id}></JobSummary>
         });
 
+   
+
 
     return (
         <div className="container">
