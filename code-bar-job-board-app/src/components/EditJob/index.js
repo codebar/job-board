@@ -1,7 +1,6 @@
 import { useLocation } from "react-router";
 import { Form, Button } from 'react-bootstrap';
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import SignIn from "../SignIn";
 import BeforePostCheckList from "../BeforePostChecklist";
 
@@ -46,7 +45,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
             setFormJobSalary(data.state.previewJob.salary);
 
             const jobRemoteCheck = document.getElementById('job-remote');
-            if (data.state.previewJob.remote == true) {
+            if (data.state.previewJob.remote === true) {
                 setFormJobRemote(true);
                 jobRemoteCheck.checked = 'true'};
             
@@ -105,7 +104,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
             setFormJobSalary(job.salary);
 
             const jobRemoteCheck = document.getElementById('job-remote');
-            if (job.remote == true) {
+            if (job.remote === true) {
                 setFormJobRemote(true);
                 jobRemoteCheck.checked = 'true'};
             
@@ -183,24 +182,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
             );
     };
 
-    const previewJob = {
-        closing_date: formJobClosingDate,
-        company_address: formJobCompanyAddress,
-        company_location: formJobCompanyLocation,
-        company_name: formJobCompanyName,
-        company_postcode: formJobCompanyPostcode,
-        company_url: formJobCompanyWebsite,
-        contact_email: formJobContactEmail,
-        contact_name: formJobContactName,
-        creator_id: "",
-        job_description: formJobDescription,
-        job_post_link: formJobPostLink,
-        job_title: formJobTitle,
-        marketing_opt_in: false,
-        published_date: "",
-        remote: formJobRemote,
-        salary: formJobSalary
-    };
+   
 
 
 

@@ -3,7 +3,6 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 
 import * as ROUTES from '../../constants/routes'

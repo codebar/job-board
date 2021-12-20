@@ -1,12 +1,11 @@
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
-import { useLocation } from 'react-router';
 
 
 const FullJob = ({job}) => {
 
-    const data = useLocation();
+    
     
     
     return (
@@ -15,7 +14,7 @@ const FullJob = ({job}) => {
             <div className="row mb-5">
                 <section className='col-lg-8 col-sm-12'>
                     <h2 className="mb-4">{job.job_title}</h2>
-                    {job.approved_status == false?
+                    {job.approved_status === false?
                         <Link
                         to={{
                             pathname: ROUTES.EDIT_JOB

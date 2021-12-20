@@ -17,7 +17,7 @@ const SignUp = ({register}) => {
     };
 
     const handleSignUpButtonClick = () => {
-        const res = register(registerEmail, registerPassword);
+        register(registerEmail, registerPassword);
       
     };
 

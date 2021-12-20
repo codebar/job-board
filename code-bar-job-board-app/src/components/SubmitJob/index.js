@@ -42,7 +42,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
             setFormJobSalary(data.state.previewJob.salary);
 
             const jobRemoteCheck = document.getElementById('job-remote');
-            if (data.state.previewJob.remote == true) {
+            if (data.state.previewJob.remote === true) {
                 setFormJobRemote(true);
                 jobRemoteCheck.checked = 'true'};
             

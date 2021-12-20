@@ -23,7 +23,7 @@ import MakeAdmin from '../MakeAdmin/index.js';
 import AdminOnlyDraftJobs from '../AdminOnly/index.js';
 
 import * as ROUTES from '../../constants/routes';
-import { isAdmin } from '@firebase/util';
+
 
 const App = () => {
 
