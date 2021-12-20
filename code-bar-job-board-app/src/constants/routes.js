@@ -12,6 +12,3 @@ export const ADMIN_PREVIEW_DRAFT_JOB = '/admin/jobs/:job_id'
 export const SIGN_UP = '/signup';
 export const SIGN_IN = '/signin';
 
-
-export const ACCOUNT = '/account';
-export const ADMIN = '/admin';

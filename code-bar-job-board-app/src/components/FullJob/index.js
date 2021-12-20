@@ -26,7 +26,9 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
                 {isAdmin === true?
                     <div className='admin-info'>
                         {job.approved_status == false?
-                            <Button onClick={handleApproveButtonClick} className='button' variant="success">Approve this job</Button> : 
+                            <Link to={{pathname: ROUTES.ADMIN_DRAFT_JOBS}}>
+                                <Button onClick={handleApproveButtonClick} className='button' variant="success">Approve this job</Button>
+                            </Link> : 
                             <h5 className='font-weight-bold'>This job was approved on {job.published_date}</h5>
                         }        
                     </div> : null
