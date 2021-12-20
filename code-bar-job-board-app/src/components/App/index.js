@@ -246,7 +246,7 @@ const App = () => {
             <div>
             <Routes>
                   <Route exact path={ROUTES.LANDING} element={ <LandingPage currentUser={currentUser} jobs={jobs}/> } />
-                  <Route exact path={ROUTES.JOB} element={ <JobPage currentUser={currentUser}></JobPage>}></Route>
+                  <Route exact path={ROUTES.JOB} element={ <JobPage currentUser={currentUser} isAdmin={isAdmin}></JobPage>}></Route>
                   <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage jobs={jobs} currentUser={currentUser} />}></Route>

@@ -40,7 +40,7 @@ const AdminOnlyDraftJobs = ({jobs, approveJob}) => {
                         <div className="col-1">
                             {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">In Draft</Badge>}
                         </div>
-                        <Button value={job.id} onClick={handleApproveButtonClick} className="col-1" variant='secondary'>Approve</Button>
+    
                     </div>
         </div>
     });
@@ -60,13 +60,7 @@ const AdminOnlyDraftJobs = ({jobs, approveJob}) => {
             </div>
             <div className="col">
                 {listOfDraftJobs}
-                <div className="row my-4">
-                    <div className="col">
-                        <Link to={{pathname: ROUTES.SUBMIT_JOB}}>
-                            <Button className='button bold' variant="primary">Post a new job</Button>
-                        </Link>
-                    </div>
-                </div>
+                
             </div>
         </div>
     );

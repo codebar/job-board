@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
 
 
-const FullJob = ({job}) => {
+const FullJob = ({job, currentUser, isAdmin}) => {
 
-    
-    
     
     return (
         <div className="container">
@@ -14,7 +12,7 @@ const FullJob = ({job}) => {
             <div className="row mb-5">
                 <section className='col-lg-8 col-sm-12'>
                     <h2 className="mb-4">{job.job_title}</h2>
-                    {job.approved_status === false?
+                    {(job.approved_status === false && job.creator_id === currentUser.uid) || isAdmin === true?
                         <Link
                         to={{
                             pathname: ROUTES.EDIT_JOB
