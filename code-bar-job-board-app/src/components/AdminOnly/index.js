@@ -17,7 +17,7 @@ const AdminOnlyDraftJobs = ({jobs}) => {
     
 
     const listOfDraftJobs = draftJobs.map((job) => {
-        return  <div>
+        return  <div key={job.id}>
             <div className='row flex mt-3 border-bottom border-dark' key={job.id}>
                         <div className="col-2">
                             <Link
