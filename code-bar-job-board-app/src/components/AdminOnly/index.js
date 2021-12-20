@@ -1,9 +1,9 @@
 import * as ROUTES from '../../constants/routes.js';
-import { Badge, Button } from 'react-bootstrap';
+import { Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const AdminOnlyDraftJobs = ({jobs, approveJob}) => {
+const AdminOnlyDraftJobs = ({jobs}) => {
 
     const [draftJobs, setDraftJobs] = useState([]);
 
@@ -14,12 +14,7 @@ const AdminOnlyDraftJobs = ({jobs, approveJob}) => {
         
     }, [jobs]);
 
-    const handleApproveButtonClick = (evt) => {
-        evt.preventDefault();
-        const jobToApproveId = evt.target.value;
-        approveJob(jobToApproveId);
-        
-    };
+    
 
     const listOfDraftJobs = draftJobs.map((job) => {
         return  <div>
