@@ -5,10 +5,8 @@ import * as ROUTES from '../../constants/routes.js';
 
 const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
 
-    const handleApproveButtonClick = (evt) => {
-        evt.preventDefault();
-        const jobToApproveId = evt.target.value;
-        approveJob(jobToApproveId);
+    const handleApproveButtonClick = () => {
+        approveJob(job.id);
     };
 
     
