@@ -72,7 +72,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
                             </div>
                         </Card.Body>
                         <Card.Footer>
-                            <Link to=''><Button className='button bold w-100'>Apply for this job</Button></Link>
+                            <Button className='button bold w-100'><a className="text-white" href={job.job_post_link} target='blank'>Apply for this job</a></Button>
                         </Card.Footer>
                     </Card>
                 </section>
