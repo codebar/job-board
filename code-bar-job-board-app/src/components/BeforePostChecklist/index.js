@@ -54,7 +54,7 @@ const BeforePostCheckList = () => {
                     defaultChecked = {checkSeven} onChange={() => {setCheckSeven(!checkSeven)}}></Form.Check>
                 </Form.Group>
 
-                <Button variant='info' className='button'>Pay here</Button>
+                <Button variant='info' className='button'><a className="text-dark" href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a></Button>
                 <p>For an additional <b>£200</b> you can have your job listing featured in our newsletter and made available to an audience of over 10000 students and coaches. To find out more and when our next newsletter is being sent, send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
             </div>
 
