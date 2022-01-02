@@ -215,9 +215,10 @@ const App = () => {
         
         try {
           const jobToApprove = doc(db, "jobs", jobToApproveId);
+          const todayDate = new Date().toLocaleDateString();
           const newFields = {
             approved_status: true,
-            published_date: 'today',
+            published_date: todayDate,
           };
           await updateDoc(jobToApprove, newFields);
           console.log(jobToApprove);
