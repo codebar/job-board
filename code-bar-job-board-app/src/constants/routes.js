@@ -9,7 +9,7 @@ export const ADMIN_PREVIEW_DRAFT_JOB = '/admin/jobs/:job_id'
 
 
 export const MAKE_ADMIN = '/make_admin'
-export const SIGN_UP = '/signup';
-export const SIGN_IN = '/signin';
-export const RESET_PASSWORD = '/password_reset'
+export const SIGN_UP = '/signup'
+export const SIGN_IN = '/signin'
+export const FORGOT_PASSWORD = '/forgot-password'
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { db, auth } from '../Firebase/firebase-config.js'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, signOut, sendSignInLinkToEmail } from 'firebase/auth';
 import '../App/App.css';
 
 
@@ -21,7 +21,7 @@ import JobPreview from '../JobPreview/index.js';
 import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
 import AdminOnlyDraftJobs from '../AdminOnly/index.js';
-import ResetPassword from '../ResetPassword/index.js';
+import ForgotPassword from '../ForgotPassword/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -119,6 +119,10 @@ const App = () => {
 
       const logOut = async () => {
         await signOut(auth);
+      };
+
+      const resetPasswordEmail = async (email) => {
+        await sendPasswordResetEmail(auth, email);
       };
 
       const createJobPost = async (
@@ -259,7 +263,7 @@ const App = () => {
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs approveJob={approveJob} jobs={jobs}></AdminOnlyDraftJobs> }></Route>
-                  <Route path={ROUTES.RESET_PASSWORD} element = { <ResetPassword></ResetPassword> }></Route>
+                  <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
                   
               </Routes>
             </div>
