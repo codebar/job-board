@@ -1,8 +1,10 @@
 import { useLocation } from "react-router";
 import { Form, Button } from 'react-bootstrap';
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import SignIn from "../SignIn";
 import BeforePostCheckList from "../BeforePostChecklist";
+import * as ROUTES from '../../constants/routes.js';
 
 const EditJob = ({updateJobPost, currentUser}) => {
 
@@ -163,7 +165,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
 
         setValidated(true);
 
-        evt.preventDefault();
+        
         updateJobPost(
             job.id,
             formJobTitle,
@@ -198,7 +200,7 @@ const EditJob = ({updateJobPost, currentUser}) => {
                             <BeforePostCheckList></BeforePostCheckList>
                         </div>
                         <div className="container col-md-6 col-sm-12">
-                            <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
+                            <Form noValidate validated={validated} className='job-post-form'>
                                 <div className="border rounded p-4">
                                     <section className='job-details-section'>
                                         <h3>Job post details</h3>
@@ -307,7 +309,9 @@ const EditJob = ({updateJobPost, currentUser}) => {
 
                                 <div className="my-4">
                                     
-                                    <Button className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
+                                    <Link to={{ pathname: ROUTES.MY_JOBS}}>
+                                        <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
+                                    </Link>
                                 </div>
                             </Form>
                         </div>

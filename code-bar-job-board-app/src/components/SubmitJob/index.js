@@ -4,6 +4,7 @@ import BeforePostCheckList from "../BeforePostChecklist/index.js";
 import SignIn from "../SignIn/index.js";
 import { Form, Button } from 'react-bootstrap';
 import { useLocation } from "react-router";
+import * as ROUTES from '../../constants/routes.js';
 
 
 const SumbitJobPage = ({createJobPost, currentUser}) => {
@@ -101,7 +102,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
 
         setValidated(true);
 
-        evt.preventDefault();
+        
         createJobPost(
 
             formJobTitle,
@@ -153,7 +154,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                             <BeforePostCheckList></BeforePostCheckList>
                         </div>
                         <div className="container col-md-6 col-sm-12">
-                            <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
+                            <Form noValidate validated={validated} className='job-post-form'>
                                 <div className="border rounded p-4">
                                     <section className='job-details-section'>
                                         <h3>Job post details</h3>
@@ -269,7 +270,9 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                                     >
                                                 <Button className='button bold' variant="secondary">Preview this job post</Button>
                                     </Link>
-                                    <Button className='button bold' variant="primary" type="submit">Submit job for approval</Button>
+                                    <Link to={{pathname: ROUTES.MY_JOBS}}>
+                                        <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Submit job for approval</Button>
+                                    </Link>
                                 </div>
                             </Form>
                         </div>
