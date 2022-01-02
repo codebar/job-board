@@ -3,27 +3,41 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
 
 
-const FullJob = ({job}) => {
+const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
 
-    
-    
+    const handleApproveButtonClick = () => {
+        approveJob(job.id);
+    };
+
     
     return (
         <div className="container">
 
+            {(job.approved_status === false && job.creator_id === currentUser.uid) || isAdmin === true?
+                <Link
+                    to={{
+                        pathname: ROUTES.EDIT_JOB
+                        }}
+                    state={{job}}
+                >
+                <Button className='button'>Edit this job</Button></Link> : null
+            }
+
+                {isAdmin === true?
+                    <div className='admin-info'>
+                        {job.approved_status === false?
+                            <Link to={{pathname: ROUTES.ADMIN_DRAFT_JOBS}}>
+                                <Button onClick={handleApproveButtonClick} className='button' variant="success">Approve this job</Button>
+                            </Link> : 
+                            <h5 className='font-weight-bold'>This job was approved on {job.published_date}</h5>
+                        }        
+                    </div> : null
+                }
+
             <div className="row mb-5">
                 <section className='col-lg-8 col-sm-12'>
                     <h2 className="mb-4">{job.job_title}</h2>
-                    {job.approved_status === false?
-                        <Link
-                        to={{
-                            pathname: ROUTES.EDIT_JOB
-                            }}
-                        state={{job}}
-                            
-                    >
-                    <Button>Edit this job</Button></Link> : null
-                    }
+
                     <p>{job.job_description}</p>
                     <h3 className="mt-4">Company</h3>
                     <p className="mb-0">{job.company_name}</p>

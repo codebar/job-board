@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import * as ROUTES from '../../constants/routes.js'
 
-const LandingPage = ({jobs}) => {
+const LandingPage = ({jobs, currentUser}) => {
 
     const getApprovedJobs = jobs.filter((job) => {
         return job.approved_status === true;
     });
 
     const getJobSummaries = getApprovedJobs.map((job) => {
-            return <JobSummary job={job} key={job.id}></JobSummary>
+            return <JobSummary job={job} key={job.id} currentUser={currentUser}></JobSummary>
         });
 
    
