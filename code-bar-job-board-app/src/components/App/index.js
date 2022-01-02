@@ -217,6 +217,7 @@ const App = () => {
           const jobToApprove = doc(db, "jobs", jobToApproveId);
           const newFields = {
             approved_status: true,
+            published_date: 'today',
           };
           await updateDoc(jobToApprove, newFields);
           console.log(jobToApprove);
