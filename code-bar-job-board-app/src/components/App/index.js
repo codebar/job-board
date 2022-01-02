@@ -21,6 +21,7 @@ import JobPreview from '../JobPreview/index.js';
 import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
 import AdminOnlyDraftJobs from '../AdminOnly/index.js';
+import ResetPassword from '../ResetPassword/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -258,6 +259,7 @@ const App = () => {
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs approveJob={approveJob} jobs={jobs}></AdminOnlyDraftJobs> }></Route>
+                  <Route path={ROUTES.RESET_PASSWORD} element = { <ResetPassword></ResetPassword> }></Route>
                   
               </Routes>
             </div>

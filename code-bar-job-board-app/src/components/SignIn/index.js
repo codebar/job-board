@@ -47,6 +47,7 @@ const SignIn = ({logIn}) => {
             Login
           </Button>
         </Link>
+        <Link to={{pathname: ROUTES.RESET_PASSWORD}}><Button className='button bold'>I've forgotten my password</Button></Link>
       </Form>
       <hr />
       <div>
