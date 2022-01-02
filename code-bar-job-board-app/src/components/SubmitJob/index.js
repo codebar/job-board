@@ -7,7 +7,7 @@ import { useLocation } from "react-router";
 import * as ROUTES from '../../constants/routes.js';
 
 
-const SumbitJobPage = ({createJobPost, currentUser}) => {
+const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
     const [validated, setValidated] = useState(false);
 
     const [formJobTitle, setFormJobTitle] = useState("");
@@ -282,7 +282,7 @@ const SumbitJobPage = ({createJobPost, currentUser}) => {
                 :
                 <div>
                     <h3>You need to log in to post a job</h3>
-                    <SignIn></SignIn>
+                    <SignIn logIn={logIn}></SignIn>
                 </div>
             }
         </div>
