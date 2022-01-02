@@ -53,7 +53,7 @@ const AdminOnlyDraftJobs = ({jobs}) => {
                     <div className="col-2"><p className="fs-5 bold mb-2">Status</p></div>
                 </div>
             </div>
-            <div className="col">
+            <div className="col-10">
                 {listOfDraftJobs}
                 
             </div>
