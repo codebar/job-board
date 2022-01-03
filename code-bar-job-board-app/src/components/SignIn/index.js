@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 
 import * as ROUTES from '../../constants/routes.js'
 
@@ -58,6 +58,8 @@ const SignIn = ({logIn}) => {
           <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button bold' type="submit" disabled={!validateForm()}>
             Login
           </Button>
+
+        { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
         
         <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><a>I've forgotten my password</a></Link>
       </Form>
