@@ -12,7 +12,8 @@ const SignIn = ({logIn}) => {
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
-  const handleLogInButtonClick = () => {
+  const handleLogInButtonClick = (evt) => {
+    evt.preventDefault();
     logIn(signInEmail, signInPassword);
   };
 
@@ -42,11 +43,11 @@ const SignIn = ({logIn}) => {
             onChange={(evt) => setSignInPassword(evt.target.value)}
           />
         </Form.Group>
-        <Link to={{pathname: ROUTES.LANDING}}>
-          <Button onClick={handleLogInButtonClick} className='button bold' type="submit" disabled={!validateForm()}>
+        
+          <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button bold' type="submit" disabled={!validateForm()}>
             Login
           </Button>
-        </Link>
+        
         <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><a>I've forgotten my password</a></Link>
       </Form>
       <hr />
