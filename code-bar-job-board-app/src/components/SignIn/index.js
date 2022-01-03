@@ -11,11 +11,21 @@ const SignIn = ({logIn}) => {
 
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   
 
-  const handleLogInButtonClick = (evt) => {
+  const handleLogInButtonClick = async (evt) => {
     evt.preventDefault();
-    logIn(signInEmail, signInPassword);
+    try {
+      await logIn(signInEmail, signInPassword);
+    } catch(error) {
+      if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
+        setErrorMessage("Invalid username / password");
+      } else {
+        console.log(error.code);
+        setErrorMessage("Unknown error logging in");
+      };
+    }
   };
 
   const validateForm = () => {
