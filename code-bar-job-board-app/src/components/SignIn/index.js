@@ -23,7 +23,7 @@ const SignIn = ({logIn}) => {
 
   return (
     <div className="login container">
-      <p>Log in to view your jobs, or post a new job</p>
+      <p>Log in with email and password</p>
       <Form className='col-lg-4 col-md-6'>
         <Form.Group size="lg" controlId="email" className="sign-in-up-input">
           <Form.Label>Email</Form.Label>
@@ -47,7 +47,7 @@ const SignIn = ({logIn}) => {
             Login
           </Button>
         </Link>
-        <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><Button className='button bold'>I've forgotten my password</Button></Link>
+        <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><a>I've forgotten my password</a></Link>
       </Form>
       <hr />
       <div>

@@ -37,9 +37,9 @@ const ForgotPassword = ({resetPasswordEmail}) => {
             </Button>
 
             <Link to={{pathname: ROUTES.SIGN_IN}}>
-            <Button className='button bold'>
+            <a>
                 Go to login page
-            </Button>
+            </a>
             </Link>
             
             
