@@ -235,7 +235,7 @@ const App = () => {
 
     return (
         
-            <Router>
+          <div>
               <header id='top'>
                 
                 {currentUser?
@@ -271,7 +271,7 @@ const App = () => {
                   
                   <Footer/>
             
-              </Router>
+          </div>
         
     );
 };
