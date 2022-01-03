@@ -105,6 +105,7 @@ const App = () => {
             signInEmail, 
             signInPassword)
           console.log(user);
+          navigate(ROUTES.LANDING);
         } catch (error) {
           console.log(error.message);
         };
