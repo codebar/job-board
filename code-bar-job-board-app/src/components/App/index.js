@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
 import { getFunctions, httpsCallable } from 'firebase/functions';
@@ -33,6 +33,7 @@ const App = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
+    const navigate = useNavigate();
 
     const actionCodeSettings = {
       url: 'http://localhost:3000/',
