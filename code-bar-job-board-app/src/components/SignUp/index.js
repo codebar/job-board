@@ -16,8 +16,9 @@ const SignUp = ({register}) => {
       return registerEmail.length > 0 && registerPassword.length > 0 && registerPassword === registerConfirmPassword;
     };
 
-    const handleSignUpButtonClick = () => {
-        register(registerEmail, registerPassword);
+    const handleSignUpButtonClick = (evt) => {
+      evt.preventDefault();
+      register(registerEmail, registerPassword);
       
     };
 
@@ -53,7 +54,7 @@ const SignUp = ({register}) => {
             
           </Form.Group>
           
-            <Button onClick={handleSignUpButtonClick} className='button' type="submit" disabled={!isValid()}>
+            <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
               Sign up
             </Button>
           

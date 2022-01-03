@@ -93,6 +93,7 @@ const App = () => {
             registerEmail, 
             registerPassword);
             console.log(user);
+            navigate(ROUTES.LANDING);
         } catch (error) {
           console.log(error.message);
         };
