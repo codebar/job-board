@@ -153,6 +153,7 @@ const App = () => {
               company_url: formJobCompanyWebsite,
               contact_email: formJobContactEmail,
               contact_name: formJobContactName,
+              created_date: new Date(),
               creator_id: currentUser.uid,
               job_description: formJobDescription,
               job_post_link: formJobPostLink,
