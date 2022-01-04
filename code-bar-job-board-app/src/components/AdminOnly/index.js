@@ -33,7 +33,10 @@ const AdminOnlyDraftJobs = ({jobs}) => {
                         <div className="col-2"><p>{job.closing_date}</p></div>
                         
                         <div className="col-2">
-                            {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">Awaiting Approval</Badge>}
+                            { new Date(job.closing_date.split("/")[2], job.closing_date.split("/")[1] - 1, job.closing_date.split("/")[0]) < new Date()? <Badge bg="secondary" className="fs-6">Expired</Badge> : 
+                            job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">Awaiting Approval</Badge>
+                            }
+                    
                         </div>
                         <div className="col-2">
                             <Link to={{ 
