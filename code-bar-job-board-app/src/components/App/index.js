@@ -88,6 +88,16 @@ const App = () => {
         };
       };
 
+      const removeAdmin = async (adminEmail) => {
+        try {
+          const removeAdminRole = httpsCallable(functions, 'removeAdminRole');
+          const removedAdmin = await removeAdminRole( {email: adminEmail} );
+          console.log(removedAdmin);
+        } catch (error) {
+          console.log(error);
+        };
+      };
+
 
 
       const register = async (registerEmail, registerPassword) => {
@@ -315,7 +325,7 @@ const App = () => {
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage logIn={logIn} currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
-                  <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
+                  <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin removeAdmin={removeAdmin} makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyJobs approveJob={approveJob} jobs={jobs}></AdminOnlyJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
 
