@@ -1,17 +1,30 @@
-import { Form, Button, FormGroup } from 'react-bootstrap';
+import { Form, Button, FormGroup, Alert } from 'react-bootstrap';
+import { useState } from 'react';
 
 const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin}) => {
 
-    const handleAdminFormSubmit = (evt) => {
+    const [makeAdminErrorMessage, setMakeAdminErrorMessage] = useState("");
+    const [removeAdminErrorMessage, setRemoveAdminErrorMessage] = useState("");
+
+    const handleNewAdminFormSubmit = async (evt) => {
         evt.preventDefault();
         const adminEmail = document.querySelector('#new-admin-email').value;
-        makeNewAdmin(adminEmail);
+        try {
+            await makeNewAdmin(adminEmail);
+        } catch (error) {
+            console.log(error.message);
+            setMakeAdminErrorMessage(error.message);
+        }
     };
 
-    const handleRemoveAdminSubmit = (evt) => {
+    const handleRemoveAdminSubmit = async (evt) => {
         evt.preventDefault();
         const adminEmail = document.querySelector('#remove-admin-email').value;
-        removeAdmin(adminEmail);
+        try {
+            await removeAdmin(adminEmail);
+        } catch (error) {
+            setRemoveAdminErrorMessage(error.message);
+        }
     };
 
     return (
@@ -19,12 +32,13 @@ const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin}) => {
             
             <h3>Add a new admin</h3>
             <p>To make an existing user an admin by their email address</p>
-            <Form onSubmit={handleAdminFormSubmit} className="col-6">
+            <Form onSubmit={handleNewAdminFormSubmit} className="col-6">
                 <FormGroup controlId='new-admin-email'>
                     <Form.Control type='email' placeholder='user email' ></Form.Control>
                 </FormGroup>
                 <Button className='button' type='submit'>Make an admin</Button>
             </Form>
+            { makeAdminErrorMessage? <Alert variant='danger'>Error updating admin rights. {makeAdminErrorMessage}</Alert>: null}
             
             <hr></hr>
 
@@ -36,6 +50,7 @@ const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin}) => {
                 </FormGroup>
                 <Button className='button' type='submit'>Remove admin</Button>
             </Form>
+            { removeAdminErrorMessage? <Alert variant='danger'>Error updating admin rights. {removeAdminErrorMessage}</Alert>: null}
             
         </div>
     );
