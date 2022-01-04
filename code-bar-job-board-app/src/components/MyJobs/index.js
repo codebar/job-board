@@ -61,7 +61,7 @@ const UserJobsPage = ({currentUserJobs}) => {
                     <div className="col-2"><p>{job.published_date}</p></div>
                     <div className="col-2"><p>{job.closing_date}</p></div>
                     <div className="col-2">
-                        {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">In Draft</Badge>}
+                        {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">Awaiting Approval</Badge>}
                     </div>
                 </div>
     });

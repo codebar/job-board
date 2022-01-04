@@ -30,10 +30,17 @@ const AdminOnlyDraftJobs = ({jobs}) => {
                         </div>
                         <div className="col-2"><p>{job.company_name}</p></div>
                         <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.company_location}</p>}</div>
-                        <div className="col-2"><p>{job.published_date}</p></div>
                         <div className="col-2"><p>{job.closing_date}</p></div>
-                        <div className="col-1">
-                            {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">In Draft</Badge>}
+                        
+                        <div className="col-2">
+                            {job.approved_status ? <Badge bg="success" className="fs-6">Live</Badge> : <Badge bg="primary" className="fs-6">Awaiting Approval</Badge>}
+                        </div>
+                        <div className="col-2">
+                            <Link to={{ 
+                                pathname: `/jobs/${job.id}`}}
+                                state={{ job }}>
+                                    Review
+                            </Link>
                         </div>
     
                     </div>
@@ -48,9 +55,9 @@ const AdminOnlyDraftJobs = ({jobs}) => {
                     <div className="col-2"><p className="fs-5 bold mb-2">Job title</p></div>
                     <div className="col-2"><p className="fs-5 bold mb-2">Company</p></div>
                     <div className="col-2"><p className="fs-5 bold mb-2">Location</p></div>
-                    <div className="col-2"><p className="fs-5 bold mb-2">Published on</p></div>
-                    <div className="col-2"><p className="fs-5 bold mb-2">Expires on</p></div>
+                    <div className="col-2"><p className="fs-5 bold mb-2">Closing date</p></div>
                     <div className="col-2"><p className="fs-5 bold mb-2">Status</p></div>
+                    <div className="col-2"></div>
                 </div>
             </div>
             <div className="col-10">
