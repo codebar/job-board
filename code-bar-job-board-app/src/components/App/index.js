@@ -88,7 +88,6 @@ const App = () => {
         };
       };
 
-      
 
 
       const register = async (registerEmail, registerPassword) => {
