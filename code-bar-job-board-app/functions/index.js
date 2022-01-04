@@ -4,13 +4,26 @@ const sgMail = require("@sendgrid/mail");
 const app = express();
 const cors = require("cors");
 
-// const whiteList = ['https://localhost:3000', 'localhost"3000']
+// corsOptions for production site (replace with job baord domain):
+// const whiteList = ['https://www.codebar.io', 'www.codebar.io']
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//       if (whitelist.indexOf(origin) !== -1) {
+//           // eslint-disable-next-line callback-return
+//           callback(null, true)
+//       } else {
+//           // eslint-disable-next-line callback-return
+//           callback(new Error('Not allowed by CORS'))
+//       }
+//   }
+// }
 
+// corsOptions for testing
 const corsOptions = {origin: true};
 
 app.get("/", cors(corsOptions), function(request, response, next) {
   sgMail.setApiKey(functions.config().sendgrid.key);
-  const from = "smhumphries@hotmail.co.uk";
+  const from = "jobs@codebar.io";
   const {to, subject, text} = request.query;
   const msg = {
     to,
