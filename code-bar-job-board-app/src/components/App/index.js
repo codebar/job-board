@@ -22,6 +22,7 @@ import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
 import AdminOnlyDraftJobs from '../AdminOnly/index.js';
 import ForgotPassword from '../ForgotPassword/index.js';
+import SendEmail from '../SendEmail/index.js';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -222,17 +223,21 @@ const App = () => {
 
       };
 
-      const approveJob = async (jobToApproveId) => {
+      const approveJob = async (job) => {
+
+        
         
         try {
-          const jobToApprove = doc(db, "jobs", jobToApproveId);
+          const jobToApprove = doc(db, "jobs", job.id);
           const todayDate = new Date().toLocaleDateString();
           const newFields = {
             approved_status: true,
             published_date: todayDate,
           };
           await updateDoc(jobToApprove, newFields);
-          console.log(jobToApprove);
+      
+          sendApprovedEmail(job);
+
         } catch (error) {
           console.log(error.message);
         };
@@ -251,6 +256,35 @@ const App = () => {
           console.log(error);
         };
         
+    };
+
+    const sendApprovedEmail = async (job) => {
+      
+      const approveEmail = 
+    
+        `<html>
+            <body>
+                <h3>Hi ${job.contact_name}</h3>
+                <p>The <a href=${job.job_post_link}>${job.job_title}</a> at ${job.company_name} job you submitted has been approved.</p>
+                <p>It is now visible to all members at <a href='https://codebar.io/jobs'>our jobs section.</a></p>
+
+                
+                <h4>Contact info</h4>
+                <p>Email: <strong><a href="mailto:jobs@codebar.io">jobs@codebar.io</a></strong></p>
+                
+            </body>
+        </html>`
+      try {
+        await createEmail(job.contact_email, 
+          {
+            subject: 'Job post approved',
+            html: approveEmail,
+          }
+        );
+        console.log("Email sent")
+      } catch (error) {
+        console.log(error.message);
+      }
     };
 
 
@@ -285,6 +319,7 @@ const App = () => {
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs approveJob={approveJob} jobs={jobs}></AdminOnlyDraftJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
+                  <Route path={ROUTES.SEND_EMAIL} element = { <SendEmail createEmail={createEmail}></SendEmail> }></Route>
                   
               </Routes>
             </div>

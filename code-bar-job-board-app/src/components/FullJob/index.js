@@ -6,7 +6,7 @@ import * as ROUTES from '../../constants/routes.js';
 const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
 
     const handleApproveButtonClick = () => {
-        approveJob(job.id);
+        approveJob(job);
     };
 
     
