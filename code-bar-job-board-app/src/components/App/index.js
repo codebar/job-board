@@ -164,6 +164,10 @@ const App = () => {
               
             });
             console.log(job);
+            createEmail('smhumphries@hotmail.co.uk', {
+              subject: 'New job post',
+              text: `A new job '${formJobTitle}' at ${formJobCompanyName} has been submitted for approval`
+            });
             
           } catch (error) {
             console.log(error);
