@@ -34,6 +34,7 @@ const App = () => {
 
     const jobsCollectionRef = collection(db, "jobs");
     const navigate = useNavigate();
+    const functions = getFunctions();
 
     const actionCodeSettings = {
       url: 'http://localhost:3000/',
@@ -71,7 +72,7 @@ const App = () => {
         
       });
 
-      const functions = getFunctions();
+      
 
       const makeNewAdmin = async (adminEmail) => {
         try {
