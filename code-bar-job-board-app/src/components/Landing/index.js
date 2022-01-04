@@ -17,12 +17,12 @@ const LandingPage = ({jobs, currentUser}) => {
             return <JobSummary job={job} key={job.id} currentUser={currentUser}></JobSummary>
         });
 
-   
+
 
 
     return (
         <div className="container">
-            <h2 className="bold">Jobs</h2>
+            <h2 className="fw-bold">Jobs</h2>
             <p>There are {getApprovedCurrentJobs.length} jobs posted</p>
             <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
             <div className="row job-summaries">{getJobSummaries}</div>

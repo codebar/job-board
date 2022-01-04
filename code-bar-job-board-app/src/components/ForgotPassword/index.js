@@ -30,9 +30,9 @@ const ForgotPassword = ({resetPasswordEmail}) => {
                         onChange={(evt) => setSignInEmail(evt.target.value)}
                     />
             </Form.Group>
-            
-            
-            <Button onClick={handleLogInButtonClick} className='button bold' type="submit" disabled={!validateForm()}>
+
+
+            <Button onClick={handleLogInButtonClick} className='button fw-bold' type="submit" disabled={!validateForm()}>
                 Reset password
             </Button>
 
@@ -41,13 +41,13 @@ const ForgotPassword = ({resetPasswordEmail}) => {
                 Go to login page
             </a>
             </Link>
-            
-            
+
+
         </Form>
         <hr />
         <div>
             <p>Don't have an account?</p>
-            <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button bold' variant="info">Sign up</Button></Link>
+            <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button fw-bold' variant="info">Sign up</Button></Link>
         </div>
         </div>
     );

@@ -54,19 +54,19 @@ const SignIn = ({logIn}) => {
             onChange={(evt) => setSignInPassword(evt.target.value)}
           />
         </Form.Group>
-        
-          <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button bold' type="submit" disabled={!validateForm()}>
+
+          <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button fw-bold' type="submit" disabled={!validateForm()}>
             Login
           </Button>
 
         { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
-        
+
         <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><a>I've forgotten my password</a></Link>
       </Form>
       <hr />
       <div>
         <p>Don't have an account?</p>
-        <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button bold' variant="info">Sign up</Button></Link>
+        <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button fw-bold' variant="info">Sign up</Button></Link>
       </div>
     </div>
   );
