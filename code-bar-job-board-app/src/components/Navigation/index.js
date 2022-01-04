@@ -46,10 +46,10 @@ const NavigationBarJobBoardLoggedIn = ({currentUser, logOut, isAdmin}) => {
                         <Nav.Link href={ROUTES.MY_JOBS}>My Jobs</Nav.Link>
                         <Nav.Link href={ROUTES.SUBMIT_JOB}>Post a Job</Nav.Link>
                         <NavDropdown title="My Account" id="basic-nav-dropdown">
+                            { isAdmin===true? <NavDropdown.Item href={ROUTES.ADMIN_DRAFT_JOBS}>Jobs to approve</NavDropdown.Item> : null}
                             <NavDropdown.ItemText><p>Logged in as {currentUser.email}</p></NavDropdown.ItemText>
                             <NavDropdown.Item onClick={logOut}><Link to={{pathname: ROUTES.LANDING}}>Sign Out</Link></NavDropdown.Item>
                         </NavDropdown>
-                        { isAdmin===true? <Nav.Link href={ROUTES.ADMIN_DRAFT_JOBS}>Jobs to approve</Nav.Link> : null}
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
