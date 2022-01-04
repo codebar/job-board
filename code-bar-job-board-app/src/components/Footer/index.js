@@ -11,31 +11,31 @@ const Footer = () => {
                     <p>&#169; {new Date().getFullYear()} codebar</p>
                     <p className="contact">
                         Send us an email at...
-                        <a className='text-white font-weight-bold text-decoration-none footer-link ' href='mailto:hello@codebar.io?Subject=Hello codebar'>hello@codebar.io</a>
+                        <a className='text-white fw-bold text-decoration-none footer-link ' href='mailto:hello@codebar.io?Subject=Hello codebar'>hello@codebar.io</a>
                     </p>
                 </div>
 
                 <div className='col-sm-12 col-md-6 col-lg-3'>
                     <ul className="list-unstyled ml-0">
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/code-of-conduct" >Code of Conduct</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/breach-code-of-conduct" >Breach of Conduct</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/effective-teacher-guide" >Coach Guide</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/student-guide" >Student Guide</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="http://tutorials.codebar.io/" >Tutorials</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="http://manual.codebar.io/becoming-a-sponsor" >Becoming a Sponsor</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/faq" >FAQ</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/code-of-conduct" >Code of Conduct</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/breach-code-of-conduct" >Breach of Conduct</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/effective-teacher-guide" >Coach Guide</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/student-guide" >Student Guide</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="http://tutorials.codebar.io/" >Tutorials</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="http://manual.codebar.io/becoming-a-sponsor" >Becoming a Sponsor</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/faq" >FAQ</a></li>
                     </ul>
                 </div>
                 <div className='col-sm-12 col-md-6 col-lg-3'>
                     <ul className="list-unstyled ml-0">
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="http://stats.codebar.io/" >Stats</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://medium.com/the-codelog" >Blog</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://medium.com/codebar-stories" >codebar Stories</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/coaches" >Coaches</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/sponsors" >Sponsors</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/events" >Events</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="/" >Jobs</a></li>
-                        <li><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.enthuse.com/donate/#!/" >Donate</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="http://stats.codebar.io/" >Stats</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://medium.com/the-codelog" >Blog</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://medium.com/codebar-stories" >codebar Stories</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/coaches" >Coaches</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/sponsors" >Sponsors</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/events" >Events</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="/" >Jobs</a></li>
+                        <li><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.enthuse.com/donate/#!/" >Donate</a></li>
                     </ul>
                 </div>
 
@@ -60,8 +60,8 @@ const Footer = () => {
                    <div className="col">
                        <ul className="list-inline m-0 p-0">
                            <li className="fs-6 list-inline-item">Registered UK and Wales charity no. 1187776</li>
-                           <li className="list-inline-item"><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/cookie-policy" >Cookie Policy</a></li>
-                           <li className="list-inline-item"><a className='text-white font-weight-bold text-decoration-none footer-link ' href="https://codebar.io/privacy-policy" >Privacy Policy</a></li>
+                           <li className="list-inline-item"><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/cookie-policy" >Cookie Policy</a></li>
+                           <li className="list-inline-item"><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/privacy-policy" >Privacy Policy</a></li>
                        </ul>
                    </div>
             </div>

@@ -268,10 +268,10 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                                             }}
                                             state={{ previewJob }}
                                     >
-                                                <Button className='button bold' variant="secondary">Preview this job post</Button>
+                                                <Button className='button fw-bold' variant="secondary">Preview this job post</Button>
                                     </Link>
                                     <Link to={{pathname: ROUTES.MY_JOBS}}>
-                                        <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Submit job for approval</Button>
+                                        <Button onClick={handleJobPostSubmitForm} className='button fw-bold' variant="primary" type="submit">Submit job for approval</Button>
                                     </Link>
                                 </div>
                             </Form>

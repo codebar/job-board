@@ -16,19 +16,19 @@ const JobSummary = ({job}) => {
             <h4 className="fs-6 fw-bold mb-4">{job.company_name}, {job.company_location}</h4>
             <div className='row'>
                 <p className='col-6'>Salary:</p>
-                <p className='col-6 bold'>{job.salary}</p>
+                <p className='col-6 fw-bold'>{job.salary}</p>
             </div>
             <div className='row'>
                 <p className='col-6'>Published on:</p>
-                <p className='col-6 bold'>{job.published_date}</p>
+                <p className='col-6 fw-bold'>{job.published_date}</p>
             </div>
             <div className='row'>
                 <p className='col-6'>Closing date:</p>
-                <p className='col-6 bold'>{job.closing_date}</p>
+                <p className='col-6 fw-bold'>{job.closing_date}</p>
             </div>
             <div className='row'>
                 <p className='col-6'>Location:</p>
-                <p className='col-6 bold'>{job.company_location}</p>
+                <p className='col-6 fw-bold'>{job.company_location}</p>
             </div>
         </div>
     );

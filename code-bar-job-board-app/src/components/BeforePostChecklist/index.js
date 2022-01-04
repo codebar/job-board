@@ -16,7 +16,7 @@ const BeforePostCheckList = () => {
     return (
         <div className="before-post-checklist-box card">
             <div class="card-header">
-                <p className='bold m-0'>Before posting make sure that:</p>
+                <p className='fw-bold m-0'>Before posting make sure that:</p>
             </div>
             <div class="card-body">
                 <Form.Group className="mb-3">

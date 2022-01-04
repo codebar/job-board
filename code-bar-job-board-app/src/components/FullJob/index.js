@@ -49,32 +49,32 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
                     <Card>
                         <Card.Body>
                             <div className="p-2 mb-2">
-                                <p className="mb-0 bold" >Salary</p>
+                                <p className="mb-0 fw-bold" >Salary</p>
                                 <p className="mb-0">{job.salary}</p>
                             </div>
                             <div className="p-2 mb-2">
-                                <p className="mb-0 bold" >Location</p>
+                                <p className="mb-0 fw-bold" >Location</p>
                                 <p className="mb-0">{job.company_location}</p>
                             </div>
                             <div className="p-2 mb-2">
-                                <p className="mb-0 bold" >Closing date</p>
+                                <p className="mb-0 fw-bold" >Closing date</p>
                                 <p className="mb-0">{job.closing_date}</p>
                             </div>
                             <div className="p-2 mb-2">
-                                <p className="mb-0 bold" >Contact email</p>
+                                <p className="mb-0 fw-bold" >Contact email</p>
                                 <p className="mb-0">{job.contact_email}</p>
                             </div>
                             <div className="p-2 mb-2">
-                                <p className="mb-0 bold" >Posted by</p>
+                                <p className="mb-0 fw-bold" >Posted by</p>
                                 <p className="mb-0">{job.contact_name}</p>
                             </div>
                             <div className="p-2 mb-2">
-                                <p className="mb-0 bold" >Published on</p>
+                                <p className="mb-0 fw-bold" >Published on</p>
                                 <p className="mb-0">{job.published_date}</p>
                             </div>
                         </Card.Body>
                         <Card.Footer>
-                            <Button className='button bold w-100'><a className="text-white text-decoration-none" href={job.job_post_link} target='blank'>Apply for this job</a></Button>
+                            <Button className='button fw-bold w-100'><a className="text-white text-decoration-none" href={job.job_post_link} target='blank'>Apply for this job</a></Button>
                         </Card.Footer>
                     </Card>
                 </section>
