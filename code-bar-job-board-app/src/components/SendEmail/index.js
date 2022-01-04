@@ -3,33 +3,23 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from '../Firebase/firebase-config.js'
 
 
-const SendEmail = () => {
+const SendEmail = ({createEmail}) => {
 
-    const mailCollectionRef = collection(db, "mail");
+    
 
-    const createEmail = async () => {
-          
-          try {  
-            const email = await addDoc(mailCollectionRef, {
-              to: ['smhumphries@hotmail.co.uk'],
-              message: {
-                  subject: 'Hello from the app!',
-                  text: 'This is plain text'
-              }
-            });
-            console.log(email);
-            
-          } catch (error) {
-            console.log(error);
-          };
-          
-      };
+    const sendEmail = () => {
+        createEmail('smhumphries@hotmail.co.uk', 
+        {
+            subject: 'Hello again',
+            text: 'text text',
+        });
+    };
 
     
 
     return (
         <div className="container">
-            <Button onClick={() => {createEmail()}} className="button">Send Email</Button>
+            <Button onClick={() => {sendEmail()}} className="button">Send Email</Button>
         </div>
     );
 };

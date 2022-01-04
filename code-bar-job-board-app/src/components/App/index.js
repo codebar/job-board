@@ -34,6 +34,9 @@ const App = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
+    const mailCollectionRef = collection(db, "mail");
+
+    
     const navigate = useNavigate();
     const functions = getFunctions();
 
@@ -231,6 +234,21 @@ const App = () => {
         };
       };
 
+      const createEmail = async (to, message) => {
+          
+        try {  
+          const email = await addDoc(mailCollectionRef, {
+            to: to,
+            message: message,
+          });
+          console.log(email);
+          
+        } catch (error) {
+          console.log(error);
+        };
+        
+    };
+
 
     return (
         
@@ -263,7 +281,7 @@ const App = () => {
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs approveJob={approveJob} jobs={jobs}></AdminOnlyDraftJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
-                  <Route path={ROUTES.SEND_EMAIL} element = { <SendEmail></SendEmail> }></Route>
+                  <Route path={ROUTES.SEND_EMAIL} element = { <SendEmail createEmail={createEmail}></SendEmail> }></Route>
                   
               </Routes>
             </div>
