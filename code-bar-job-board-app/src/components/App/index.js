@@ -223,21 +223,20 @@ const App = () => {
 
       };
 
-      const approveJob = async (jobToApproveId) => {
+      const approveJob = async (job) => {
 
         
         
         try {
-          const jobToApprove = doc(db, "jobs", jobToApproveId);
+          const jobToApprove = doc(db, "jobs", job.id);
           const todayDate = new Date().toLocaleDateString();
           const newFields = {
             approved_status: true,
             published_date: todayDate,
           };
           await updateDoc(jobToApprove, newFields);
-          console.log(jobToApprove);
-
-          sendApprovedEmail(jobToApprove);
+      
+          sendApprovedEmail(job);
 
         } catch (error) {
           console.log(error.message);
@@ -259,35 +258,33 @@ const App = () => {
         
     };
 
-    const sendApprovedEmail = (job) => {
+    const sendApprovedEmail = async (job) => {
+      
       const approveEmail = 
     
-        `<html style="margin: 0; padding: 0;">
-
-            <head>
-                <title>One | Email template!</title>
-            </head>
-            
-            <body style="margin: 0; padding: 0;">
+        `<html>
+            <body>
                 <h3>Hi ${job.contact_name}</h3>
                 <p>The <a href=${job.job_post_link}>${job.job_title}</a> at ${job.company_name} job you submitted has been approved.</p>
-                <p>It is now visible to all members at <a href='https://codebar.io.jobs'>our jobs section.</a></p>
+                <p>It is now visible to all members at <a href='https://codebar.io/jobs'>our jobs section.</a></p>
 
-                <h4>Connect with Us:</h4>
                 
-                <h4>Contact Info</h4>
+                <h4>Contact info</h4>
                 <p>Email: <strong><a href="mailto:jobs@codebar.io">jobs@codebar.io</a></strong></p>
                 
             </body>
-            
         </html>`
-      createEmail('smhumphries@hotmail.co.uk', 
-        {
-          subject: 'Job post Approved',
-          html: `${approveEmail}`,
-        }
-      );
-      console.log('approved');
+      try {
+        await createEmail(job.contact_email, 
+          {
+            subject: 'Job post approved',
+            html: approveEmail,
+          }
+        );
+        console.log("Email sent")
+      } catch (error) {
+        console.log(error.message);
+      }
     };
 
 
