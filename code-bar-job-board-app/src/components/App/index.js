@@ -87,29 +87,24 @@ const App = () => {
 
 
       const register = async (registerEmail, registerPassword) => {
-        try {
+        
           const user = await createUserWithEmailAndPassword(
             auth, 
             registerEmail, 
             registerPassword);
             console.log(user);
             navigate(ROUTES.LANDING);
-        } catch (error) {
-          console.log(error.message);
-        };
+        
       };
 
       const logIn = async (signInEmail, signInPassword) => {
-        try {
+        
           const user = await signInWithEmailAndPassword(
             auth, 
             signInEmail, 
             signInPassword)
           console.log(user);
-          navigate(ROUTES.LANDING);
-        } catch (error) {
-          console.log(error.message);
-        };
+          navigate(ROUTES.LANDING);  
       };
 
      

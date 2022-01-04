@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import * as ROUTES from '../../constants/routes.js';
@@ -9,6 +9,7 @@ const SignUp = ({register}) => {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
 
 
@@ -16,11 +17,22 @@ const SignUp = ({register}) => {
       return registerEmail.length > 0 && registerPassword.length > 0 && registerPassword === registerConfirmPassword;
     };
 
-    const handleSignUpButtonClick = (evt) => {
+    const handleSignUpButtonClick = async (evt) => {
       evt.preventDefault();
-      register(registerEmail, registerPassword);
-      
+      try {
+        await register(registerEmail, registerPassword);
+      } catch (error) {
+        if (error.code == "auth/email-already-in-use") {
+          setErrorMessage("Email already in use")
+        } else {
+          setErrorMessage("An error occured when registering")
+        }
+        
+      }
     };
+
+
+    
 
     return (
       <div className="sign-up container">
@@ -57,6 +69,8 @@ const SignUp = ({register}) => {
             <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
               Sign up
             </Button>
+
+            { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
           
         </Form>
         <hr/>

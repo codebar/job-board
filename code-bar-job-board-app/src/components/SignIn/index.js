@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 
 import * as ROUTES from '../../constants/routes.js'
 
@@ -11,11 +11,21 @@ const SignIn = ({logIn}) => {
 
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   
 
-  const handleLogInButtonClick = (evt) => {
+  const handleLogInButtonClick = async (evt) => {
     evt.preventDefault();
-    logIn(signInEmail, signInPassword);
+    try {
+      await logIn(signInEmail, signInPassword);
+    } catch(error) {
+      if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
+        setErrorMessage("Invalid username / password");
+      } else {
+        console.log(error.code);
+        setErrorMessage("Unknown error logging in");
+      };
+    }
   };
 
   const validateForm = () => {
@@ -48,6 +58,8 @@ const SignIn = ({logIn}) => {
           <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button bold' type="submit" disabled={!validateForm()}>
             Login
           </Button>
+
+        { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
         
         <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><a>I've forgotten my password</a></Link>
       </Form>
