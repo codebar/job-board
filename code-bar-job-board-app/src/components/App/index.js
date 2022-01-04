@@ -33,7 +33,11 @@ const App = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     const jobsCollectionRef = collection(db, "jobs");
+    const mailCollectionRef = collection(db, "mail");
+
+    
     const navigate = useNavigate();
+    const functions = getFunctions();
 
     const actionCodeSettings = {
       url: 'http://localhost:3000/',
@@ -71,7 +75,7 @@ const App = () => {
         
       });
 
-      const functions = getFunctions();
+      
 
       const makeNewAdmin = async (adminEmail) => {
         try {
@@ -160,6 +164,10 @@ const App = () => {
               
             });
             console.log(job);
+            createEmail('jobs@codebar.io', {
+              subject: 'New job post',
+              text: `A new job '${formJobTitle}' at ${formJobCompanyName} has been submitted for approval`
+            });
             
           } catch (error) {
             console.log(error);
@@ -228,6 +236,21 @@ const App = () => {
           console.log(error.message);
         };
       };
+
+      const createEmail = async (to, message) => {
+          
+        try {  
+          const email = await addDoc(mailCollectionRef, {
+            to: to,
+            message: message,
+          });
+          console.log(email);
+          
+        } catch (error) {
+          console.log(error);
+        };
+        
+    };
 
 
     return (
