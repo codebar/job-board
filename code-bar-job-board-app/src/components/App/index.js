@@ -22,7 +22,7 @@ import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
 import AdminOnlyDraftJobs from '../AdminOnly/index.js';
 import ForgotPassword from '../ForgotPassword/index.js';
-import SendEmail from '../SendEmail/index.js';
+
 
 import * as ROUTES from '../../constants/routes';
 
@@ -319,7 +319,6 @@ const App = () => {
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs approveJob={approveJob} jobs={jobs}></AdminOnlyDraftJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
-                  <Route path={ROUTES.SEND_EMAIL} element = { <SendEmail createEmail={createEmail}></SendEmail> }></Route>
                   
               </Routes>
             </div>
