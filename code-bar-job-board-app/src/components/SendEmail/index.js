@@ -30,10 +30,18 @@ const approveEmail =
             </head>
             
             <body style="margin: 0; padding: 0;">
-                <p>Text again third ${job.job_title}</p>
+                <h3>Hi ${job.contact_name}</h3>
+                <p>The <a href=${job.job_post_link}>${job.job_title}</a> at ${job.company_name} job you submitted has been approved.</p>
+                <p>It is now visible to all members at <a href='https://codebar.io.jobs'>our jobs section.</a></p>
+
+                <h4>Connect with Us:</h4>
+                
+                <h4>Contact Info</h4>
+                <p>Email: <strong><a href="mailto:jobs@codebar.io">jobs@codebar.io</a></strong></p>
+                
             </body>
             
-            </html>`
+        </html>`
 
 const SendEmail = ({createEmail}) => {
 
