@@ -14,13 +14,13 @@ import Footer from '../Footer';
 import JobPage from '../JobPage/index.js';
 import SignIn from '../SignIn/index.js';
 import SignUp from '../SignUp/index.js';
-import { NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js'; 
+import { NavigationBarJobBoardLoggedIn, NavigationBarJobBoardNonLoggedIn } from '../Navigation/index.js';
 import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
 import JobPreview from '../JobPreview/index.js';
 import EditJob from '../EditJob/index.js';
 import MakeAdmin from '../MakeAdmin/index.js';
-import AdminOnlyDraftJobs from '../AdminOnly/index.js';
+import AdminOnlyJobs from '../AdminOnly/index.js';
 import ForgotPassword from '../ForgotPassword/index.js';
 
 import * as ROUTES from '../../constants/routes';
@@ -283,17 +283,17 @@ const App = () => {
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
                   <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
-                  <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyDraftJobs approveJob={approveJob} jobs={jobs}></AdminOnlyDraftJobs> }></Route>
+                  <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyJobs approveJob={approveJob} jobs={jobs}></AdminOnlyJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
-                  
+
               </Routes>
             </div>
-            
-                  
+
+
                   <Footer/>
-            
+
           </div>
-        
+
     );
 };
 

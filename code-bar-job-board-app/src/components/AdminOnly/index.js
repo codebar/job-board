@@ -3,20 +3,18 @@ import { Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const AdminOnlyDraftJobs = ({jobs}) => {
+const AdminOnlyJobs = ({jobs}) => {
 
-    const [draftJobs, setDraftJobs] = useState([]);
+    const [listJobs, setListJobs] = useState([]);
 
     useEffect(() => {
 
-        const draftJobs = jobs.filter(job => job.approved_status === false);
-        setDraftJobs(draftJobs);
+        const listJobs = jobs.sort(job => job.approved_status ? 1 : -1);
+        setListJobs(listJobs);
 
     }, [jobs]);
 
-
-
-    const listOfDraftJobs = draftJobs.map((job) => {
+    const listOfJobs = listJobs.map((job) => {
         return <div key={job.id}>
             <div className='row mt-3 border-bottom border-dark' key={job.id}>
                 <div className="col-3">
@@ -62,11 +60,11 @@ const AdminOnlyDraftJobs = ({jobs}) => {
                     </div>
                 </div>
                 <div className="col-12">
-                    {listOfDraftJobs}
+                    {listOfJobs}
                 </div>
             </div>
         </div>
     );
 };
 
-export default AdminOnlyDraftJobs;
+export default AdminOnlyJobs;
