@@ -19,7 +19,7 @@ import MyJobsPage from '../MyJobs/index.js';
 import SumbitJobPage from '../SubmitJob/index.js';
 import JobPreview from '../JobPreview/index.js';
 import EditJob from '../EditJob/index.js';
-import MakeAdmin from '../MakeAdmin/index.js';
+import MakeRemoveAdmin from '../MakeRemoveAdmin/index.js';
 import AdminOnlyJobs from '../AdminOnly/index.js';
 import ForgotPassword from '../ForgotPassword/index.js';
 
@@ -79,23 +79,32 @@ const App = () => {
       
 
       const makeNewAdmin = async (adminEmail) => {
-        try {
-          const addAdminRole = httpsCallable(functions, 'addAdminRole');
-          const newAdmin = await addAdminRole( {email: adminEmail} );
-          console.log(newAdmin);
-        } catch (error) {
-          console.log(error);
-        };
+        if (isAdmin) {
+          try {
+            const addAdminRole = httpsCallable(functions, 'addAdminRole');
+            const newAdmin = await addAdminRole( {email: adminEmail} );
+            console.log(newAdmin);
+            } catch (error) {
+              console.log(error);
+            };
+        } else {
+          throw new Error("Only admins can make changes");
+        }
+        
       };
 
       const removeAdmin = async (adminEmail) => {
-        try {
+        if (isAdmin) {
+          try {
           const removeAdminRole = httpsCallable(functions, 'removeAdminRole');
           const removedAdmin = await removeAdminRole( {email: adminEmail} );
           console.log(removedAdmin);
-        } catch (error) {
-          console.log(error);
-        };
+          } catch (error) {
+            console.log(error);
+          };
+        } else {
+          throw new Error("Only admins can make changes");
+        }
       };
 
 
@@ -325,7 +334,7 @@ const App = () => {
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage logIn={logIn} currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
-                  <Route path={ROUTES.MAKE_ADMIN} element = { <MakeAdmin removeAdmin={removeAdmin} makeNewAdmin={makeNewAdmin} ></MakeAdmin> }></Route>
+                  <Route path={ROUTES.MAKE_REMOVE_ADMIN} element = { <MakeRemoveAdmin removeAdmin={removeAdmin} makeNewAdmin={makeNewAdmin} ></MakeRemoveAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyJobs approveJob={approveJob} jobs={jobs}></AdminOnlyJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
 

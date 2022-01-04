@@ -1,6 +1,6 @@
 import { Form, Button, FormGroup } from 'react-bootstrap';
 
-const MakeAdmin = ({makeNewAdmin, removeAdmin}) => {
+const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin}) => {
 
     const handleAdminFormSubmit = (evt) => {
         evt.preventDefault();
@@ -41,4 +41,4 @@ const MakeAdmin = ({makeNewAdmin, removeAdmin}) => {
     );
 };
 
-export default MakeAdmin;
+export default MakeRemoveAdmin;

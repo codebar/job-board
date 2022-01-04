@@ -8,7 +8,7 @@ export const ADMIN_DRAFT_JOBS = '/admin/jobs'
 export const ADMIN_PREVIEW_DRAFT_JOB = '/admin/jobs/:job_id'
 
 
-export const MAKE_ADMIN = '/make-admin'
+export const MAKE_REMOVE_ADMIN = '/admin/make-remove'
 export const SIGN_UP = '/signup'
 export const SIGN_IN = '/signin'
 export const FORGOT_PASSWORD = '/forgot-password'
