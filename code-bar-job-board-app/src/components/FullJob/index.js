@@ -9,33 +9,35 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
         approveJob(job);
     };
 
-    
+
     return (
         <div className="container">
+            <div className="row">
 
-            {(job.approved_status === false && job.creator_id === currentUser.uid) || isAdmin === true?
-                <Link
-                    to={{
-                        pathname: ROUTES.EDIT_JOB
-                        }}
-                    state={{job}}
-                >
-                <Button className='button'>Edit this job</Button></Link> : null
-            }
-
-                {isAdmin === true?
-                    <div className='admin-info'>
-                        {job.approved_status === false?
-                            <Link to={{pathname: ROUTES.ADMIN_DRAFT_JOBS}}>
-                                <Button onClick={handleApproveButtonClick} className='button' variant="success">Approve this job</Button>
-                            </Link> : 
-                            <h5 className='font-weight-bold'>This job was approved on {job.published_date}</h5>
-                        }        
-                    </div> : null
+                {(job.approved_status === false && job.creator_id === currentUser.uid) || isAdmin === true?
+                    <Link
+                        to={{
+                            pathname: ROUTES.EDIT_JOB
+                            }}
+                        state={{job}}
+                    >
+                    <Button className='button fw-bold'>Edit this job</Button></Link> : null
                 }
 
+                    {isAdmin === true?
+                        <div className='admin-info'>
+                            {job.approved_status === false?
+                                <Link to={{pathname: ROUTES.ADMIN_DRAFT_JOBS}}>
+                                    <Button onClick={handleApproveButtonClick} className='button fw-bold' variant="success">Approve this job</Button>
+                                </Link> :
+                                <p className='alert alert-primary mt-2'>This job was approved on {job.published_date}</p>
+                            }
+                        </div> : null
+                    }
+            </div>
+
             <div className="row mb-5">
-                <section className='col-lg-8 col-sm-12'>
+                <section className='col-lg-9 col-sm-12'>
                     <h2 className="mb-4">{job.job_title}</h2>
 
                     <p>{job.job_description}</p>
@@ -72,7 +74,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
                             </div>
                         </Card.Body>
                         <Card.Footer>
-                            <Button className='button bold w-100'><a className="text-white" href={job.job_post_link} target='blank'>Apply for this job</a></Button>
+                            <Button className='button bold w-100'><a className="text-white text-decoration-none" href={job.job_post_link} target='blank'>Apply for this job</a></Button>
                         </Card.Footer>
                     </Card>
                 </section>
