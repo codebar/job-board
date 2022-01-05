@@ -5,7 +5,7 @@ import SignIn from '../SignIn';
 import { Button, Toast, Badge } from 'react-bootstrap';
 
 
-const MyJobsPage = ({currentUser, jobs}) => {
+const MyJobsPage = ({currentUser, jobs, logIn}) => {
 
     const [currentUserJobs, setCurrentUserJobs] = useState([]);
 
@@ -36,7 +36,7 @@ const MyJobsPage = ({currentUser, jobs}) => {
             :
                     <NoJobsPage></NoJobsPage> }
             </div> :
-            <NotSignedInJobsPage></NotSignedInJobsPage> }
+            <NotSignedInJobsPage logIn={logIn}></NotSignedInJobsPage> }
         </div>
     );
 };
@@ -124,11 +124,11 @@ const NoJobsPage = () => {
     );
 };
 
-const NotSignedInJobsPage = () => {
+const NotSignedInJobsPage = ({logIn}) => {
     return (
         <div>
-            You need to sign in to see your jobs
-            <SignIn></SignIn>
+            <h3>You need to log in to view your jobs</h3>
+            <SignIn logIn={logIn}></SignIn>
         </div>
     );
 };
