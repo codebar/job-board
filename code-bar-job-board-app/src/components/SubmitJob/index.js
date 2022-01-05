@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BeforePostCheckList from "../BeforePostChecklist/index.js";
 import SignIn from "../SignIn/index.js";
 import { Form, Button } from 'react-bootstrap';
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import * as ROUTES from '../../constants/routes.js';
 
 
@@ -25,6 +25,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
     const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
     const data = useLocation();
+    const navigate = useNavigate();
 
     
 
@@ -119,6 +120,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
             formJobCompanyAddress,
             formJobCompanyPostcode
             );
+        navigate(ROUTES.MY_JOBS);
     };
 
     const previewJob = {
