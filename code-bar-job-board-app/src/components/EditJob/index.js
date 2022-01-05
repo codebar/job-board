@@ -6,7 +6,7 @@ import SignIn from "../SignIn";
 import BeforePostCheckList from "../BeforePostChecklist";
 import * as ROUTES from '../../constants/routes.js';
 
-const EditJob = ({updateJobPost, currentUser}) => {
+const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
 
     const data = useLocation();
     const job = data.state.job;
@@ -309,9 +309,14 @@ const EditJob = ({updateJobPost, currentUser}) => {
 
                                 <div className="my-4">
                                     
+                                    { isAdmin? 
+                                    <Link to={{ pathname: ROUTES.ADMIN_DRAFT_JOBS}}>
+                                        <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Save edits</Button>
+                                    </Link> : 
                                     <Link to={{ pathname: ROUTES.MY_JOBS}}>
                                         <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
                                     </Link>
+                                    }
                                 </div>
                             </Form>
                         </div>
