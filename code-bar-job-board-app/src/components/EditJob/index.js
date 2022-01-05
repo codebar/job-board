@@ -310,7 +310,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
                                 <div className="my-4">
                                     
                                     { isAdmin? 
-                                    <Link to={{ pathname: ROUTES.ADMIN_DRAFT_JOBS}}>
+                                    <Link to={{ pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                         <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Save edits</Button>
                                     </Link> : 
                                     <Link to={{ pathname: ROUTES.MY_JOBS}}>
