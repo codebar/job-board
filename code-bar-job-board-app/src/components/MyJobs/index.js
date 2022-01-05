@@ -61,7 +61,7 @@ const UserJobsPage = ({currentUserJobs}) => {
                     <div className="col-2"><p>{job.published_date}</p></div>
                     <div className="col-2"><p>{job.closing_date}</p></div>
                     <div className="col-2">
-                        { 'date!!' }
+                        { job.closing_date < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved_status ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
                     </div>
                 </div>
     });
