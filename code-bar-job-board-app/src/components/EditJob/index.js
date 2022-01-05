@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Form, Button } from 'react-bootstrap';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
 
     const data = useLocation();
     const job = data.state.job;
+    const navigate = useNavigate();
     
 
     const [validated, setValidated] = useState(false);
@@ -164,6 +165,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
         }
 
         setValidated(true);
+        evt.preventDefault();
 
         
         updateJobPost(
@@ -182,6 +184,12 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             formJobCompanyAddress,
             formJobCompanyPostcode
             );
+
+        if (isAdmin) {
+            navigate(ROUTES.ADMIN_LIST_JOBS);
+        } else {
+            navigate(ROUTES.MY_JOBS);
+        };
     };
 
    
@@ -200,7 +208,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
                             <BeforePostCheckList></BeforePostCheckList>
                         </div>
                         <div className="container col-md-6 col-sm-12">
-                            <Form noValidate validated={validated} className='job-post-form'>
+                            <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
                                 <div className="border rounded p-4">
                                     <section className='job-details-section'>
                                         <h3>Job post details</h3>
@@ -310,12 +318,12 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
                                 <div className="my-4">
                                     
                                     { isAdmin? 
-                                    <Link to={{ pathname: ROUTES.ADMIN_LIST_JOBS}}>
-                                        <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Save edits</Button>
-                                    </Link> : 
-                                    <Link to={{ pathname: ROUTES.MY_JOBS}}>
-                                        <Button onClick={handleJobPostSubmitForm} className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
-                                    </Link>
+                                    
+                                        <Button className='button bold' variant="primary" type="submit">Save edits</Button>
+                                     : 
+                                    
+                                        <Button className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
+                                    
                                     }
                                 </div>
                             </Form>

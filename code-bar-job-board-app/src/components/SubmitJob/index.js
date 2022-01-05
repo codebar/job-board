@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BeforePostCheckList from "../BeforePostChecklist/index.js";
 import SignIn from "../SignIn/index.js";
 import { Form, Button } from 'react-bootstrap';
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import * as ROUTES from '../../constants/routes.js';
 
 
@@ -25,6 +25,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
     const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
     const data = useLocation();
+    const navigate = useNavigate();
 
     
 
@@ -101,7 +102,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
         }
 
         setValidated(true);
-
+        evt.preventDefault();
         
         createJobPost(
 
@@ -119,6 +120,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
             formJobCompanyAddress,
             formJobCompanyPostcode
             );
+        navigate(ROUTES.MY_JOBS);
     };
 
     const previewJob = {
@@ -154,7 +156,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                             <BeforePostCheckList></BeforePostCheckList>
                         </div>
                         <div className="container col-md-6 col-sm-12">
-                            <Form noValidate validated={validated} className='job-post-form'>
+                            <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
                                 <div className="border rounded p-4">
                                     <section className='job-details-section'>
                                         <h3>Job post details</h3>
@@ -270,9 +272,9 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                                     >
                                                 <Button className='button fw-bold' variant="secondary">Preview this job post</Button>
                                     </Link>
-                                    <Link to={{pathname: ROUTES.MY_JOBS}}>
-                                        <Button onClick={handleJobPostSubmitForm} className='button fw-bold' variant="primary" type="submit">Submit job for approval</Button>
-                                    </Link>
+                                   
+                                        <Button className='button fw-bold' variant="primary" type="submit">Submit job for approval</Button>
+                                   
                                 </div>
                             </Form>
                         </div>
