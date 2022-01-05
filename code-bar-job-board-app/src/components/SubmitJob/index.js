@@ -104,6 +104,8 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
 
         setValidated(true);
         evt.preventDefault();
+
+
         
         createJobPost(
 

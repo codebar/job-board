@@ -16,6 +16,9 @@ const JobForm = ({
     setFormJobCompanyPostcode,
     formJobRemote
 }) => {
+
+    
+
     return (
         <div className="border rounded p-4">
             <section className='job-details-section'>
@@ -76,10 +79,8 @@ const JobForm = ({
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="job-closing-date">
                     <Form.Label>Closing date</Form.Label>
-                    <Form.Control type='text' required onChange={(evt) => {setFormJobClosingDate(evt.target.value)}}></Form.Control>
-                    <Form.Text>
-                        In the format dd/mm/yyy
-                    </Form.Text>
+                    <Form.Control type='date' required onChange={(evt) => {setFormJobClosingDate(new Date(evt.target.value))}}></Form.Control>
+                    
                     <Form.Control.Feedback type="invalid">
                         Please provide a closing date for the job advert
                     </Form.Control.Feedback>

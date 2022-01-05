@@ -7,9 +7,8 @@ import * as ROUTES from '../../constants/routes.js'
 const LandingPage = ({jobs, currentUser}) => {
 
     const getApprovedCurrentJobs = jobs.filter((job) => {
-        const jobClosingDate = job.closing_date.split("/");
-        const timeStamp = new Date( jobClosingDate[2], jobClosingDate[1] - 1, jobClosingDate[0]);
-        return job.approved_status === true && timeStamp > new Date();
+        
+        return job.approved_status === true && job.closing_date > new Date();
     });
 
 
