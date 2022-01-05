@@ -334,7 +334,7 @@ const App = () => {
                   <Route path={ROUTES.SUBMIT_JOB} element = { <SumbitJobPage logIn={logIn} currentUser={currentUser} createJobPost={createJobPost}/>}></Route>
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob isAdmin={isAdmin} currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
-                  <Route path={ROUTES.MAKE_REMOVE_ADMIN} element = { <MakeRemoveAdmin removeAdmin={removeAdmin} makeNewAdmin={makeNewAdmin} ></MakeRemoveAdmin> }></Route>
+                  <Route path={ROUTES.MAKE_REMOVE_ADMIN} element = { <MakeRemoveAdmin isAdmin={isAdmin} removeAdmin={removeAdmin} makeNewAdmin={makeNewAdmin} ></MakeRemoveAdmin> }></Route>
                   <Route path={ROUTES.ADMIN_DRAFT_JOBS} element = { <AdminOnlyJobs approveJob={approveJob} jobs={jobs}></AdminOnlyJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
 

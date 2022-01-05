@@ -1,7 +1,7 @@
 import { Form, Button, FormGroup, Alert } from 'react-bootstrap';
 import { useState } from 'react';
 
-const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin}) => {
+const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin, isAdmin}) => {
 
     const [makeAdminErrorMessage, setMakeAdminErrorMessage] = useState("");
     const [makeAdminSuccessMessage, setMakeAdminSuccessMessage] = useState("");
@@ -33,33 +33,37 @@ const MakeRemoveAdmin = ({makeNewAdmin, removeAdmin}) => {
     };
 
     return (
-        <div className='container'>
+        <div>
+            { isAdmin? <div className='container'>
             
-            <h3>Add a new admin</h3>
-            <p>To make an existing user an admin by their email address</p>
-            <Form onSubmit={handleNewAdminFormSubmit} className="col-6">
-                <FormGroup controlId='new-admin-email'>
-                    <Form.Control type='email' placeholder='user email' ></Form.Control>
-                </FormGroup>
-                <Button className='button' type='submit'>Make an admin</Button>
-            </Form>
-            { makeAdminErrorMessage? <Alert variant='danger'>Error updating admin rights. {makeAdminErrorMessage}</Alert>: null}
-            { makeAdminSuccessMessage? <Alert variant='success'>{makeAdminSuccessMessage}</Alert>: null}
+                <h3>Add a new admin</h3>
+                <p>To make an existing user an admin by their email address</p>
+                <Form onSubmit={handleNewAdminFormSubmit} className="col-6">
+                    <FormGroup controlId='new-admin-email'>
+                        <Form.Control type='email' placeholder='user email' ></Form.Control>
+                    </FormGroup>
+                    <Button className='button' type='submit'>Make an admin</Button>
+                </Form>
+                { makeAdminErrorMessage? <Alert variant='danger'>Error updating admin rights. {makeAdminErrorMessage}</Alert>: null}
+                { makeAdminSuccessMessage? <Alert variant='success'>{makeAdminSuccessMessage}</Alert>: null}
             
-            <hr></hr>
-
-            <h3>Remove an admin</h3>
-            <p>To remove an admin by their email address</p>
-            <Form onSubmit={handleRemoveAdminSubmit} className="col-6">
-                <FormGroup controlId='remove-admin-email'>
-                    <Form.Control type='email' placeholder='user email' ></Form.Control>
-                </FormGroup>
-                <Button className='button' type='submit'>Remove admin</Button>
-            </Form>
-            { removeAdminErrorMessage? <Alert variant='danger'>Error updating admin rights. {removeAdminErrorMessage}</Alert>: null}
-            { removeAdminSuccessMessage? <Alert variant='success'>{removeAdminSuccessMessage}</Alert>: null}
-
+                <hr></hr>
+                <h3>Remove an admin</h3>
+                <p>To remove an admin by their email address</p>
+                <Form onSubmit={handleRemoveAdminSubmit} className="col-6">
+                    <FormGroup controlId='remove-admin-email'>
+                        <Form.Control type='email' placeholder='user email' ></Form.Control>
+                    </FormGroup>
+                    <Button className='button' type='submit'>Remove admin</Button>
+                </Form>
+                { removeAdminErrorMessage? <Alert variant='danger'>Error updating admin rights. {removeAdminErrorMessage}</Alert>: null}
+                { removeAdminSuccessMessage? <Alert variant='success'>{removeAdminSuccessMessage}</Alert>: null}
             
+            </div> : 
+            <div className='container'>
+                <h3>You need to be logged in as an admin to access this page</h3>
+            </div>
+            }
         </div>
     );
 };
