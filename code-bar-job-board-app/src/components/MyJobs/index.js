@@ -59,9 +59,9 @@ const UserJobsPage = ({currentUserJobs}) => {
                     <div className="col-2"><p>{job.company_name}</p></div>
                     <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.company_location}</p>}</div>
                     <div className="col-2"><p>{job.published_date}</p></div>
-                    <div className="col-2"><p>{job.closing_date}</p></div>
+                    <div className="col-2"><p>{ (new Date(job.closing_date.seconds * 1000)).toLocaleDateString()}</p></div>
                     <div className="col-2">
-                        { new Date(job.closing_date.split("/")[2], job.closing_date.split("/")[1] - 1, job.closing_date.split("/")[0]) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved_status ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
+                        { new Date(job.closing_date.seconds * 1000) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved_status ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
                     </div>
                 </div>
     });

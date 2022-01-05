@@ -58,7 +58,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Closing date</p>
-                                <p className="mb-0">{job.closing_date}</p>
+                                <p className="mb-0">{new Date(job.closing_date.seconds * 1000).toLocaleDateString()}</p>
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Contact email</p>

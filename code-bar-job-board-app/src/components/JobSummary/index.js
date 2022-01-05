@@ -24,7 +24,7 @@ const JobSummary = ({job}) => {
             </div>
             <div className='row'>
                 <p className='col-6'>Closing date:</p>
-                <p className='col-6 fw-bold'>{job.closing_date}</p>
+                <p className='col-6 fw-bold'>{new Date(job.closing_date.seconds * 1000).toLocaleDateString()}</p>
             </div>
             <div className='row'>
                 <p className='col-6'>Location:</p>
