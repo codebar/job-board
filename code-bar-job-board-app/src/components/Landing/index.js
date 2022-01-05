@@ -8,7 +8,7 @@ const LandingPage = ({jobs, currentUser}) => {
 
     const getApprovedCurrentJobs = jobs.filter((job) => {
         
-        return job.approved_status === true && job.closing_date > new Date();
+        return job.approved_status === true && new Date(job.closing_date.seconds * 1000) > new Date();
     });
 
 
