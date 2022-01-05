@@ -184,7 +184,7 @@ const App = () => {
               
             });
             console.log(job);
-            createEmail('jobs@codebar.io', {
+            createEmail('', {
               subject: 'New job post',
               text: `A new job '${formJobTitle}' at ${formJobCompanyName} has been submitted for approval`
             });
