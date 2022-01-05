@@ -3,7 +3,7 @@ import { Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const AdminOnlyJobs = ({jobs}) => {
+const AdminOnlyJobs = ({jobs, isAdmin}) => {
 
     const [listJobs, setListJobs] = useState([]);
 
@@ -47,22 +47,28 @@ const AdminOnlyJobs = ({jobs}) => {
 
     return (
 
-        <div className='container mb-4'>
-            <div className="row">
-                <div className="col-12">
-                    <div className="row border-bottom border-dark">
-                        <div className="col-3"><p className="fs-5 fw-bold mb-2">Job title</p></div>
-                        <div className="col-2"><p className="fs-5 fw-bold mb-2">Company</p></div>
-                        <div className="col-2"><p className="fs-5 fw-bold mb-2">Location</p></div>
-                        <div className="col-2"><p className="fs-5 fw-bold mb-2">Closing date</p></div>
-                        <div className="col-2"><p className="fs-5 fw-bold mb-2">Status</p></div>
-                        <div className="col-1"></div>
+        <div>
+            { isAdmin? <div className='container mb-4'>
+                <div className="row">
+                    <div className="col-12">
+                        <div className="row border-bottom border-dark">
+                            <div className="col-3"><p className="fs-5 fw-bold mb-2">Job title</p></div>
+                            <div className="col-2"><p className="fs-5 fw-bold mb-2">Company</p></div>
+                            <div className="col-2"><p className="fs-5 fw-bold mb-2">Location</p></div>
+                            <div className="col-2"><p className="fs-5 fw-bold mb-2">Closing date</p></div>
+                            <div className="col-2"><p className="fs-5 fw-bold mb-2">Status</p></div>
+                            <div className="col-1"></div>
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        {listOfJobs}
                     </div>
                 </div>
-                <div className="col-12">
-                    {listOfJobs}
-                </div>
+            </div> :
+            <div className='container'>
+                <h3>You need to be logged in as an admin to access this page</h3>
             </div>
+            }
         </div>
     );
 };
