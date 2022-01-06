@@ -1,15 +1,29 @@
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useState } from 'react';
 import * as ROUTES from '../../constants/routes.js';
 import { Link } from 'react-router-dom';
 
 const ForgotPassword = ({resetPasswordEmail}) => {
     const [signInEmail, setSignInEmail] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
 
-    const handleLogInButtonClick = () => {
-        resetPasswordEmail(signInEmail);
-
+    const handleLogInButtonClick = async (evt) => {
+        evt.preventDefault();
+        try {
+            await resetPasswordEmail(signInEmail);
+            setSuccessMessage("A reset link has been sent to your inbox");
+        } catch (error) {
+            console.log(error.message);
+            if (error.message === 'FirebaseError: Firebase: Error (auth/invalid-email).') {
+                setErrorMessage('Invalid email address');
+            } else if (error.message === 'FirebaseError: Firebase: Error (auth/user-not-found).') {
+                setErrorMessage('We couldn\'t find that email address in our system.  Sign up to register.');
+            } else {
+                setErrorMessage('Error sending link');
+            };
+        };
     };
 
     const validateForm = () => {
@@ -34,7 +48,7 @@ const ForgotPassword = ({resetPasswordEmail}) => {
                         </Form.Group>
 
 
-                        <Button onClick={handleLogInButtonClick} className='button fw-bold' type="submit" disabled={!validateForm()}>
+                        <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button fw-bold' type="submit" disabled={!validateForm()}>
                             Reset password
                         </Button>
 
@@ -42,6 +56,9 @@ const ForgotPassword = ({resetPasswordEmail}) => {
                             Go to login page
                         </a>
                     </Form>
+                    { successMessage? <Alert variant='success'>{successMessage}</Alert> : 
+                        errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null
+                    }
                     <hr />
                     <div>
                         <p>Don't have an account?</p>
