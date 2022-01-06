@@ -117,8 +117,7 @@ const App = () => {
             registerEmail, 
             registerPassword)
               .then((res) => createUserDetails(res.user.uid, userMarketingOptIn));
-          
-          
+              
           navigate(ROUTES.LANDING);
       };
 
@@ -128,6 +127,7 @@ const App = () => {
           const userDetails = await addDoc(userDetailsCollectionRef, {
             user_id: userID,
             marketing_opt_in: userMarketingOptIn,
+            date_registered: new Date(),
           });
           console.log(userDetails);
           

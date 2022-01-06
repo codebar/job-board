@@ -23,13 +23,13 @@ const SignUp = ({register}) => {
       try {
         await register(registerEmail, registerPassword, userMarketingOptIn);
       } catch (error) {
+        console.log(error);
         if (error.code === "auth/email-already-in-use") {
           setErrorMessage("Email already in use")
         } else {
           setErrorMessage("An error occured when registering")
-        }
-
-      }
+        };
+      };
     };
 
     return (
