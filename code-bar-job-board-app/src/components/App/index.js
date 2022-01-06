@@ -35,6 +35,7 @@ const App = () => {
 
     const jobsCollectionRef = collection(db, "jobs");
     const mailCollectionRef = collection(db, "mail");
+    const userCollectionRef = collection(db, "users");
 
     
     const navigate = useNavigate();
@@ -109,16 +110,33 @@ const App = () => {
 
 
 
-      const register = async (registerEmail, registerPassword) => {
+      const register = async (registerEmail, registerPassword, userMarketingOptIn) => {
         
           const user = await createUserWithEmailAndPassword(
             auth, 
             registerEmail, 
             registerPassword);
-            console.log(user);
-            navigate(ROUTES.LANDING);
+          createUserEntry('3567', userMarketingOptIn);
+          console.log(user);
+          navigate(ROUTES.LANDING);
+      };
+
+      const createUserEntry = async (userID, userMarketingOptIn) => {
+          
+        try {  
+          const userEntry = await addDoc(userCollectionRef, {
+            id: userID,
+            marketing_opt_in: userMarketingOptIn,
+          });
+          console.log(userEntry);
+          
+        } catch (error) {
+          console.log(error);
+        };
         
       };
+
+
 
       const logIn = async (signInEmail, signInPassword) => {
         
