@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 
 import * as ROUTES from '../../constants/routes.js'
 
@@ -12,7 +12,7 @@ const SignIn = ({logIn}) => {
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  
+
 
   const handleLogInButtonClick = async (evt) => {
     evt.preventDefault();
@@ -34,45 +34,47 @@ const SignIn = ({logIn}) => {
 
 
   return (
-    <div className="login container">
-      <p>Log in with email and password</p>
-      <Form className='col-lg-4 col-md-6'>
-        <Form.Group size="lg" controlId="email" className="sign-in-up-input">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            autoComplete='username'
-            value={signInEmail}
-            onChange={(evt) => setSignInEmail(evt.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password" className="sign-in-up-input">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            autoComplete='current-password'
-            value={signInPassword}
-            onChange={(evt) => setSignInPassword(evt.target.value)}
-          />
-        </Form.Group>
+    <Container>
+      <Row>
+        <Col md={{ span: 6, offset: 3 }}>
+          <p>Log in with your email and password</p>
+          <Form>
+            <Form.Group size="lg" controlId="email" className="sign-in-up-input">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                autoFocus
+                type="email"
+                value={signInEmail}
+                onChange={(evt) => setSignInEmail(evt.target.value)}
+              />
+            </Form.Group>
+            <Form.Group size="lg" controlId="password" className="sign-in-up-input">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                value={signInPassword}
+                onChange={(evt) => setSignInPassword(evt.target.value)}
+              />
+            </Form.Group>
 
-          <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button fw-bold' type="submit" disabled={!validateForm()}>
-            Login
-          </Button>
+              <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button fw-bold' type="submit" disabled={!validateForm()}>
+                Login
+              </Button>
 
-        { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
+            { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
 
-        <a href={ROUTES.FORGOT_PASSWORD}>I've forgotten my password</a>
-      </Form>
-      <hr />
-      <div>
-        <p>Don't have an account?</p>
-        <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button fw-bold' variant="info">Sign up</Button></Link>
-      </div>
-    </div>
+            <a href={ROUTES.FORGOT_PASSWORD}>I've forgotten my password</a>
+          </Form>
+          <hr />
+          <div>
+            <p>Don't have an account?</p>
+            <Link to={{pathname: ROUTES.SIGN_UP}}><Button className='button fw-bold' variant="info">Sign up</Button></Link>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 
-  };
+};
 
 export default SignIn;

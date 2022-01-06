@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import * as ROUTES from '../../constants/routes.js';
@@ -27,66 +27,62 @@ const SignUp = ({register}) => {
         } else {
           setErrorMessage("An error occured when registering")
         }
-        
+
       }
     };
 
-
-    
-
     return (
-      <div className="sign-up container">
-        <p>Sign up to post jobs</p>
-        <Form className='col-lg-4 col-md-6'>
-          <Form.Group size="lg" controlId="email" className="sign-in-up-input">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              autoFocus
-              type="email"
-              autoComplete='username'
-              value={registerEmail}
-              onChange={(evt) => setRegisterEmail(evt.target.value)}
-            />
-          </Form.Group>
-          
-          <Form.Group size="lg" controlId="password" className="sign-in-up-input">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              autoComplete='new-password'
-              value={registerPassword}
-              onChange={(evt) => setRegisterPassword(evt.target.value)}
-            />
-          </Form.Group>
-          <Form.Group size="lg" controlId="confirm-password" className="sign-in-up-input">
-            <Form.Label>Confirm password</Form.Label>
-            <Form.Control
-              type="password"
-              autoComplete='new-password'
-              value={registerConfirmPassword}
-              onChange={(evt) => setRegisterConfirmPassword(evt.target.value)}
-            />
-            
-          </Form.Group>
-          
-            <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
-              Sign up
-            </Button>
+      <Container>
+        <Row>
+          <Col md={{ span: 6, offset: 3 }}>
+            <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 12,000+ person community.</p>
+            <Form>
+              <Form.Group size="lg" controlId="email" className="sign-in-up-input">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  autoFocus
+                  type="email"
+                  autoComplete='username'
+                  value={registerEmail}
+                  onChange={(evt) => setRegisterEmail(evt.target.value)}
+                />
+              </Form.Group>
 
-            { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
-          
-        </Form>
-        <hr/>
-        <div>
-          <p>Already have an account?</p>
-          <Link to={{pathname: ROUTES.SIGN_IN}}><Button className='button' variant="info">Sign in</Button></Link>
-        </div>
+              <Form.Group size="lg" controlId="password" className="sign-in-up-input">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  autoComplete='new-password'
+                  value={registerPassword}
+                  onChange={(evt) => setRegisterPassword(evt.target.value)}
+                />
+              </Form.Group>
+              <Form.Group size="lg" controlId="password" className="sign-in-up-input">
+                <Form.Label>Confirm password</Form.Label>
+                <Form.Control
+                  type="password"
+                  autoComplete='new-password'
+                  value={registerConfirmPassword}
+                  onChange={(evt) => setRegisterConfirmPassword(evt.target.value)}
+                />
+              </Form.Group>
 
-        
-      </div>
+                <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
+                  Sign up
+                </Button>
+
+                {errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
+
+            </Form>
+            <hr/>
+            <div>
+              <p>Already have an account?</p>
+              <Link to={{pathname: ROUTES.SIGN_IN}}><Button className='button fw-bold' variant="info">Sign in</Button></Link>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     );
-
-   
 };
 
 export default SignUp;
