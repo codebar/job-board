@@ -6,10 +6,12 @@ import * as ROUTES from '../../constants/routes.js';
 
 const SignUp = ({register}) => {
 
+    const [registerName, setRegisterName] = useState("");
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [userMarketingOptIn, setUserMarketingOptIn] = useState(true);
 
 
 
@@ -20,15 +22,15 @@ const SignUp = ({register}) => {
     const handleSignUpButtonClick = async (evt) => {
       evt.preventDefault();
       try {
-        await register(registerEmail, registerPassword);
+        await register(registerEmail, registerPassword, registerName, userMarketingOptIn);
       } catch (error) {
+        console.log(error);
         if (error.code === "auth/email-already-in-use") {
           setErrorMessage("Email already in use")
         } else {
           setErrorMessage("An error occured when registering")
-        }
-
-      }
+        };
+      };
     };
 
     return (
@@ -37,6 +39,18 @@ const SignUp = ({register}) => {
           <Col md={{ span: 6, offset: 3 }}>
             <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 12,000+ person community.</p>
             <Form>
+
+            <Form.Group size="lg" controlId="name" className="sign-in-up-input">
+                <Form.Label>Full name</Form.Label>
+                <Form.Control
+                  autoFocus
+                  type="name"
+                  autoComplete='username'
+                  value={registerName}
+                  onChange={(evt) => setRegisterName(evt.target.value)}
+                />
+              </Form.Group>
+
               <Form.Group size="lg" controlId="email" className="sign-in-up-input">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
@@ -67,9 +81,13 @@ const SignUp = ({register}) => {
                 />
               </Form.Group>
 
-                <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
+              <Form.Group className="mb-3" controlId="job-remote">
+                    <Form.Check type='checkbox' label="Un-check this box to opt out of marketing emails" defaultChecked = {userMarketingOptIn} onChange={() => {setUserMarketingOptIn(!userMarketingOptIn)}}></Form.Check>
+              </Form.Group>
+
+              <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
                   Sign up
-                </Button>
+              </Button>
 
                 {errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
 

@@ -35,6 +35,7 @@ const App = () => {
 
     const jobsCollectionRef = collection(db, "jobs");
     const mailCollectionRef = collection(db, "mail");
+    const userDetailsCollectionRef = collection(db, "user_details");
 
     
     const navigate = useNavigate();
@@ -109,16 +110,35 @@ const App = () => {
 
 
 
-      const register = async (registerEmail, registerPassword) => {
+      const register = async (registerEmail, registerPassword, registerName, userMarketingOptIn) => {
         
-          const user = await createUserWithEmailAndPassword(
+          await createUserWithEmailAndPassword(
             auth, 
             registerEmail, 
-            registerPassword);
-            console.log(user);
-            navigate(ROUTES.LANDING);
+            registerPassword)
+              .then((res) => createUserDetails(res.user.uid, registerName, userMarketingOptIn));
+              
+          navigate(ROUTES.LANDING);
+      };
+
+      const createUserDetails = async (userID, registerName, userMarketingOptIn) => {
+          
+        try {  
+          const userDetails = await addDoc(userDetailsCollectionRef, {
+            user_id: userID,
+            name: registerName,
+            marketing_opt_in: userMarketingOptIn,
+            date_registered: new Date(),
+          });
+          console.log(userDetails);
+          
+        } catch (error) {
+          console.log(error);
+        };
         
       };
+
+
 
       const logIn = async (signInEmail, signInPassword) => {
         
@@ -177,7 +197,6 @@ const App = () => {
               job_description: formJobDescription,
               job_post_link: formJobPostLink,
               job_title: formJobTitle,
-              marketing_opt_in: false,
               published_date: "",
               remote: formJobRemote,
               salary: formJobSalary,
@@ -228,7 +247,6 @@ const App = () => {
             job_description: formJobDescription,
             job_post_link: formJobPostLink,
             job_title: formJobTitle,
-            marketing_opt_in: false,
             published_date: "",
             remote: formJobRemote,
             salary: formJobSalary,
