@@ -116,7 +116,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             formJobContactName,
             formJobContactEmail,
             formJobPostLink,
-            formJobClosingDate,
+            new Date(formJobClosingDate),
             formJobCompanyName,
             formJobCompanyLocation,
             formJobCompanyWebsite,
