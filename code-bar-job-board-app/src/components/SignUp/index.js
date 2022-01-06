@@ -67,9 +67,13 @@ const SignUp = ({register}) => {
                 />
               </Form.Group>
 
-                <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
+              <Form.Group className="mb-3" controlId="job-remote">
+                    <Form.Check type='checkbox' label="Un-check this box to opt out of marketing emails" defaultChecked = {false} ></Form.Check>
+              </Form.Group>
+
+              <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
                   Sign up
-                </Button>
+              </Button>
 
                 {errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
 
