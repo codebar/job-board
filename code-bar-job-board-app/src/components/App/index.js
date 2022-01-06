@@ -163,7 +163,11 @@ const App = () => {
       };
 
       const resetPasswordEmail = async (email) => {
-        await sendPasswordResetEmail(auth, email);
+        try {
+          await sendPasswordResetEmail(auth, email);
+        } catch (error) {
+          throw Error(error);
+        };
       };
 
       const createJobPost = async (
