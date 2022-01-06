@@ -243,9 +243,6 @@ const App = () => {
       };
 
       const approveJob = async (job) => {
-
-        
-        
         try {
           const jobToApprove = doc(db, "jobs", job.id);
           const todayDate = new Date().toLocaleDateString();
@@ -256,6 +253,20 @@ const App = () => {
           await updateDoc(jobToApprove, newFields);
       
           sendApprovedEmail(job);
+
+        } catch (error) {
+          console.log(error.message);
+        };
+      };
+
+      const unPublishJob = async (job) => {
+        try {
+          const jobToUnPublish = doc(db, "jobs", job.id);
+          const newFields = {
+            approved_status: false,
+            published_date: "",
+          };
+          await updateDoc(jobToUnPublish, newFields);
 
         } catch (error) {
           console.log(error.message);
@@ -328,7 +339,7 @@ const App = () => {
             <div>
             <Routes>
                   <Route exact path={ROUTES.LANDING} element={ <LandingPage currentUser={currentUser} jobs={jobs}/> } />
-                  <Route exact path={ROUTES.JOB} element={ <JobPage currentUser={currentUser} isAdmin={isAdmin} approveJob={approveJob}></JobPage>}></Route>
+                  <Route exact path={ROUTES.JOB} element={ <JobPage currentUser={currentUser} isAdmin={isAdmin} approveJob={approveJob} unPublishJob={unPublishJob}></JobPage>}></Route>
                   <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                   <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
                   <Route path={ROUTES.MY_JOBS} element={ <MyJobsPage logIn={logIn} jobs={jobs} currentUser={currentUser} />}></Route>
@@ -336,7 +347,7 @@ const App = () => {
                   <Route path={ROUTES.PREVIEW_JOB} element ={ <JobPreview></JobPreview> }></Route>
                   <Route path={ROUTES.EDIT_JOB} element ={ <EditJob isAdmin={isAdmin} currentUser={currentUser} updateJobPost={updateJobPost}></EditJob> }></Route>
                   <Route path={ROUTES.MAKE_REMOVE_ADMIN} element = { <MakeRemoveAdmin isAdmin={isAdmin} removeAdmin={removeAdmin} makeNewAdmin={makeNewAdmin} ></MakeRemoveAdmin> }></Route>
-                  <Route path={ROUTES.ADMIN_LIST_JOBS} element = { <AdminOnlyJobs isAdmin={isAdmin} approveJob={approveJob} jobs={jobs}></AdminOnlyJobs> }></Route>
+                  <Route path={ROUTES.ADMIN_LIST_JOBS} element = { <AdminOnlyJobs isAdmin={isAdmin} jobs={jobs}></AdminOnlyJobs> }></Route>
                   <Route path={ROUTES.FORGOT_PASSWORD} element = { <ForgotPassword resetPasswordEmail={resetPasswordEmail} ></ForgotPassword> }></Route>
 
               </Routes>

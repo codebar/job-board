@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
 
 
-const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
+const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
 
     const handleApproveButtonClick = () => {
         approveJob(job);
+    };
+
+    const handleUnPublishButtonClick = () => {
+        unPublishJob(job);
     };
 
 
@@ -30,7 +34,12 @@ const FullJob = ({job, currentUser, isAdmin, approveJob}) => {
                                 <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                     <Button onClick={handleApproveButtonClick} className='button fw-bold' variant="success">Approve this job</Button>
                                 </Link> :
-                                <p className='alert alert-primary mt-2'>This job was approved on {job.published_date}</p>
+                                <div>
+                                    <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
+                                            <Button onClick={handleUnPublishButtonClick} className='button fw-bold' variant="danger">Un-publish this job</Button>
+                                        </Link>
+                                    <p className='alert alert-primary mt-2'>This job was approved on {job.published_date}</p>    
+                                </div>
                             }
                         </div> : null
                     }
