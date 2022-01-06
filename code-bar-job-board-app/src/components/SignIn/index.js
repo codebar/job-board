@@ -42,6 +42,7 @@ const SignIn = ({logIn}) => {
           <Form.Control
             autoFocus
             type="email"
+            autoComplete='username'
             value={signInEmail}
             onChange={(evt) => setSignInEmail(evt.target.value)}
           />
@@ -50,6 +51,7 @@ const SignIn = ({logIn}) => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            autoComplete='current-password'
             value={signInPassword}
             onChange={(evt) => setSignInPassword(evt.target.value)}
           />
