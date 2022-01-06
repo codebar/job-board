@@ -10,6 +10,7 @@ const SignUp = ({register}) => {
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [userMarketingOptIn, setUserMarketingOptIn] = useState(true);
 
 
 
@@ -20,7 +21,7 @@ const SignUp = ({register}) => {
     const handleSignUpButtonClick = async (evt) => {
       evt.preventDefault();
       try {
-        await register(registerEmail, registerPassword);
+        await register(registerEmail, registerPassword, userMarketingOptIn);
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
           setErrorMessage("Email already in use")
@@ -68,7 +69,7 @@ const SignUp = ({register}) => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="job-remote">
-                    <Form.Check type='checkbox' label="Un-check this box to opt out of marketing emails" defaultChecked = {false} ></Form.Check>
+                    <Form.Check type='checkbox' label="Un-check this box to opt out of marketing emails" defaultChecked = {userMarketingOptIn} onChange={() => {setUserMarketingOptIn(!userMarketingOptIn)}}></Form.Check>
               </Form.Group>
 
               <Button onClick={(evt) => handleSignUpButtonClick(evt)} className='button' type="submit" disabled={!isValid()}>
