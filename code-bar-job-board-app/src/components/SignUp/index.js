@@ -43,6 +43,7 @@ const SignUp = ({register}) => {
             <Form.Control
               autoFocus
               type="email"
+              autoComplete='username'
               value={registerEmail}
               onChange={(evt) => setRegisterEmail(evt.target.value)}
             />
@@ -52,14 +53,16 @@ const SignUp = ({register}) => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              autoComplete='new-password'
               value={registerPassword}
               onChange={(evt) => setRegisterPassword(evt.target.value)}
             />
           </Form.Group>
-          <Form.Group size="lg" controlId="password" className="sign-in-up-input">
+          <Form.Group size="lg" controlId="confirm-password" className="sign-in-up-input">
             <Form.Label>Confirm password</Form.Label>
             <Form.Control
               type="password"
+              autoComplete='new-password'
               value={registerConfirmPassword}
               onChange={(evt) => setRegisterConfirmPassword(evt.target.value)}
             />
