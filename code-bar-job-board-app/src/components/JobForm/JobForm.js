@@ -79,7 +79,7 @@ const JobForm = ({
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="job-closing-date">
                     <Form.Label>Closing date</Form.Label>
-                    <Form.Control type='date' required onChange={(evt) => {setFormJobClosingDate(new Date(evt.target.value))}}></Form.Control>
+                    <Form.Control type='date' required onChange={(evt) => {setFormJobClosingDate(evt.target.value)}}></Form.Control>
                     
                     <Form.Control.Feedback type="invalid">
                         Please provide a closing date for the job advert
