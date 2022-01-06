@@ -139,6 +139,7 @@ const App = () => {
 
       const logOut = async () => {
         await signOut(auth);
+        navigate(ROUTES.LANDING);
       };
 
       const resetPasswordEmail = async (email) => {

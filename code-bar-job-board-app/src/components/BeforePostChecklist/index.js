@@ -15,10 +15,10 @@ const BeforePostCheckList = () => {
 
     return (
         <div className="before-post-checklist-box card">
-            <div class="card-header">
+            <div className="card-header">
                 <p className='fw-bold m-0'>Before posting make sure that:</p>
             </div>
-            <div class="card-body">
+            <div className="card-body">
                 <Form.Group className="mb-3">
                     <Form.Check type='checkbox' label="The position is suitable for people looking for internships, apprenticeships or junior roles that will enable them to build up their career"
                     defaultChecked = {checkOne} onChange={() => {setCheckOne(!checkOne)}}></Form.Check>

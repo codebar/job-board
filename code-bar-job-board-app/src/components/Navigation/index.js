@@ -2,7 +2,6 @@
 
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
 
 
 import * as ROUTES from '../../constants/routes'
@@ -49,7 +48,7 @@ const NavigationBarJobBoardLoggedIn = ({currentUser, logOut, isAdmin}) => {
                             { isAdmin===true? <NavDropdown.Item href={ROUTES.ADMIN_LIST_JOBS}>Jobs to approve</NavDropdown.Item> : null}
                             { isAdmin===true? <NavDropdown.Item href={ROUTES.MAKE_REMOVE_ADMIN}>Edit admin rights</NavDropdown.Item> : null}
                             <NavDropdown.ItemText><p>Logged in as {currentUser.email}</p></NavDropdown.ItemText>
-                            <NavDropdown.Item onClick={logOut}><Link to={{pathname: ROUTES.LANDING}}>Sign Out</Link></NavDropdown.Item>
+                            <NavDropdown.Item onClick={logOut}>Sign Out</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     </Navbar.Collapse>
