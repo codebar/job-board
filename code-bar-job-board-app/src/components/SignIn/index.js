@@ -19,7 +19,7 @@ const SignIn = ({logIn}) => {
     try {
       await logIn(signInEmail, signInPassword);
     } catch(error) {
-      if (error.code == "auth/wrong-password" || error.code == "auth/user-not-found") {
+      if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
         setErrorMessage("Invalid username / password");
       } else {
         console.log(error.code);
@@ -61,7 +61,7 @@ const SignIn = ({logIn}) => {
 
         { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
 
-        <Link to={{pathname: ROUTES.FORGOT_PASSWORD}}><a>I've forgotten my password</a></Link>
+        <a href={ROUTES.FORGOT_PASSWORD}>I've forgotten my password</a>
       </Form>
       <hr />
       <div>

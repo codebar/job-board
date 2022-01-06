@@ -1,5 +1,5 @@
 import { Form, Button } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as ROUTES from '../../constants/routes.js';
 import { Link } from 'react-router-dom';
 
@@ -35,13 +35,10 @@ const ForgotPassword = ({resetPasswordEmail}) => {
             <Button onClick={handleLogInButtonClick} className='button fw-bold' type="submit" disabled={!validateForm()}>
                 Reset password
             </Button>
-
-            <Link to={{pathname: ROUTES.SIGN_IN}}>
-            <a>
+            
+            <a href={ROUTES.SIGN_IN}>
                 Go to login page
             </a>
-            </Link>
-
 
         </Form>
         <hr />

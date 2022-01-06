@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
 import { getFunctions, httpsCallable } from 'firebase/functions';

@@ -29,68 +29,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
     const [formJobCompanyAddress, setFormJobCompanyAddress] = useState("");
     const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
-    
-
-    
-
-    const getJobDataFromPreview = () => {
-        if (data.state?.previewJob) {
-            const jobTitle = document.getElementById('job-title');
-            jobTitle.value = data.state.previewJob.job_title;
-            setFormJobTitle(data.state.previewJob.job_title);
-
-            const jobDescription = document.getElementById('job-description');
-            jobDescription.value = data.state.previewJob.job_description;
-            setFormJobDescription(data.state.previewJob.job_description);
-
-            const jobSalary = document.getElementById('job-salary');
-            jobSalary.value = data.state.previewJob.salary;
-            setFormJobSalary(data.state.previewJob.salary);
-
-            const jobRemoteCheck = document.getElementById('job-remote');
-            if (data.state.previewJob.remote === true) {
-                setFormJobRemote(true);
-                jobRemoteCheck.checked = 'true'};
-            
-            const jobContactName = document.getElementById('job-contact-name');
-            jobContactName.value = data.state.previewJob.contact_name;
-            setFormJobContactName(data.state.previewJob.contact_name);
-
-            const jobContactEmail = document.getElementById('job-contact-email');
-            jobContactEmail.value = data.state.previewJob.contact_email;
-            setFormJobContactEmail(data.state.previewJob.contact_email);
-
-            const jobPostLink = document.getElementById('job-post-link');
-            jobPostLink.value = data.state.previewJob.job_post_link;
-            setFormJobPostLink(data.state.previewJob.job_post_link);
-            
-            const jobClosingDate = document.getElementById('job-closing-date');
-            jobClosingDate.value = data.state.previewJob.closing_date;
-            setFormJobClosingDate(data.state.previewJob.closing_date);
-
-            const jobCompanyName = document.getElementById('company-name');
-            jobCompanyName.value = data.state.previewJob.company_name;
-            setFormJobCompanyName(data.state.previewJob.company_name);
-
-            const jobCompanyWebsite = document.getElementById('company-website');
-            jobCompanyWebsite.value = data.state.previewJob.company_url;
-            setFormJobCompanyWebsite(data.state.previewJob.company_url);
-
-            const jobCompanyLocation = document.getElementById('company-location');
-            jobCompanyLocation.value = data.state.previewJob.company_location;
-            setFormJobCompanyLocation(data.state.previewJob.company_location);
-
-            const jobCompanyAddress = document.getElementById('company-address');
-            jobCompanyAddress.value = data.state.previewJob.company_address;
-            setFormJobCompanyAddress(data.state.previewJob.company_address);
-
-            const jobCompanyPostcode = document.getElementById('company-postcode');
-            jobCompanyPostcode.value = data.state.previewJob.company_postcode;
-            setFormJobCompanyPostcode(data.state.previewJob.company_postcode);
-
-
-        };
-    };
+   
 
     const getJobDataToEdit = () => {
         if (data.state?.job) {
@@ -151,7 +90,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
     };
 
     useEffect(() => {
-        getJobDataFromPreview();
+        
         getJobDataToEdit();
     }, []);
 
