@@ -2,7 +2,7 @@ import { useLocation } from 'react-router'
 import FullJob from '../FullJob';
 
 
-const JobPage = ({currentUser, isAdmin, approveJob}) => {
+const JobPage = ({currentUser, isAdmin, approveJob, unPublishJob}) => {
 
 
 
@@ -11,7 +11,7 @@ const JobPage = ({currentUser, isAdmin, approveJob}) => {
     
 
     return (
-        <FullJob job={job} currentUser={currentUser} isAdmin={isAdmin} approveJob={approveJob}></FullJob>
+        <FullJob job={job} currentUser={currentUser} isAdmin={isAdmin} unPublishJob={unPublishJob} approveJob={approveJob}></FullJob>
     );
 };
 
