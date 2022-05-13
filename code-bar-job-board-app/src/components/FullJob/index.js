@@ -39,7 +39,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                                     <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                             <Button onClick={handleUnPublishButtonClick} className='button fw-bold' variant="danger">Un-publish this job</Button>
                                         </Link>
-                                    <p className='alert alert-primary mt-2'>This job was approved on {job.published_date}</p>
+                                    <p className='alert alert-primary mt-2'>This job was approved on {new Date(job.published_on).toLocaleDateString()}</p>
                                 </div>
                             }
                         </div> : null
