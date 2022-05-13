@@ -7,14 +7,12 @@ import * as ROUTES from '../../constants/routes.js'
 const LandingPage = ({jobs, currentUser}) => {
 
     const getApprovedCurrentJobs = jobs.filter((job) => {
-        
-        return job.approved_status === true && new Date(job.closing_date.seconds * 1000) > new Date();
+        return job.approved && new Date(job.expiry_date) > new Date();
     });
 
-
     const getJobSummaries = getApprovedCurrentJobs.map((job) => {
-            return <JobSummary job={job} key={job.id} currentUser={currentUser}></JobSummary>
-        });
+        return <JobSummary job={job} key={job.id} currentUser={currentUser}></JobSummary>
+    });
 
 
 

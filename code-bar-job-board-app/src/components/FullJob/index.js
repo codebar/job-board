@@ -13,12 +13,13 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
         unPublishJob(job);
     };
 
+    const expiryDate = new Date(job.expiry_date).toLocaleDateString();
 
     return (
         <div className="container">
             <div className="row">
 
-                {(job.approved_status === false && job.creator_id === currentUser.uid) || isAdmin === true?
+                {(job.approved === false && job.creator_id === currentUser.uid) || isAdmin === true?
                     <Link
                         to={{
                             pathname: ROUTES.EDIT_JOB
@@ -38,7 +39,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                                     <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                             <Button onClick={handleUnPublishButtonClick} className='button fw-bold' variant="danger">Un-publish this job</Button>
                                         </Link>
-                                    <p className='alert alert-primary mt-2'>This job was approved on {job.published_date}</p>    
+                                    <p className='alert alert-primary mt-2'>This job was approved on {job.published_date}</p>
                                 </div>
                             }
                         </div> : null
@@ -47,12 +48,12 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
 
             <div className="row mb-5">
                 <section className='col-lg-9 col-sm-12'>
-                    <h2 className="mb-4">{job.job_title}</h2>
+                    <h2 className="mb-4">{job.title}</h2>
 
-                    <p>{job.job_description}</p>
+                    <p>{job.description}</p>
                     <h3 className="mt-4">Company</h3>
-                    <p className="mb-0">{job.company_name}</p>
-                    <p><a href={job.company_url}>{job.company_url}</a></p>
+                    <p className="mb-0">{job.company}</p>
+                    <p><a href={job.company_url}>{job.company_website}</a></p>
                 </section>
                 <section className='col-lg-3 col-sm-6'>
                     <Card>
@@ -63,29 +64,29 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Location</p>
-                                <p className="mb-0">{job.company_location}</p>
+                                <p className="mb-0">{job.location}</p>
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Closing date</p>
                                 { job.closing_date?.seconds? <p className="mb-0">{new Date(job.closing_date.seconds * 1000).toLocaleDateString()}</p>
-                                                             : <p className="mb-0">{job.closing_date}</p>    
+                                                             : <p className="mb-0">{expiryDate}</p>
                                 }
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Contact email</p>
-                                <p className="mb-0">{job.contact_email}</p>
+                                <p className="mb-0">{job.email}</p>
                             </div>
-                            <div className="p-2 mb-2">
+                            { job.contact_name ? <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Posted by</p>
                                 <p className="mb-0">{job.contact_name}</p>
-                            </div>
+                            </div> : null }
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Published on</p>
-                                <p className="mb-0">{job.published_date}</p>
+                                <p className="mb-0">{new Date(job.published_on).toLocaleDateString()}</p>
                             </div>
                         </Card.Body>
                         <Card.Footer>
-                            <Button className='button fw-bold w-100'><a className="text-white text-decoration-none" href={job.job_post_link} target='blank'>Apply for this job</a></Button>
+                            <Button className='button fw-bold w-100'><a className="text-white text-decoration-none" href={job.link_to_job} target='blank'>Apply for this job</a></Button>
                         </Card.Footer>
                     </Card>
                 </section>

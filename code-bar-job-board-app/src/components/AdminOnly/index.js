@@ -9,12 +9,15 @@ const AdminOnlyJobs = ({jobs, isAdmin}) => {
 
     useEffect(() => {
 
-        const listJobs = jobs.sort(job => job.approved_status ? 1 : -1);
+        const listJobs = jobs.sort(job => job.approved ? 1 : -1);
         setListJobs(listJobs);
 
     }, [jobs]);
 
     const listOfJobs = listJobs.map((job) => {
+
+        const expiryDate = new Date(job.expiry_date).toLocaleDateString();
+
         return <div key={job.id}>
             <div className='row mt-3 border-bottom border-dark' key={job.id}>
                 <div className="col-3">
@@ -23,15 +26,20 @@ const AdminOnlyJobs = ({jobs, isAdmin}) => {
                         pathname: `/jobs/${job.id}`
                         }}
                         state={{ job }} >
-                        <p>{job.job_title}</p>
+                        <p>{job.title}</p>
                     </Link>
                 </div>
-                <div className="col-2"><p>{job.company_name}</p></div>
-                <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.company_location}</p>}</div>
-                <div className="col-2"><p>{new Date(job.closing_date.seconds * 1000).toLocaleDateString()}</p></div>
+                <div className="col-2"><p>{job.company}</p></div>
+                <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.location}</p>}</div>
+                <div className="col-2"><p>{expiryDate}</p></div>
 
                 <div className="col-2">
-                    { new Date(job.closing_date.seconds * 1000) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved_status ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
+                    {
+                        new Date(job.expiry_date) > new Date() && job.approved ? <Badge bg="success">Live</Badge>
+                        : new Date(job.expiry_date) > new Date() && !job.approved ? <Badge bg="warning">Awaiting Approval</Badge>
+                        : new Date(job.expiry_date) > new Date() ? <Badge bg="secondary">Expired</Badge>
+                        : <Badge bg="secondary">Expired</Badge>
+                    }
                 </div>
                 <div className="col-1">
                     <Link to={{

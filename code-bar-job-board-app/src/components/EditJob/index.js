@@ -29,17 +29,17 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
     const [formJobCompanyAddress, setFormJobCompanyAddress] = useState("");
     const [formJobCompanyPostcode, setFormJobCompanyPostcode] = useState("");
 
-   
+
 
     const getJobDataToEdit = () => {
         if (data.state?.job) {
             const jobTitle = document.getElementById('job-title');
-            jobTitle.value = job.job_title;
-            setFormJobTitle(job.job_title);
+            jobTitle.value = job.title;
+            setFormJobTitle(job.title);
 
             const jobDescription = document.getElementById('job-description');
-            jobDescription.value = job.job_description;
-            setFormJobDescription(job.job_description);
+            jobDescription.value = job.description;
+            setFormJobDescription(job.description);
 
             const jobSalary = document.getElementById('job-salary');
             jobSalary.value = job.salary;
@@ -49,34 +49,34 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             if (job.remote === true) {
                 setFormJobRemote(true);
                 jobRemoteCheck.checked = 'true'};
-            
+
             const jobContactName = document.getElementById('job-contact-name');
             jobContactName.value = job.contact_name;
             setFormJobContactName(job.contact_name);
 
             const jobContactEmail = document.getElementById('job-contact-email');
-            jobContactEmail.value = job.contact_email;
-            setFormJobContactEmail(job.contact_email);
+            jobContactEmail.value = job.email;
+            setFormJobContactEmail(job.email);
 
             const jobPostLink = document.getElementById('job-post-link');
-            jobPostLink.value = job.job_post_link;
-            setFormJobPostLink(job.job_post_link);
-            
+            jobPostLink.value = job.link_to_job;
+            setFormJobPostLink(job.link_to_job);
+
             const jobClosingDate = document.getElementById('job-closing-date');
-            jobClosingDate.value = new Date(job.closing_date.seconds * 1000).toLocaleDateString('en-CA');
-            setFormJobClosingDate(job.closing_date);
+            jobClosingDate.value = new Date(job.expiry_date.seconds * 1000).toLocaleDateString('en-CA');
+            setFormJobClosingDate(job.expiry_date);
 
             const jobCompanyName = document.getElementById('company-name');
-            jobCompanyName.value = job.company_name;
-            setFormJobCompanyName(job.company_name);
+            jobCompanyName.value = job.company;
+            setFormJobCompanyName(job.company);
 
             const jobCompanyWebsite = document.getElementById('company-website');
-            jobCompanyWebsite.value = job.company_url;
-            setFormJobCompanyWebsite(job.company_url);
+            jobCompanyWebsite.value = job.company_website;
+            setFormJobCompanyWebsite(job.company_website);
 
             const jobCompanyLocation = document.getElementById('company-location');
-            jobCompanyLocation.value = job.company_location;
-            setFormJobCompanyLocation(job.company_location);
+            jobCompanyLocation.value = job.location;
+            setFormJobCompanyLocation(job.location);
 
             const jobCompanyAddress = document.getElementById('company-address');
             jobCompanyAddress.value = job.company_address;
