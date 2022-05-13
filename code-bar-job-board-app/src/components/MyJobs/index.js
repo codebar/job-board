@@ -11,7 +11,7 @@ const MyJobsPage = ({currentUser, jobs, logIn}) => {
 
     useEffect(() => {
         if (currentUser) {
-            const currentUserJobs = jobs.filter(job => job.creator_id === currentUser.uid);
+            const currentUserJobs = jobs.filter(job => job.creator_by_id === currentUser.uid);
             setCurrentUserJobs(currentUserJobs)
         }
     }, [currentUser, jobs]);
@@ -53,15 +53,15 @@ const UserJobsPage = ({currentUserJobs}) => {
                             pathname: `/jobs/${job.id}`
                             }}
                             state={{ job }} >
-                            <p>{job.job_title}</p>
+                            <p>{job.title}</p>
                         </Link>
                     </div>
-                    <div className="col-2"><p>{job.company_name}</p></div>
-                    <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.company_location}</p>}</div>
-                    <div className="col-2"><p>{job.published_date}</p></div>
-                    <div className="col-2"><p>{ (new Date(job.closing_date.seconds * 1000)).toLocaleDateString()}</p></div>
+                    <div className="col-2"><p>{job.company}</p></div>
+                    <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.location}</p>}</div>
+                    <div className="col-2"><p>{job.published_on}</p></div>
+                    <div className="col-2"><p>{ (new Date(job.expiry_date.seconds * 1000)).toLocaleDateString()}</p></div>
                     <div className="col-2">
-                        { new Date(job.closing_date.seconds * 1000) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved_status ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
+                        { new Date(job.expiry_date.seconds * 1000) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
                     </div>
                 </div>
     });

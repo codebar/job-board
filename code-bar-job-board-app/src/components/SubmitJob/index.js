@@ -28,17 +28,17 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
     const data = useLocation();
     const navigate = useNavigate();
 
-    
+
 
     const getJobDataFromPreview = () => {
         if (data.state) {
             const jobTitle = document.getElementById('job-title');
-            jobTitle.value = data.state.previewJob.job_title;
-            setFormJobTitle(data.state.previewJob.job_title);
+            jobTitle.value = data.state.previewJob.title;
+            setFormJobTitle(data.state.previewJob.title);
 
             const jobDescription = document.getElementById('job-description');
-            jobDescription.value = data.state.previewJob.job_description;
-            setFormJobDescription(data.state.previewJob.job_description);
+            jobDescription.value = data.state.previewJob.description;
+            setFormJobDescription(data.state.previewJob.description);
 
             const jobSalary = document.getElementById('job-salary');
             jobSalary.value = data.state.previewJob.salary;
@@ -48,34 +48,34 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
             if (data.state.previewJob.remote === true) {
                 setFormJobRemote(true);
                 jobRemoteCheck.checked = 'true'};
-            
+
             const jobContactName = document.getElementById('job-contact-name');
             jobContactName.value = data.state.previewJob.contact_name;
             setFormJobContactName(data.state.previewJob.contact_name);
 
             const jobContactEmail = document.getElementById('job-contact-email');
-            jobContactEmail.value = data.state.previewJob.contact_email;
-            setFormJobContactEmail(data.state.previewJob.contact_email);
+            jobContactEmail.value = data.state.previewJob.email;
+            setFormJobContactEmail(data.state.previewJob.email);
 
             const jobPostLink = document.getElementById('job-post-link');
-            jobPostLink.value = data.state.previewJob.job_post_link;
-            setFormJobPostLink(data.state.previewJob.job_post_link);
-            
+            jobPostLink.value = data.state.previewJob.link_to_job;
+            setFormJobPostLink(data.state.previewJob.link_to_job);
+
             const jobClosingDate = document.getElementById('job-closing-date');
-            jobClosingDate.value = data.state.previewJob.closing_date;
-            setFormJobClosingDate(data.state.previewJob.closing_date);
+            jobClosingDate.value = data.state.previewJob.expiry_date;
+            setFormJobClosingDate(data.state.previewJob.expiry_date);
 
             const jobCompanyName = document.getElementById('company-name');
-            jobCompanyName.value = data.state.previewJob.company_name;
-            setFormJobCompanyName(data.state.previewJob.company_name);
+            jobCompanyName.value = data.state.previewJob.company;
+            setFormJobCompanyName(data.state.previewJob.company);
 
             const jobCompanyWebsite = document.getElementById('company-website');
-            jobCompanyWebsite.value = data.state.previewJob.company_url;
-            setFormJobCompanyWebsite(data.state.previewJob.company_url);
+            jobCompanyWebsite.value = data.state.previewJob.company_website;
+            setFormJobCompanyWebsite(data.state.previewJob.company_website);
 
             const jobCompanyLocation = document.getElementById('company-location');
-            jobCompanyLocation.value = data.state.previewJob.company_location;
-            setFormJobCompanyLocation(data.state.previewJob.company_location);
+            jobCompanyLocation.value = data.state.previewJob.location;
+            setFormJobCompanyLocation(data.state.previewJob.location);
 
             const jobCompanyAddress = document.getElementById('company-address');
             jobCompanyAddress.value = data.state.previewJob.company_address;
@@ -127,20 +127,20 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
     };
 
     const previewJob = {
-        closing_date: formJobClosingDate,
+        expiry_date: formJobClosingDate,
         company_address: formJobCompanyAddress,
-        company_location: formJobCompanyLocation,
-        company_name: formJobCompanyName,
+        location: formJobCompanyLocation,
+        company: formJobCompanyName,
         company_postcode: formJobCompanyPostcode,
-        company_url: formJobCompanyWebsite,
-        contact_email: formJobContactEmail,
+        company_website: formJobCompanyWebsite,
+        email: formJobContactEmail,
         contact_name: formJobContactName,
-        creator_id: "",
-        job_description: formJobDescription,
-        job_post_link: formJobPostLink,
-        job_title: formJobTitle,
+        creator_by_id: "",
+        description: formJobDescription,
+        link_to_job: formJobPostLink,
+        title: formJobTitle,
         marketing_opt_in: false,
-        published_date: "",
+        published_on: "",
         remote: formJobRemote,
         salary: formJobSalary
     };
