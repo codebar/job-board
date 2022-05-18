@@ -37,11 +37,12 @@ const SignUp = ({register}) => {
       <Container>
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
+            <h4 class="mb-3">The new codebar job board is currently in beta stage, so if you spot any issues please drop us an email <a href="mailto:hello@codebar.io">hello@codebar.io</a>.</h4>
             <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 12,000+ person community.</p>
             <Form>
 
             <Form.Group size="lg" controlId="name" className="sign-in-up-input">
-                <Form.Label>Full name</Form.Label>
+                <Form.Label>Full name*</Form.Label>
                 <Form.Control
                   autoFocus
                   type="name"
@@ -52,7 +53,7 @@ const SignUp = ({register}) => {
               </Form.Group>
 
               <Form.Group size="lg" controlId="email" className="sign-in-up-input">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email*</Form.Label>
                 <Form.Control
                   autoFocus
                   type="email"
@@ -63,7 +64,7 @@ const SignUp = ({register}) => {
               </Form.Group>
 
               <Form.Group size="lg" controlId="password" className="sign-in-up-input">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password*</Form.Label>
                 <Form.Control
                   type="password"
                   autoComplete='new-password'
@@ -71,8 +72,8 @@ const SignUp = ({register}) => {
                   onChange={(evt) => setRegisterPassword(evt.target.value)}
                 />
               </Form.Group>
-              <Form.Group size="lg" controlId="password" className="sign-in-up-input">
-                <Form.Label>Confirm password</Form.Label>
+              <Form.Group size="lg" controlId="password" className="mb-4 sign-in-up-input">
+                <Form.Label>Confirm password*</Form.Label>
                 <Form.Control
                   type="password"
                   autoComplete='new-password'

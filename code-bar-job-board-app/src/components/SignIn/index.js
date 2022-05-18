@@ -37,10 +37,10 @@ const SignIn = ({logIn}) => {
     <Container>
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
-          <p>Log in with your email and password</p>
+          <p>Please sign in with your email and password</p>
           <Form>
             <Form.Group size="lg" controlId="email" className="sign-in-up-input">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Email*</Form.Label>
               <Form.Control
                 autoFocus
                 type="email"
@@ -49,7 +49,7 @@ const SignIn = ({logIn}) => {
               />
             </Form.Group>
             <Form.Group size="lg" controlId="password" className="sign-in-up-input">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Password*</Form.Label>
               <Form.Control
                 type="password"
                 value={signInPassword}
@@ -57,13 +57,14 @@ const SignIn = ({logIn}) => {
               />
             </Form.Group>
 
-              <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button fw-bold' type="submit" disabled={!validateForm()}>
-                Login
-              </Button>
+            { errorMessage? <Alert variant='danger mt-4'>{errorMessage}</Alert> : null}
 
-            { errorMessage? <Alert variant='danger'>{errorMessage}</Alert> : null}
+            <Button onClick={(evt) => handleLogInButtonClick(evt)} className='button fw-bold' type="submit" disabled={!validateForm()}>
+              Login
+            </Button>
 
             <a href={ROUTES.FORGOT_PASSWORD}>I've forgotten my password</a>
+
           </Form>
           <hr />
           <div>
