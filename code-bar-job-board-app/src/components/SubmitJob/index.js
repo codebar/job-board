@@ -139,7 +139,6 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
         description: formJobDescription,
         link_to_job: formJobPostLink,
         title: formJobTitle,
-        marketing_opt_in: false,
         published_on: "",
         remote: formJobRemote,
         salary: formJobSalary
