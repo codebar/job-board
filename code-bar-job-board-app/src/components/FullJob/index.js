@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
 
 
+
 const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
 
     const handleApproveButtonClick = () => {
