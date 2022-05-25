@@ -31,7 +31,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
 
                     {isAdmin === true?
                         <div className='admin-info'>
-                            {job.approved_status === false?
+                            {job.approved === false?
                                 <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                     <Button onClick={handleApproveButtonClick} className='button fw-bold' variant="success">Approve this job</Button>
                                 </Link> :
@@ -82,7 +82,15 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                             </div> : null }
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Published on</p>
+                                { job.published_on && job.published_on !== "" ?
+                                (new Date(job.published_on)).getTime() > 0 ?
                                 <p className="mb-0">{new Date(job.published_on).toLocaleDateString()}</p>
+                                :
+                                <p>{job.published_on}</p>
+                                : !job.approved ? 
+                                <p>Not published</p>
+                                : null
+                                }
                             </div>
                         </Card.Body>
                         <Card.Footer>
