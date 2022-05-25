@@ -17,6 +17,14 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
     };
 
     const expiryDate = new Date(job.expiry_date).toLocaleDateString();
+    const approvedDate = job.published_on && job.published_on !== "" ?
+                        (new Date(job.published_on)).getTime() > 0 ?
+                        new Date(job.published_on).toLocaleDateString()
+                        :
+                        job.published_on
+                        : !job.approved ? 
+                        "Not published"
+                        : null
 
     return (
         <div className="container">
@@ -42,7 +50,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                                     <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                             <Button onClick={handleUnPublishButtonClick} className='button fw-bold' variant="danger">Un-publish this job</Button>
                                         </Link>
-                                    <p className='alert alert-primary mt-2'>This job was approved on {new Date(job.published_on).toLocaleDateString()}</p>
+                                    <p className='alert alert-primary mt-2'>This job was approved on {approvedDate}</p>
                                 </div>
                             }
                         </div> : null
@@ -88,15 +96,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                             </div> : null }
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Published on</p>
-                                { job.published_on && job.published_on !== "" ?
-                                (new Date(job.published_on)).getTime() > 0 ?
-                                <p className="mb-0">{new Date(job.published_on).toLocaleDateString()}</p>
-                                :
-                                <p>{job.published_on}</p>
-                                : !job.approved ? 
-                                <p>Not published</p>
-                                : null
-                                }
+                                <p className="mb-0">{approvedDate}</p>
                             </div>
                         </Card.Body>
                         <Card.Footer>
