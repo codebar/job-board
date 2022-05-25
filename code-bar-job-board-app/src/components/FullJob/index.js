@@ -2,6 +2,7 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from "remark-gfm";
 
 
 
@@ -52,7 +53,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                 <section className='col-lg-9 col-sm-12'>
                     <h2 className="mb-4">{job.title}</h2>
 
-                    <ReactMarkdown>{job.description}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} >{job.description}</ReactMarkdown>
 
 
 
