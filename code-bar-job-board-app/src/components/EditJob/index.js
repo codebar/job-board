@@ -63,7 +63,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             setFormJobPostLink(job.link_to_job);
 
             const jobClosingDate = document.getElementById('job-closing-date');
-            jobClosingDate.value = new Date(job.expiry_date.seconds * 1000).toLocaleDateString('en-CA');
+            jobClosingDate.value = new Date(job.expiry_date).toLocaleDateString('en-CA');
             setFormJobClosingDate(job.expiry_date);
 
             const jobCompanyName = document.getElementById('company-name');
@@ -116,7 +116,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             formJobContactName,
             formJobContactEmail,
             formJobPostLink,
-            new Date(formJobClosingDate),
+            formJobClosingDate,
             formJobCompanyName,
             formJobCompanyLocation,
             formJobCompanyWebsite,
