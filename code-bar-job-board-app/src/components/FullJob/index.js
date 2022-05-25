@@ -1,6 +1,7 @@
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes.js';
+import ReactMarkdown from 'react-markdown';
 
 
 
@@ -51,7 +52,10 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                 <section className='col-lg-9 col-sm-12'>
                     <h2 className="mb-4">{job.title}</h2>
 
-                    <p>{job.description}</p>
+                    <ReactMarkdown>{job.description}</ReactMarkdown>
+
+
+
                     <h3 className="mt-4">Company</h3>
                     <p className="mb-0">{job.company}</p>
                     <p><a href={job.company_url}>{job.company_website}</a></p>
