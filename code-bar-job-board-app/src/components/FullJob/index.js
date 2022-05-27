@@ -59,7 +59,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
 
                     <h3 className="mt-4">Company</h3>
                     <p className="mb-0">{job.company}</p>
-                    <p><a href={job.company_url}>{job.company_website}</a></p>
+                    <p><a href={job.company_website} target="_blank" rel="noreferrer">{job.company_website}</a></p>
                 </section>
                 <section className='col-lg-3 col-sm-6'>
                     <Card>
