@@ -42,7 +42,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                                     <Link to={{pathname: ROUTES.ADMIN_LIST_JOBS}}>
                                             <Button onClick={handleUnPublishButtonClick} className='button fw-bold' variant="danger">Un-publish this job</Button>
                                         </Link>
-                                    <p className='alert alert-primary mt-2'>This job was approved on {new Date(job.published_on).toLocaleDateString()}</p>
+                                    <p className='alert alert-primary mt-2'>This job was approved on {expiryDate}</p>
                                 </div>
                             }
                         </div> : null
@@ -86,10 +86,6 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                                 <p className="mb-0 fw-bold" >Posted by</p>
                                 <p className="mb-0">{job.contact_name}</p>
                             </div> : null }
-                            <div className="p-2 mb-2">
-                                <p className="mb-0 fw-bold" >Published on</p>
-                                <p className="mb-0">{new Date(job.published_on).toLocaleDateString()}</p>
-                            </div>
                         </Card.Body>
                         <Card.Footer>
                             <Button className='button fw-bold w-100'><a className="text-white text-decoration-none" href={job.link_to_job} target='blank'>Apply for this job</a></Button>
