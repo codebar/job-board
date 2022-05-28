@@ -23,7 +23,7 @@ const JobSummary = ({job}) => {
             </div>
             <div className='row'>
                 <p className='col-6'>Published on:</p>
-                <p className='col-6 fw-bold'>{job.published_on}</p>
+                <p className='col-6 fw-bold'>{job.published_on.substring(0,10)}</p>
             </div>
             <div className='row'>
                 <p className='col-6'>Closing date:</p>

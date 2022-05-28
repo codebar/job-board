@@ -21,7 +21,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                         (new Date(job.published_on)).getTime() > 0 ?
                         new Date(job.published_on).toLocaleDateString()
                         :
-                        job.published_on
+                        job.published_on.substring(0,10)
                         : !job.approved ? 
                         "Not published"
                         : null
