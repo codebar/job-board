@@ -67,7 +67,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
 
                     <h3 className="mt-4">Company</h3>
                     <p className="mb-0">{job.company}</p>
-                    <p><a href={job.company_url}>{job.company_website}</a></p>
+                    <p><a href={job.company_website} target="_blank" rel="noreferrer">{job.company_website}</a></p>
                 </section>
                 <section className='col-lg-3 col-sm-6'>
                     <Card>
@@ -94,10 +94,6 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                                 <p className="mb-0 fw-bold" >Posted by</p>
                                 <p className="mb-0">{job.contact_name}</p>
                             </div> : null }
-                            <div className="p-2 mb-2">
-                                <p className="mb-0 fw-bold" >Published on</p>
-                                <p className="mb-0">{approvedDate}</p>
-                            </div>
                         </Card.Body>
                         <Card.Footer>
                             <Button className='button fw-bold w-100'><a className="text-white text-decoration-none" href={job.link_to_job} target='blank'>Apply for this job</a></Button>
