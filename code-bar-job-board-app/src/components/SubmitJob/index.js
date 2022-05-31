@@ -116,7 +116,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
             formJobContactName,
             formJobContactEmail,
             formJobPostLink,
-            new Date(formJobClosingDate),
+            formJobClosingDate,
             formJobCompanyName,
             formJobCompanyLocation,
             formJobCompanyWebsite,

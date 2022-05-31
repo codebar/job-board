@@ -59,7 +59,11 @@ const UserJobsPage = ({currentUserJobs}) => {
                     <div className="col-2"><p>{job.company}</p></div>
                     <div className="col-2">{job.remote? <p>Remote</p> : <p>{job.location}</p>}</div>
                     <div className="col-2"><p>{job.published_on}</p></div>
-                    <div className="col-2"><p>{ (new Date(job.expiry_date.seconds * 1000)).toLocaleDateString()}</p></div>
+                    <div className="col-2">
+                        { new Date(job.expiry_date).getTime() > 0 ?
+                        <p>{job.expiry_date}</p>
+                        : <p>Invalid Date</p> }
+                    </div>
                     <div className="col-2">
                         { new Date(job.expiry_date.seconds * 1000) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
                     </div>
