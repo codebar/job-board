@@ -19,7 +19,7 @@ const JobSummary = ({job}) => {
             <h4 className="fs-6 fw-bold mb-4">{job.company}, {job.location}</h4>
             <div className='row'>
                 <p className='col-6'>Salary:</p>
-                <p className='col-6 fw-bold'>{job.salary}</p>
+                <p className='col-6 fw-bold'>£{job.salary}</p>
             </div>
             <div className='row'>
                 <p className='col-6'>Published on:</p>

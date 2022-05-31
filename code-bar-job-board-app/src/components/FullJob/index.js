@@ -22,7 +22,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                         new Date(job.published_on).toLocaleDateString()
                         :
                         job.published_on.substring(0,10)
-                        : !job.approved ? 
+                        : !job.approved ?
                         "Not published"
                         : null
 
@@ -74,7 +74,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                         <Card.Body>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Salary</p>
-                                <p className="mb-0">{job.salary}</p>
+                                <p className="mb-0">£{job.salary}</p>
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Location</p>
