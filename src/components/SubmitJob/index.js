@@ -106,7 +106,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
         evt.preventDefault();
 
 
-        
+
         createJobPost(
 
             formJobTitle,
@@ -160,19 +160,19 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                         <div className="container col-md-6 col-sm-12">
                             <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
                             <JobForm
-                                    setFormJobTitle={setFormJobTitle} 
-                                    setFormJobDescription={setFormJobDescription} 
-                                    setFormJobSalary={setFormJobSalary} 
-                                    setFormJobRemote={setFormJobRemote} 
-                                    setFormJobContactName={setFormJobContactName} 
-                                    setFormJobContactEmail={setFormJobContactEmail} 
-                                    setFormJobPostLink={setFormJobPostLink} 
-                                    setFormJobClosingDate={setFormJobClosingDate} 
-                                    setFormJobCompanyName={setFormJobCompanyName} 
-                                    setFormJobCompanyLocation={setFormJobCompanyLocation} 
-                                    setFormJobCompanyWebsite={setFormJobCompanyWebsite} 
-                                    setFormJobCompanyAddress={setFormJobCompanyAddress} 
-                                    setFormJobCompanyPostcode={setFormJobCompanyPostcode} 
+                                    setFormJobTitle={setFormJobTitle}
+                                    setFormJobDescription={setFormJobDescription}
+                                    setFormJobSalary={setFormJobSalary}
+                                    setFormJobRemote={setFormJobRemote}
+                                    setFormJobContactName={setFormJobContactName}
+                                    setFormJobContactEmail={setFormJobContactEmail}
+                                    setFormJobPostLink={setFormJobPostLink}
+                                    setFormJobClosingDate={setFormJobClosingDate}
+                                    setFormJobCompanyName={setFormJobCompanyName}
+                                    setFormJobCompanyLocation={setFormJobCompanyLocation}
+                                    setFormJobCompanyWebsite={setFormJobCompanyWebsite}
+                                    setFormJobCompanyAddress={setFormJobCompanyAddress}
+                                    setFormJobCompanyPostcode={setFormJobCompanyPostcode}
                                     formJobRemote={formJobRemote}
                                 ></JobForm>
                                 <div className="my-4">
@@ -184,9 +184,9 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                                     >
                                                 <Button className='button fw-bold' variant="secondary">Preview this job post</Button>
                                     </Link>
-                                   
+
                                         <Button className='button fw-bold' variant="primary" type="submit">Submit job for approval</Button>
-                                   
+
                                 </div>
                             </Form>
                         </div>
