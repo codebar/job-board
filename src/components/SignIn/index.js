@@ -37,7 +37,7 @@ const SignIn = ({logIn}) => {
     <Container>
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
-          <p>Please sign in with your email and password</p>
+          <p>Please sign in with your email and password. Please remember this new job board is currently in beta stage, so if you spot any issues please drop us an email <a href="mailto:hello@codebar.io">hello@codebar.io</a>.</p>
           <Form>
             <Form.Group size="lg" controlId="email" className="sign-in-up-input">
               <Form.Label>Email*</Form.Label>
