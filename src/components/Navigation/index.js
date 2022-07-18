@@ -18,7 +18,7 @@ const NavigationBarJobBoardNonLoggedIn = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={Link} to={ROUTES.LANDING}>
-              Job Board test
+              Job Board
             </Nav.Link>
             <Nav.Link as={Link} to={ROUTES.SIGN_UP}>
               Sign up
