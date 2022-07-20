@@ -1,31 +1,39 @@
 import { useEffect, useState } from "react";
 import FullJob from "../FullJob";
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../Firebase/firebase-config.js";
 
-const JobPage = ({ currentUser, isAdmin, approveJob, unPublishJob }) => {
-  const [job, setJob] = useState({});
-
-  const jobRef = doc(db, "jobs", window.location.href.split("/").pop());
+const JobPage = ({
+  jobs,
+  currentUser,
+  isAdmin,
+  approveJob,
+  unPublishJob,
+}) => {
+  const [job, setJob] = useState(null);
 
   useEffect(() => {
-    const getJob = async () => {
-      const jobData = await getDoc(jobRef);
-      setJob(jobData.data(), jobData.id);
+    const url = window.location.href;
+    const jobIdFromURL = url.split("/").pop();
+    const getJob = () => {
+      const job = jobs.filter((job) => {
+        return job.id === jobIdFromURL;
+      });
+      setJob(job[0]);
     };
 
     getJob();
-  }, [jobRef]);
+  }, [jobs]);
 
   return (
     <div>
-      <FullJob
-        job={job}
-        currentUser={currentUser}
-        isAdmin={isAdmin}
-        unPublishJob={unPublishJob}
-        approveJob={approveJob}
-      ></FullJob>
+      {job ? (
+        <FullJob
+          job={job}
+          currentUser={currentUser}
+          isAdmin={isAdmin}
+          unPublishJob={unPublishJob}
+          approveJob={approveJob}
+        ></FullJob>
+      ) : null}
     </div>
   );
 };

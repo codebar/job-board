@@ -52,7 +52,7 @@ const UserJobsPage = ({currentUserJobs}) => {
                             to={{
                             pathname: `/jobs/${job.id}`
                             }}
-                            state={{ job }} >
+                             >
                             <p>{job.title}</p>
                         </Link>
                     </div>
