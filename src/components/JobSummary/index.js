@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const JobSummary = ({job}) => {
 
     const expiryDate = new Date(job.expiry_date).toDateString();
-    const jobId = job.id;
+
 
     return (
         <div className='job-summary-box col-md-5 col-sm-8 shadow-sm p-3 mb-4 bg-white rounded border'>
