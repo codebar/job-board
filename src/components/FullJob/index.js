@@ -33,7 +33,7 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                 {(job.approved === false && job.creator_id === currentUser.uid) || isAdmin === true?
                     <Link
                         to={{
-                            pathname: ROUTES.EDIT_JOB
+                            pathname: `/my/jobs/${job.id}/edit`
                             }}
                         state={{job}}
                     >
