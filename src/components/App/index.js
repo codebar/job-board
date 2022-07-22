@@ -314,7 +314,7 @@ const App = () => {
             </body>
         </html>`
       try {
-        await createEmail(job.contact_email,
+        await createEmail(job.email,
           {
             subject: 'Job post approved',
             html: approveEmail,
