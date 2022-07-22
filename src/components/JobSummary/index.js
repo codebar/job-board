@@ -6,13 +6,13 @@ const JobSummary = ({job}) => {
 
     const expiryDate = new Date(job.expiry_date).toDateString();
 
+
     return (
         <div className='job-summary-box col-md-5 col-sm-8 shadow-sm p-3 mb-4 bg-white rounded border'>
             <Link
                 to={{
                     pathname: `/jobs/${job.id}`
                 }}
-                state={{ job }}
                 >
                 <h3>{job.title}</h3>
             </Link>
