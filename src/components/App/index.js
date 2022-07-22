@@ -304,8 +304,8 @@ const App = () => {
         `<html>
             <body>
                 <h3>Hi ${job.contact_name}</h3>
-                <p>The <a href=${job.link_to_job}>${job.title}</a> at ${job.company} job you submitted has been approved.</p>
-                <p>It is now visible to all members at <a href='https://codebar.io/jobs'>our jobs section.</a></p>
+                <p>The <a href="${job.link_to_job}">${job.title}</a> at ${job.company} job you submitted has been approved.</p>
+                <p>It is now visible to all members at <a href="https://jobs.codebar.io">our jobs section.</a></p>
 
 
                 <h4>Contact info</h4>
@@ -314,7 +314,7 @@ const App = () => {
             </body>
         </html>`
       try {
-        await createEmail(job.contact_email,
+        await createEmail(job.email,
           {
             subject: 'Job post approved',
             html: approveEmail,
