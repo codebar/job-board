@@ -14,12 +14,15 @@ const JobSummary = ({job}) => {
                     pathname: `/jobs/${job.id}`
                 }}
                 >
-                <h3>{job.title}</h3>
+                <h3 className="fs-4">{job.title}</h3>
             </Link>
-            <h4 className="fs-6 fw-bold mb-4">{job.company}, {job.location}</h4>
+            <h4 className="fs-5 fw-bold mb-2">{job.company}</h4>
+            <h4 className="fs-6 fw-bold mb-4">📍 {job.location}</h4>
             <div className='row'>
                 <p className='col-6'>Salary:</p>
-                <p className='col-6 fw-bold'>£{job.salary}</p>
+                <p className='col-6 fw-bold'>
+                    { job.salary === "0" ? 'No salary information submitted' : '£' + job.salary }
+                </p>
             </div>
             <div className='row'>
                 <p className='col-6'>Published on:</p>

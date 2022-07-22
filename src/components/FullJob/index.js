@@ -74,7 +74,9 @@ const FullJob = ({job, currentUser, isAdmin, approveJob, unPublishJob}) => {
                         <Card.Body>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Salary</p>
-                                <p className="mb-0">£{job.salary}</p>
+                                <p className="mb-0">
+                                    { job.salary === "0" ? 'No salary information submitted' : '£' + job.salary }
+                                </p>
                             </div>
                             <div className="p-2 mb-2">
                                 <p className="mb-0 fw-bold" >Location</p>

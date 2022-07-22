@@ -95,9 +95,8 @@ const NoJobsPage = () => {
                     <div className="job-post-costs-section">
                         <p>For a flat fee of £50 your post will be:</p>
                         <ul>
-                            <li>Shown on the job board for 30 days</li>
-                            <li>Promoted to our Slack community of 5500 members</li>
-                            <li>Promoted to our 8600 Twitter followers</li>
+                            <li>Promoted to our Slack community of 10,000 members</li>
+                            <li>Promoted to our 9600 Twitter followers</li>
                         </ul>
                     </div>
                     <Link to={{
