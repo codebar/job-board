@@ -108,17 +108,18 @@ const App = () => {
             auth,
             registerEmail,
             registerPassword)
-              .then((res) => createUserDetails(res.user.uid, registerName, userMarketingOptIn));
+              .then((res) => createUserDetails(res.user.uid, registerName, userMarketingOptIn, registerEmail));
 
           navigate(ROUTES.LANDING);
       };
 
-      const createUserDetails = async (userID, registerName, userMarketingOptIn) => {
+      const createUserDetails = async (userID, registerName, userMarketingOptIn, registerEmail) => {
 
         try {
           const userDetails = await addDoc(userDetailsCollectionRef, {
             user_id: userID,
             name: registerName,
+            email: registerEmail,
             marketing_opt_in: userMarketingOptIn,
             date_registered: new Date(),
           });
