@@ -11,7 +11,7 @@ const MyJobsPage = ({currentUser, jobs, logIn}) => {
 
     useEffect(() => {
         if (currentUser) {
-            const currentUserJobs = jobs.filter(job => job.creator_by_id === currentUser.uid);
+            const currentUserJobs = jobs.filter(job => job.created_by_id === currentUser.uid);
             setCurrentUserJobs(currentUserJobs)
         }
     }, [currentUser, jobs]);

@@ -135,7 +135,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
         company_website: formJobCompanyWebsite,
         email: formJobContactEmail,
         contact_name: formJobContactName,
-        creator_by_id: "",
+        created_by_id: "",
         description: formJobDescription,
         link_to_job: formJobPostLink,
         title: formJobTitle,
