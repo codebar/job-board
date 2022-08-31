@@ -36,11 +36,12 @@ const SignUp = ({register}) => {
     return (
       <Container>
         <Row>
+          <Col md={{ span: 8, offset: 2 }}>
+            <h4 class="mb-3">We are very excited to launch the brand new codebar job board. It is currently in beta so if you spot any issues please drop us an email <a href="mailto:hello@codebar.io">hello@codebar.io</a>.</h4>
+            <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 19,000+ person community.</p>
+          </Col>
           <Col md={{ span: 6, offset: 3 }}>
-            <h4 class="mb-3">The new codebar job board is currently in beta stage, so if you spot any issues please drop us an email <a href="mailto:hello@codebar.io">hello@codebar.io</a>.</h4>
-            <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 12,000+ person community.</p>
             <Form>
-
             <Form.Group size="lg" controlId="name" className="sign-in-up-input">
                 <Form.Label>Full name*</Form.Label>
                 <Form.Control

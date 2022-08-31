@@ -194,8 +194,8 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                     </div>
                 </div>
                 :
-                <div>
-                    <h3>You need to log in to post a job</h3>
+                <div className='mb-4'>
+                    <h3 className='mb-4'>You need to log in to post a job</h3>
                     <SignIn logIn={logIn}></SignIn>
                 </div>
             }
