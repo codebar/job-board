@@ -65,7 +65,15 @@ const UserJobsPage = ({currentUserJobs}) => {
                         : <p>Invalid Date</p> }
                     </div>
                     <div className="col-2">
-                        { new Date(job.expiry_date.seconds * 1000) < new Date()? <Badge bg="secondary">Expired</Badge> : job.approved ? <Badge bg="success">Live</Badge> : <Badge bg="primary">Awaiting Approval</Badge>}
+                        {new Date(job.expiry_date) > new Date() && job.approved ? (
+                            <Badge bg="success">Live</Badge>
+                            ) : new Date(job.expiry_date) > new Date() && !job.approved ? (
+                            <Badge bg="warning">Awaiting Approval</Badge>
+                            ) : new Date(job.expiry_date) > new Date() ? (
+                            <Badge bg="secondary">Expired</Badge>
+                            ) : (
+                            <Badge bg="secondary">Expired</Badge>
+                        )}
                     </div>
                 </div>
     });
