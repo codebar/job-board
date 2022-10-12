@@ -1,10 +1,12 @@
-
 import JobSummary from "../JobSummary";
 import { Link } from "react-router-dom";
+import Loader from "./loader";
 
 import * as ROUTES from '../../constants/routes.js'
 
-const LandingPage = ({jobs, currentUser}) => {
+import './index.css';
+
+const LandingPage = ({ jobs, currentUser, isLoading }) => {
 
     const getApprovedCurrentJobs = jobs.filter((job) => {
         return job.approved && new Date(job.expiry_date) > new Date();
@@ -14,13 +16,18 @@ const LandingPage = ({jobs, currentUser}) => {
         return <JobSummary job={job} key={job.id} currentUser={currentUser}></JobSummary>
     });
 
-
-
+    const pluralisedMessage = getApprovedCurrentJobs.length === 1
+      ? 'is 1 job'
+      : `are ${getApprovedCurrentJobs.length} jobs`;
 
     return (
-        <div className="container">
+        isLoading
+        ? <div className="loader-container">
+          <Loader />
+        </div>
+        : <div className="container">
             <h2 className="fw-bold">Jobs</h2>
-            <p>There are {getApprovedCurrentJobs.length} jobs posted</p>
+            <p>There {pluralisedMessage} posted</p>
             <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
             <div className="row job-summaries">{getJobSummaries}</div>
         </div>
