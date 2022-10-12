@@ -1,0 +1,28 @@
+.logo-container {
+  text-align: center;
+}
+
+.loader-message {
+    margin-top:  10px;
+    font-size: 1.5em;
+}
+
+.loading {
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out; 
+  transform-origin: 50% 67%;
+}
+
+@keyframes spin {
+  0% {
+    transform:rotate(0deg);
+  }
+  90% {
+    transform:rotate(360deg);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}

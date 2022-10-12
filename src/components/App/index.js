@@ -25,6 +25,7 @@ import * as ROUTES from '../../constants/routes';
 
 const App = () => {
 
+    const [isLoading, setLoading] = useState(false);
     const [jobs, setJobs] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
     const [isAdmin, setIsAdmin] = useState(false);
@@ -42,19 +43,18 @@ const App = () => {
       handleCodeInApp: true,
     };
 
-    useEffect (() => {
-
+    useEffect(() => {
         const getJobs = async () => {
+          setLoading(true);
+
           const jobsData = await getDocs(jobsCollectionRef);
           setJobs(jobsData.docs.map((doc) => ({...doc.data(), id: doc.id})));
 
-
+          setLoading(false);
         };
 
         getJobs();
-
-
-      }, [jobsCollectionRef]);
+      }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
       onAuthStateChanged(auth, (currentUser) => {
         setCurrentUser(currentUser);
@@ -344,7 +344,7 @@ const App = () => {
           <div>
             <Routes>
 
-                <Route exact path={ROUTES.LANDING} element={ <LandingPage currentUser={currentUser} jobs={jobs}/> } />
+                <Route exact path={ROUTES.LANDING} element={ <LandingPage currentUser={currentUser} jobs={jobs} isLoading={isLoading} /> } />
                 <Route exact path={ROUTES.JOB} element={ <JobPage currentUser={currentUser} jobs={jobs} isAdmin={isAdmin} approveJob={approveJob} unPublishJob={unPublishJob}></JobPage>}></Route>
                 <Route path={ROUTES.SIGN_UP} element={ <SignUp register={register}/> } />
                 <Route path={ROUTES.SIGN_IN} element={ <SignIn logIn={logIn} sendLink={sendLink}/> } />
