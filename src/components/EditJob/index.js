@@ -141,7 +141,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             {currentUser?
                 <div>
                     <h2>Edit your job</h2>
-                    <p class="alert alert-primary fw-bold">You will need to make the payment of £50 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
+                    <p class="alert alert-primary fw-bold">You will need to make the payment of £99 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
                     <hr />
                     <div className="row mt-4">
                         <div className="col-md-6 col-sm-12 order-md-last">
@@ -149,33 +149,33 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
                         </div>
                         <div className="container col-md-6 col-sm-12">
                             <Form noValidate validated={validated} className='job-post-form' onSubmit={(evt) => {handleJobPostSubmitForm(evt)}}>
-                                
+
                                 <JobForm
-                                    setFormJobTitle={setFormJobTitle} 
-                                    setFormJobDescription={setFormJobDescription} 
-                                    setFormJobSalary={setFormJobSalary} 
-                                    setFormJobRemote={setFormJobRemote} 
-                                    setFormJobContactName={setFormJobContactName} 
-                                    setFormJobContactEmail={setFormJobContactEmail} 
-                                    setFormJobPostLink={setFormJobPostLink} 
-                                    setFormJobClosingDate={setFormJobClosingDate} 
-                                    setFormJobCompanyName={setFormJobCompanyName} 
-                                    setFormJobCompanyLocation={setFormJobCompanyLocation} 
-                                    setFormJobCompanyWebsite={setFormJobCompanyWebsite} 
-                                    setFormJobCompanyAddress={setFormJobCompanyAddress} 
-                                    setFormJobCompanyPostcode={setFormJobCompanyPostcode} 
+                                    setFormJobTitle={setFormJobTitle}
+                                    setFormJobDescription={setFormJobDescription}
+                                    setFormJobSalary={setFormJobSalary}
+                                    setFormJobRemote={setFormJobRemote}
+                                    setFormJobContactName={setFormJobContactName}
+                                    setFormJobContactEmail={setFormJobContactEmail}
+                                    setFormJobPostLink={setFormJobPostLink}
+                                    setFormJobClosingDate={setFormJobClosingDate}
+                                    setFormJobCompanyName={setFormJobCompanyName}
+                                    setFormJobCompanyLocation={setFormJobCompanyLocation}
+                                    setFormJobCompanyWebsite={setFormJobCompanyWebsite}
+                                    setFormJobCompanyAddress={setFormJobCompanyAddress}
+                                    setFormJobCompanyPostcode={setFormJobCompanyPostcode}
                                     formJobRemote={formJobRemote}
                                 ></JobForm>
 
                                 <div className="my-4">
-                                    
-                                    { isAdmin? 
-                                    
+
+                                    { isAdmin?
+
                                         <Button className='button bold' variant="primary" type="submit">Save edits</Button>
-                                     : 
-                                    
+                                     :
+
                                         <Button className='button bold' variant="primary" type="submit">Re-submit job for approval</Button>
-                                    
+
                                     }
                                 </div>
                             </Form>

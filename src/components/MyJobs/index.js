@@ -101,7 +101,7 @@ const NoJobsPage = () => {
                     <h2>Reach out to our community of 9833 junior developers</h2>
                     <p>Our aim is to be the one stop shop for junior developer roles. All jobs featured on our job board must fall under the following three categories; paid internships, apprenticeships or junior developer roles. Additionally, jobs must not require previous experience or a degree and must be paid positions. Each job that is submitted will be approved by the codebar team before appearing on the job board.</p>
                     <div className="job-post-costs-section">
-                        <p>For a flat fee of £50 your post will be:</p>
+                        <p>For a flat fee of £99 your post will be:</p>
                         <ul>
                             <li>Promoted to our Slack community of 10,000 members</li>
                             <li>Promoted to our 9600 Twitter followers</li>
@@ -125,7 +125,7 @@ const NoJobsPage = () => {
                 <div className="col-12 col-md-4 mb-4">
                     <Toast>
                         <Toast.Body>
-                            <p>The codebar job board has been amazing. It’s been our best performing job board, and the quality of the applications was awesome. 100% the best £50 we have ever spent.</p>
+                            <p>The codebar job board has been amazing. It’s been our best performing job board, and the quality of the applications was awesome. 100% the best £99 we have ever spent.</p>
                             <p>Thomas Ankcorn, NearSt</p>
                         </Toast.Body>
                     </Toast>

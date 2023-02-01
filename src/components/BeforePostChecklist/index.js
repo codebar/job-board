@@ -50,12 +50,12 @@ const BeforePostCheckList = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Check type='checkbox' label="You have made the required payment of £50"
+                    <Form.Check type='checkbox' label="You have made the required payment of £99"
                     defaultChecked = {checkSeven} onChange={() => {setCheckSeven(!checkSeven)}}></Form.Check>
                 </Form.Group>
 
                 <Button variant='info' className='button fw-bold'><a className="text-dark text-decoration-none" href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a></Button>
-                <p>For an additional <b>£200</b> you can have your job listing featured in our newsletter and made visible to an audience of over 10,000 students and coaches. To find out more and when our next newsletter is being sent, send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
+                <p>For an additional <b>£200</b> you can have your job listing featured in our newsletter and made visible to an audience of over 11,000 students and coaches. To find out more and when our next newsletter is being sent, send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
             </div>
 
         </div>
