@@ -47,9 +47,6 @@ const NavigationBarJobBoardLoggedIn = ({ currentUser, logOut, isAdmin }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="https://codebar.enthuse.com/donate/#!/">
-              Donate
-            </Nav.Link>
             <Nav.Link as={Link} to={ROUTES.LANDING}>
               Job Board
             </Nav.Link>
@@ -75,6 +72,9 @@ const NavigationBarJobBoardLoggedIn = ({ currentUser, logOut, isAdmin }) => {
               </NavDropdown.ItemText>
               <NavDropdown.Item onClick={logOut}>Sign Out</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="https://codebar.enthuse.com/donate/#!/" className="btn btn-sm btn-outline-primary bg-primary text-white">
+              Donate
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
