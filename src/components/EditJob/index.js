@@ -91,9 +91,8 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
     };
 
     useEffect(() => {
-        
         getJobDataToEdit();
-    }, []);
+    });
 
     const handleJobPostSubmitForm = (evt) => {
         const form = evt.currentTarget;

@@ -2,7 +2,6 @@ import JobSummary from "../JobSummary";
 import NoJobs from "../NoJobs";
 import { Link } from "react-router-dom";
 import Loader from "./loader";
-import { Button, Toast, Badge } from 'react-bootstrap';
 
 
 import * as ROUTES from '../../constants/routes.js'

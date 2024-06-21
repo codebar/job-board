@@ -91,7 +91,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
 
     useEffect(() => {
         getJobDataFromPreview();
-    }, []);
+    });
 
     const handleJobPostSubmitForm = (evt) => {
         const form = evt.currentTarget;

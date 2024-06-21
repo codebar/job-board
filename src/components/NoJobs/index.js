@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button, Toast, Badge } from 'react-bootstrap';
+import { Button, Toast } from 'react-bootstrap';
 import * as ROUTES from '../../constants/routes.js'
 
 
