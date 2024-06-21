@@ -1,11 +1,6 @@
-
-
 const Footer = () => {
-
-
-
     return (
-        <footer className="main-footer container-fluid">
+        <footer className="container-fluid">
             <div className='row py-5'>
                 <div className='col-sm-12 col-md-6 col-lg-3'>
                     <p>&#169; {new Date().getFullYear()} codebar</p>

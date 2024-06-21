@@ -1,6 +1,9 @@
 import JobSummary from "../JobSummary";
+import NoJobs from "../NoJobs";
 import { Link } from "react-router-dom";
 import Loader from "./loader";
+import { Button, Toast, Badge } from 'react-bootstrap';
+
 
 import * as ROUTES from '../../constants/routes.js'
 
@@ -22,13 +25,20 @@ const LandingPage = ({ jobs, currentUser, isLoading }) => {
 
     return (
         isLoading
-        ? <div className="loader-container">
-          <Loader />
-        </div>
+        ? <div className="loader-container"><Loader /></div>
         : <div className="container">
-            <h2 className="fw-bold">Jobs</h2>
-            <p>There {pluralisedMessage} posted</p>
-            <p><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
+            <h1 className="fw-bold mb-5">The codebar Job Board | A job board for junior software engineers</h1>
+            {
+            
+            getApprovedCurrentJobs.length === 0 
+                ?
+                <NoJobs></NoJobs> 
+                : 
+                <div>
+                    <p>There {pluralisedMessage} posted</p>
+                    <p className="mb-5"><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
+                </div>
+            }   
             <div className="row job-summaries">{getJobSummaries}</div>
         </div>
     );

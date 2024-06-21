@@ -34,8 +34,8 @@ const ForgotPassword = ({resetPasswordEmail}) => {
     return (
         <Container>
             <Row>
-                <Col md={{ span: 6, offset: 3 }}>
-                    <p>We'll send a password reset link to your email</p>
+                <Col md={{ span: 6, offset: 3 }} className="mb-5">
+                    <h4 className="mb-4">We'll send a password reset link to your email</h4>
                     <Form>
                         <Form.Group size="lg" controlId="email" className="sign-in-up-input">
                             <Form.Label>Email</Form.Label>
