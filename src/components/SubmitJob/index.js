@@ -150,9 +150,8 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
         <div className="container">
             {currentUser?
                 <div>
-                    <h2>List a new job</h2>
-                    <p className="alert alert-primary fw-bold">You will need to make the payment of £99 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
-                    <hr />
+                    <h2 className="mb-4">Submit a new job</h2>
+                    <p className="alert alert-primary fw-bold">Listing a job is free! However you can pay for a premium listing <a href="https://buy.stripe.com/fZecN21QO15IdVK7sv"> here</a>.</p>
                     <div className="row mt-4">
                         <div className="col-md-6 col-sm-12 order-md-last">
                             <BeforePostCheckList></BeforePostCheckList>
@@ -182,7 +181,7 @@ const SumbitJobPage = ({createJobPost, currentUser, logIn}) => {
                                             }}
                                             state={{ previewJob }}
                                     >
-                                                <Button className='button fw-bold' variant="secondary">Preview this job post</Button>
+                                                <Button className='button fw-bold' variant="secondary">Preview this job listing</Button>
                                     </Link>
 
                                         <Button className='button fw-bold' variant="primary" type="submit">Submit job for approval</Button>
