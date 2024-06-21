@@ -9,9 +9,6 @@ const BeforePostCheckList = () => {
     const [checkFour, setCheckFour] = useState(false);
     const [checkFive, setCheckFive] = useState(false);
     const [checkSix, setCheckSix] = useState(false);
-    const [checkSeven, setCheckSeven] = useState(false);
-
-
 
     return (
         <div className="before-post-checklist-box card">
@@ -49,13 +46,12 @@ const BeforePostCheckList = () => {
                     defaultChecked = {checkSix} onChange={() => {setCheckSix(!checkSix)}}></Form.Check>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                    <Form.Check type='checkbox' label="You have made the required payment of £99"
-                    defaultChecked = {checkSeven} onChange={() => {setCheckSeven(!checkSeven)}}></Form.Check>
-                </Form.Group>
+                <hr />
 
-                <Button variant='info' className='button fw-bold'><a className="text-dark text-decoration-none" href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a></Button>
-                <p>For an additional <b>£200</b> you can have your job listing featured in our newsletter and made visible to an audience of over 11,000 students and coaches. To find out more and when our next newsletter is being sent, send us an email at <a href='hello@codebar.io'>hello@codebar.io</a>.</p>
+                <p>For <b>£250</b> you can have your job listing featured in our next global newsletter (12,000 people), posted on all of our socials (both global and location ones) and in our Slack.</p>
+
+                <Button variant='info' className='button fw-bold'><a className="text-dark text-decoration-none" href="https://buy.stripe.com/fZecN21QO15IdVK7sv">Sound good? Pay here</a></Button>
+
             </div>
 
         </div>

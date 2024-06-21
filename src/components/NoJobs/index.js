@@ -20,7 +20,7 @@ const NoJobs = () => {
                     <Link to={{
                         pathname: ROUTES.SUBMIT_JOB
                     }}
-                    ><Button className='button fw-bold' variant="primary">Post a job</Button></Link>
+                    ><Button className='button fw-bold' variant="primary">List a job for free</Button></Link>
                 </div>
             </div>
             <div className="row">
