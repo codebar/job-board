@@ -54,7 +54,7 @@ const Footer = () => {
             <div className="row pb-2">
                    <div className="col">
                        <ul className="list-inline m-0 p-0">
-                           <li className="fs-6 list-inline-item">Registered UK and Wales charity no. 1187776</li>
+                           <li className="fs-6 list-inline-item">Registered UK and Wales Ltd Company. 10791813</li>
                            <li className="list-inline-item"><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/cookie-policy" >Cookie Policy</a></li>
                            <li className="list-inline-item"><a className='text-white fw-bold text-decoration-none footer-link ' href="https://codebar.io/privacy-policy" >Privacy Policy</a></li>
                        </ul>
