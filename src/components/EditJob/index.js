@@ -141,7 +141,7 @@ const EditJob = ({updateJobPost, currentUser, isAdmin}) => {
             {currentUser?
                 <div>
                     <h2>Edit your job</h2>
-                    <p class="alert alert-primary fw-bold">You will need to make the payment of £99 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
+                    <p className="alert alert-primary fw-bold">You will need to make the payment of £99 before the job can be approved. <a href="https://buy.stripe.com/fZe5kAeDA5lY6ti5kk">Pay here</a>.</p>
                     <hr />
                     <div className="row mt-4">
                         <div className="col-md-6 col-sm-12 order-md-last">

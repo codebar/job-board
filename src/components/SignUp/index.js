@@ -13,8 +13,6 @@ const SignUp = ({register}) => {
     const [errorMessage, setErrorMessage] = useState("");
     const [userMarketingOptIn, setUserMarketingOptIn] = useState(true);
 
-
-
     const isValid = () => {
       return registerEmail.length > 0 && registerPassword.length > 0 && registerPassword === registerConfirmPassword;
     };
@@ -37,10 +35,10 @@ const SignUp = ({register}) => {
       <Container>
         <Row>
           <Col md={{ span: 8, offset: 2 }}>
-            <h4 class="mb-3">We are very excited to launch the brand new codebar job board. It is currently in beta so if you spot any issues please drop us an email <a href="mailto:hello@codebar.io">hello@codebar.io</a>.</h4>
-            <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 19,000+ person community.</p>
+            <h4 className="mb-3">We are very excited to launch the brand new codebar job board. It is currently in beta so if you spot any issues please drop us an email <a href="mailto:hello@codebar.io">hello@codebar.io</a>.</h4>
+            <p>Sign up to post jobs to the codebar Job Board and get your opportunity in front of our 25,000+ person community.</p>
           </Col>
-          <Col md={{ span: 6, offset: 3 }}>
+          <Col md={{ span: 6, offset: 2 }} className="mb-5">
             <Form>
             <Form.Group size="lg" controlId="name" className="sign-in-up-input">
                 <Form.Label>Full name*</Form.Label>
