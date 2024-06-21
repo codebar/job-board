@@ -1,28 +1,8 @@
-import { Link } from "react-router-dom";
-import { Button, Toast } from 'react-bootstrap';
-import * as ROUTES from '../../constants/routes.js'
-
+import { Toast } from 'react-bootstrap';
 
 const NoJobs = () => {
     return (
-        <div className="col-10">
-            <div className="row mb-4">
-                <div className="col">
-                    <h2 className="mb-3">Reach out to our community of 18,000+ junior developers</h2>
-                    <p>Our aim is to be the go to place for junior developer roles. All jobs featured on our job board must fall under the following three categories; paid internships, apprenticeships or junior developer roles. Additionally, jobs must not require previous experience or a degree and must be paid positions. Each job that is submitted will be approved by the codebar team before appearing on the job board.</p>
-                    {/* <div className="job-post-costs-section">
-                        <p>You</p>
-                        <ul>
-                            <li>Promoted to our Slack community of 10,000 members</li>
-                            <li>Promoted to our 9600 Twitter followers</li>
-                        </ul>
-                    </div> */}
-                    <Link to={{
-                        pathname: ROUTES.SUBMIT_JOB
-                    }}
-                    ><Button className='button fw-bold' variant="primary">List a job for free</Button></Link>
-                </div>
-            </div>
+        <div className="col-10 mt-4">
             <div className="row">
                 <div className="col-12 col-md-4 mb-5">
                     <Toast>

@@ -1,6 +1,7 @@
 import JobSummary from "../JobSummary";
 import NoJobs from "../NoJobs";
 import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 import Loader from "./loader";
 
 
@@ -26,16 +27,20 @@ const LandingPage = ({ jobs, currentUser, isLoading }) => {
         isLoading
         ? <div className="loader-container"><Loader /></div>
         : <div className="container">
-            <h1 className="fw-bold mb-5">The codebar Job Board | A job board for junior software engineers</h1>
+            <h1 className="fw-bold mb-4">The codebar Job Board | A job board for junior software engineers</h1>
+            <h2 className="mb-3">Reach our community of 18,000+ junior developers</h2>
+            <p>Our aim is to be the go to place for junior developer roles. All jobs featured on our job board must fall under the following three categories; paid internships, apprenticeships or junior developer roles. Additionally, jobs must not require previous experience or a degree and must be paid positions. Each job that is submitted will be approved by the codebar team before appearing on the job board.</p>
+            <Link to={{
+                        pathname: ROUTES.SUBMIT_JOB
+                    }}
+                    ><Button className='button fw-bold' variant="primary">List a job for free</Button></Link>
             {
-            
             getApprovedCurrentJobs.length === 0 
                 ?
                 <NoJobs></NoJobs> 
                 : 
                 <div>
                     <p>There {pluralisedMessage} posted</p>
-                    <p className="mb-5"><Link to={{pathname: ROUTES.SUBMIT_JOB}}>Click here</Link> if you would like to post a new job</p>
                 </div>
             }   
             <div className="row job-summaries">{getJobSummaries}</div>
