@@ -19,10 +19,6 @@ const LandingPage = ({ jobs, currentUser, isLoading }) => {
         return <JobSummary job={job} key={job.id} currentUser={currentUser}></JobSummary>
     });
 
-    const pluralisedMessage = getApprovedCurrentJobs.length === 1
-      ? 'is 1 job'
-      : `are ${getApprovedCurrentJobs.length} jobs`;
-
     return (
         isLoading
         ? <div className="loader-container"><Loader /></div>
@@ -37,11 +33,7 @@ const LandingPage = ({ jobs, currentUser, isLoading }) => {
             {
             getApprovedCurrentJobs.length === 0 
                 ?
-                <NoJobs></NoJobs> 
-                : 
-                <div>
-                    <p>There {pluralisedMessage} posted</p>
-                </div>
+                <NoJobs></NoJobs> : null
             }   
             <div className="row job-summaries">{getJobSummaries}</div>
         </div>

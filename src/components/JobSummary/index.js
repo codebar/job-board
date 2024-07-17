@@ -14,7 +14,7 @@ const JobSummary = ({job}) => {
                     pathname: `/jobs/${job.id}`
                 }}
                 >
-                <h3 className="fs-4">{job.title}</h3>
+                <h3 className="fs-4 mb-3">{job.title}</h3>
             </Link>
             <h4 className="fs-5 fw-bold mb-2">{job.company}</h4>
             <h4 className="fs-6 fw-bold mb-4">📍 {job.location}</h4>
